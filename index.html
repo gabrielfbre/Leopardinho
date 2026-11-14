@@ -332,7 +332,7 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.11</div>
+    <div class="ver" id="ver">versão 1.12</div>
   </div>
 </div>
 
@@ -715,6 +715,12 @@ function addFruit(x,h,o){
 }
 const OBS={tronco:{w:74,h:40},pedra:{w:62,h:42},toco:{w:48,h:46},cogumelo:{w:56,h:48},castelo:{w:66,h:50},boneco:{w:50,h:60},cupcake:{w:56,h:50},cupinzeiro:{w:54,h:62},caixa:{w:52,h:50},pilha:{w:52,h:84},barril:{w:44,h:52},cerca:{w:74,h:44},torre:{w:46,h:185},galho:{w:112,h:0,over:52},cristal:{w:58,h:54},
   buraco:{w:88,h:0,flat:1},poca:{w:92,h:0,flat:1}};
+function clearAround(){ // tira frutas que ficariam dentro de torres ou atrás do galho
+  for(const o of obstacles){ if(o.k!=='torre'&&o.k!=='galho') continue;
+    fruits=fruits.filter(f=>{ if(f.fall||f.rain) return true; const dx=Math.abs(f.x-o.x);
+      if(o.k==='torre') return !(dx<o.w/2+34&&f.h<o.h+28);
+      return !(dx<o.w/2+24&&f.h>40); }); }
+}
 function spawnChunk(){
   const x=spawnX, r=Math.random(), corrida=mode==='corrida';
   if(mode!=='chuva'&&x>race.finish-420){spawnX=Infinity;return;}
@@ -745,11 +751,11 @@ function spawnChunk(){
     spawnX+=150+3*52+150;
   }else{
     const k=(corrida&&hardish()&&Math.random()<.4)?'buraco':pickObs(), o=OBS[k], ox=x+150, w0=k==='buraco'?holeW():o.w;
-    obstacles.push({id:++obsId,x:ox,k,w:w0,h:o.h,flat:!!o.flat,hit:false,passed:false});
-    const hs=[72,122,152,122,72];
+    obstacles.push({id:++obsId,x:ox,k,w:w0,h:o.h,over:o.over,flat:!!o.flat,hit:false,passed:false});
+    const hs=k==='torre'?[150,205,240,205,150]:k==='galho'?[24,24,24,24,24]:[72,122,152,122,72];
     for(let i=0;i<5;i++) addFruit(ox+(i-2)*50,hs[i]);
     if((hd&&Math.random()<.45)||(nm&&Math.random()<.3)){const k2=Math.random()<.3?'buraco':pickObs(),o2=OBS[k2],x2=ox+(hd?420:400)*gs+(k2==='buraco'?40:0);
-      obstacles.push({id:++obsId,x:x2,k:k2,w:k2==='buraco'?holeW():o2.w,h:o2.h,flat:!!o2.flat,hit:false,passed:false});addFruit(x2,o2.h>70?175:150);spawnX+=x2-ox;}
+      obstacles.push({id:++obsId,x:x2,k:k2,w:k2==='buraco'?holeW():o2.w,h:o2.h,over:o2.over,flat:!!o2.flat,hit:false,passed:false});addFruit(x2,k2==='torre'?240:k2==='galho'?24:o2.h>70?175:150);spawnX+=x2-ox;}
     spawnX+=(hd?150+280+Math.random()*90:150+330+Math.random()*120)*gs;
   }
 }
@@ -939,7 +945,7 @@ function update(dt){
   if(starGrace>0) starGrace-=dt;
   physics(dt);
 
-  while(spawnX<cam+VW+260) spawnChunk();
+  while(spawnX<cam+VW+260){spawnChunk();clearAround();}
   const lx=cam+px;
 
   // chuva de frutas (poder)
@@ -970,7 +976,7 @@ function update(dt){
       if(o.k==='poca'){ if(!leo.air&&Math.abs(lx-o.x)<o.w/2){o.hit=true;sfx.splash();pop(lx,110,'Splash!','#BFE9FF',26);
           for(let k=0;k<14;k++) parts.push({x:o.x+(Math.random()-.5)*50,h:6,vx:(Math.random()-.5)*220,vy:160+Math.random()*200,life:.6,max:.6,col:'#8FD3FF',size:3+Math.random()*4});} }
       else if(o.flat) hit=!leo.air&&Math.abs(lx-o.x)<o.w/2-16;
-      else if(o.k==='galho'){const top=leo.y-(o.g||0)+((leo.roll>0&&!leo.air)?32:88);hit=lx+24>o.x-o.w/2&&lx-20<o.x+o.w/2&&top>o.over;}
+      else if(o.k==='galho'){if(!o.over)o.over=OBS.galho.over;const top=leo.y-(o.g||0)+((leo.roll>0&&!leo.air)?32:88);hit=lx+24>o.x-o.w/2&&lx-20<o.x+o.w/2&&top>o.over;}
       else if(o.k==='torre') hit=lx+28>o.x-o.w/2&&lx-24<o.x+o.w/2&&leo.y-(o.g||0)<o.h-14;
       else hit=lx+34>o.x-o.w/2&&lx-30<o.x+o.w/2&&leo.y-(o.g||0)<o.h-14;
       if(!o.hinted&&(o.k==='torre'||o.k==='galho')&&o.x-cam<VW-30){o.hinted=true;pop(o.x,o.k==='torre'?235:150,o.k==='torre'?'⏫ Pulo duplo!':'⏬ Role!','#FFF59D',26);}
@@ -1496,7 +1502,7 @@ function drawObstacle(o){
     ctx.fillStyle='#8FD6FF';ctx.beginPath();ctx.ellipse(x-6,y+3,w/2-12,5,0,0,TAU);ctx.fill();
     ctx.fillStyle='rgba(255,255,255,.8)';ctx.beginPath();ctx.ellipse(x-w*.2,y+2,8,2,0,0,TAU);ctx.fill();
     return;}
-  if(o.k==='galho'){const b=y-o.over, sw=Math.sin(T*1.6+o.x)*2;
+  if(o.k==='galho'){const b=y-(o.over||OBS.galho.over), sw=Math.sin(T*1.6+o.x)*2;
     ctx.fillStyle='rgba(0,0,0,.14)';ctx.beginPath();ctx.ellipse(x,y+3,w*.5,6,0,0,TAU);ctx.fill();
     ctx.strokeStyle=tc(70,140,70);ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x-w*.36,b-24);ctx.quadraticCurveTo(x-w*.36+sw,b-160,x-w*.3,-10);ctx.moveTo(x+w*.36,b-24);ctx.quadraticCurveTo(x+w*.36+sw,b-160,x+w*.3,-10);ctx.stroke();
     ctx.fillStyle='#8B5A2B';rr(ctx,x-w/2,b-28,w,28,14);ctx.fill();
