@@ -332,7 +332,7 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.12</div>
+    <div class="ver" id="ver">versão 1.13</div>
   </div>
 </div>
 
@@ -679,7 +679,7 @@ let lvTot=0,lvGot=0;
 const maxLives=()=>(mode!=='infinito'&&save.dif==='normal'?5:3);
 let lives=3;
 const race={len:20000,start:0,finish:0,cd:0,go:false,done:false,doneT:0,place:1,boost:0,racers:[],lastN:4};
-const rain={stun:0,time:0,spawn:0,target:0,keys:0,hearts:3,over:false};
+const rain={wait:false,stun:0,time:0,spawn:0,target:0,keys:0,hearts:3,over:false};
 resize(); window.addEventListener('resize',resize);
 
 function clearWorld(){hills=[];starGrace=0;obstacles=[];fruits=[];items=[];parts=[];pops=[];pw.ima=pw.estrela=pw.chuva=0;
@@ -698,7 +698,7 @@ function startGame(m,keepLives){
   if(m==='aventura'){race.start=cam+px;race.finish=race.start+levelLen();race.done=false;}
   if(m==='infinito'){TH=THEMES[save.fase];race.start=cam+px;race.finish=Infinity;race.done=false;race.cp=race.start;
     inf.idx=THEME_IDS.indexOf(save.fase);inf.next=race.start+3200;inf.flash=0;speed=150;}
-  if(m==='chuva'){rain.hearts=maxLives();rain.over=false;rain.time=30;rain.stun=0;rain.spawn=.3;rain.lastX=VW/2;rain.target=VW/2;px=VW/2;spawnX=Infinity;}
+  if(m==='chuva'){rain.wait=true;rain.hearts=maxLives();rain.over=false;rain.time=30;rain.stun=0;rain.spawn=.3;rain.lastX=VW/2;rain.target=VW/2;px=VW/2;spawnX=Infinity;}
   setState('play'); sfx.tap();
 }
 
@@ -822,14 +822,14 @@ function menuHop(){
 let swipe=null;
 cv.addEventListener('pointerdown',e=>{e.preventDefault();audioInit();swipe={y:e.clientY,t:performance.now(),done:false};
   if(state==='menu') menuHop();
-  else if(state==='play'&&mode==='chuva'){rain.target=e.clientX/S;hint=false;}
+  else if(state==='play'&&mode==='chuva'){rain.target=e.clientX/S;hint=false;rain.wait=false;}
   else jump();});
-cv.addEventListener('pointermove',e=>{ if(state==='play'&&mode==='chuva'){rain.target=e.clientX/S;if(e.buttons||e.pointerType==='mouse')hint=false;return;}
+cv.addEventListener('pointermove',e=>{ if(state==='play'&&mode==='chuva'){ if(rain.wait&&!e.buttons) return; rain.target=e.clientX/S;hint=false;rain.wait=false;return;}
   if(swipe&&!swipe.done&&e.clientY-swipe.y>32&&performance.now()-swipe.t<450){swipe.done=true;roll();} });
 cv.addEventListener('pointerup',()=>{swipe=null;});
 window.addEventListener('keydown',e=>{
   if(e.target&&e.target.tagName==='INPUT') return;
-  if(state==='play'&&mode==='chuva'){ if(e.code==='ArrowLeft'){rain.keys=-1;hint=false} else if(e.code==='ArrowRight'){rain.keys=1;hint=false} return; }
+  if(state==='play'&&mode==='chuva'){ if(e.code==='ArrowLeft'){rain.keys=-1;hint=false;rain.wait=false} else if(e.code==='ArrowRight'){rain.keys=1;hint=false;rain.wait=false} return; }
   if(e.code==='ArrowDown'||e.code==='KeyS'){e.preventDefault();audioInit();roll();return;}
   if(state==='play'&&(e.code==='Digit1'||e.code==='Digit2'||e.code==='Digit3'||e.code==='Numpad1'||e.code==='Numpad2'||e.code==='Numpad3')){useSlot(+e.code.slice(-1)-1);return;}
   if(e.code==='Space'||e.code==='ArrowUp'||e.code==='KeyW'){e.preventDefault();audioInit(); if(state==='menu') startGame('aventura'); else jump();}
@@ -1083,6 +1083,7 @@ function finishRace(){
   showResult(['🏆','🥈','🥉','🎉'][p-1], p+'º lugar!', (p===1?'Você ganhou! ':p===2?'Muito bem! ':'Boa corrida! ')+'+'+fr+' 🍓 +'+gb+' '+GS()+bau(), p<=2);
 }
 function updateRain(dt){
+  if(rain.wait){leo.phase+=dt*2;return;} // pausado até a criança tocar ou apertar uma seta
   rain.time-=dt;
   if(rain.keys) rain.target=clamp(px+rain.keys*200,40,VW-40);
   if(rain.stun>0) rain.stun-=dt;
@@ -1945,7 +1946,7 @@ function draw(){
     ctx.strokeStyle='#FFB703';ctx.lineWidth=5;ctx.beginPath();ctx.arc(x,rowY+6,19,-PI/2,-PI/2+TAU*clamp(pw[n]/(n==='ima'?9:n==='estrela'?7:6),0,1));ctx.stroke();
     ctx.font='20px '+FONT;ctx.fillStyle='#000';ctx.fillText(PICON[n],x,rowY+8);}
   if(hint&&(mode!=='corrida'||race.go)){
-    const a=.65+.35*Math.sin(T*5), y=Math.max(GY-250,rowY+50), txt=mode==='chuva'?'👉 Arraste o dedo para andar!':'👆 Toque para pular!';
+    const a=.65+.35*Math.sin(T*5), y=Math.max(GY-250,rowY+50), txt=mode==='chuva'?(rain.wait?'👉 Toque na tela para começar!':'👉 Arraste o dedo para andar!'):'👆 Toque para pular!';
     ctx.globalAlpha=a;label(txt,VW/2,y,mode==='chuva'?24:30,'#fff');ctx.globalAlpha=1;
   }
 }
