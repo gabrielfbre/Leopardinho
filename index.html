@@ -73,8 +73,9 @@
   .fase{width:52px;height:52px;border-radius:50%;border:4px solid transparent;background:rgba(255,255,255,.92);font-size:27px;cursor:pointer;padding:0;
     box-shadow:0 4px 0 rgba(0,0,0,.2)}
   .fase.on{border-color:#ffb703;transform:scale(1.14);background:#fff8d6}
-  #openShop,#openUpg{font-size:clamp(16px,4.2vw,21px);padding:10px 22px;background:linear-gradient(#58c7ff,#2a9be6)}
+  #openShop,#openUpg,#openHelp{font-size:clamp(16px,4.2vw,21px);padding:10px 22px;background:linear-gradient(#58c7ff,#2a9be6)}
   #openUpg{background:linear-gradient(#ffd84d,#f0a400)}
+  #openHelp{background:linear-gradient(#ff9fc4,#ec5a92)}
   .row2{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
   .wallet{display:flex;gap:14px;justify-content:center;font-weight:900;color:#5b3a1e;font-size:18px;margin-bottom:4px}
   .wallet span{background:#fff;border-radius:999px;padding:3px 12px;border:3px solid #f0dfc0}
@@ -110,7 +111,7 @@
     #menu{padding-top:8px} h1{font-size:30px} h1 br{display:none} .sub{display:none}
     .modes{margin-top:6px;gap:9px}.modes .big{font-size:17px;padding:8px 14px}
     .fases{margin-top:9px;padding:4px 8px}.fase{width:44px;height:44px;font-size:22px}
-    .row2{margin-top:9px}#openShop,#openUpg{font-size:15px;padding:8px 16px}
+    .row2{margin-top:9px}#openShop,#openUpg,#openHelp{font-size:15px;padding:8px 16px}
   }
   #shop,#unlock,#result{background:rgba(12,60,36,.72);backdrop-filter:blur(3px)}
   #unlock{z-index:11}
@@ -214,8 +215,12 @@
   .fases{padding-bottom:14px!important}
   .fase .fst{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);font-size:11px;color:#FFB703;white-space:nowrap;text-shadow:0 1px 0 #fff,0 -1px 0 #fff,1px 0 0 #fff,-1px 0 0 #fff;letter-spacing:-1px}
   .fase .fst s{text-decoration:none;color:#d9cdb8}
-  .help{background:#fff;border:4px solid #f0dfc0;border-radius:18px;padding:6px 12px;text-align:left;color:#5b3a1e;font-weight:700;font-size:13.5px}
-  .help summary{font-weight:900;font-size:17px;color:#b3541e;cursor:pointer;padding:4px 0}
+  #helpBox{background:rgba(12,60,36,.72);backdrop-filter:blur(3px);z-index:12}
+  .panel.help{max-width:620px;gap:8px;color:#5b3a1e;font-weight:700;font-size:13.5px}
+  .panel.help h2{margin:0;color:#b3541e;font-size:clamp(22px,5.5vw,30px);font-weight:900}
+  .hbody{overflow-y:auto;-webkit-overflow-scrolling:touch;text-align:left;background:#fff;border:4px solid #f0dfc0;border-radius:18px;padding:8px 12px}
+  #helpOk{align-self:center;font-size:20px;padding:10px 38px;background:linear-gradient(#58d06b,#2fae49)}
+  .hbtn{align-self:center;font-size:18px;padding:9px 26px;background:linear-gradient(#58c7ff,#2a9be6)}
   .help ul{margin:2px 0 8px;padding-left:18px}.help li{margin:2px 0}
   .help kbd{font-family:inherit;font-weight:900;background:#f6efe3;border:2px solid #e0d2bb;border-bottom-width:3px;border-radius:7px;padding:0 5px;font-size:12px}
   .hcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:4px 14px}
@@ -253,7 +258,7 @@
     <button class="big" id="mIn">♾️ Infinito<small id="mInRec"></small></button>
   </div>
   <div class="fases" id="fases"></div>
-  <div class="row2"><button class="big" id="openShop">🐾 Meus leopardos</button><button class="big" id="openUpg">⚡ Upgrades</button></div>
+  <div class="row2"><button class="big" id="openShop">🐾 Meus leopardos</button><button class="big" id="openUpg">⚡ Upgrades</button><button class="big" id="openHelp">📖 Como jogar</button></div>
   <div class="difside" id="difSide">
     <div class="dst">Dificuldade</div>
     <button class="ds" data-d="facil">🙂<span>Fácil</span><small>vidas infinitas</small></button>
@@ -295,8 +300,26 @@
       <button class="dif" id="difN" data-d="normal"><b>💪 Normal</b><small>5 vidas. Caiu no buraco? Recomeça a fase (na corrida, volta ao 🚩).</small></button>
       <button class="dif" id="difD" data-d="dificil"><b>🔥 Difícil</b><small>3 vidas, muito mais rápido e mais obstáculos. Frutas valem o dobro!</small></button>
     </div>
-    <details class="help">
-      <summary>📖 Como jogar</summary>
+    <button class="big hbtn" id="cfgHelp">📖 Como jogar</button>
+    <div id="devBox">
+      <div class="dtit">🛠️ Modo desenvolvedor</div>
+      <div class="devs">
+        <button class="dv" id="dvAll">🔓 Liberar tudo</button>
+        <button class="dv" id="dvFr">🍓 +1000</button>
+        <button class="dv" id="dvTr">🌟 +100 dourados</button>
+        <button class="dv red" id="dvReset">🗑️ Zerar progresso</button>
+        <button class="dv gray" id="dvOut">🚪 Sair do modo desenvolvedor</button>
+      </div>
+    </div>
+    <button class="big" id="cfgOk">Pronto</button>
+    <div class="ver" id="ver">versão 1.14</div>
+  </div>
+</div>
+
+<div class="overlay" id="helpBox">
+  <div class="panel help">
+    <h2>📖 Como jogar</h2>
+    <div class="hbody">
       <div class="hcols">
         <div><b>📱 Celular e tablet</b>
           <ul><li><kbd>Tocar</kbd> na tela: pular. Toque de novo no ar para o <b>pulo duplo</b>.</li>
@@ -320,19 +343,8 @@
       <li><b>Melhorias para sempre:</b> valem em todas as partidas.</li></ul>
       <b>⭐ Fases</b>
       <ul><li>Termine a fase pegando pelo menos 60% das frutas (★★) para liberar a próxima.</li></ul>
-    </details>
-    <div id="devBox">
-      <div class="dtit">🛠️ Modo desenvolvedor</div>
-      <div class="devs">
-        <button class="dv" id="dvAll">🔓 Liberar tudo</button>
-        <button class="dv" id="dvFr">🍓 +1000</button>
-        <button class="dv" id="dvTr">🌟 +100 dourados</button>
-        <button class="dv red" id="dvReset">🗑️ Zerar progresso</button>
-        <button class="dv gray" id="dvOut">🚪 Sair do modo desenvolvedor</button>
-      </div>
     </div>
-    <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.13</div>
+    <button class="big" id="helpOk">Entendi!</button>
   </div>
 </div>
 
@@ -949,13 +961,16 @@ function update(dt){
   const lx=cam+px;
 
   // chuva de frutas (poder)
+  // a fruta nasce adiantada (velocidade × tempo de queda) para pousar à frente do leopardo, acima do terreno
   if(pw.chuva>0){pw.chuvaT-=dt; if(pw.chuvaT<=0){pw.chuvaT=.11;
-    addFruit(lx+110+Math.random()*(VW-px-60),GY+30,{fall:true,th:40+Math.random()*110});}}
+    const h0=GY+30, vf=Math.max(430,h0/.6), tf=(h0-95)/vf;
+    const x=lx+speed*tf+60+Math.random()*Math.max(40,VW-px-120-speed*tf);
+    addFruit(x,h0,{fall:true,vf,th:gAt(x)+40+Math.random()*110});}}
 
   // frutas
   comboT-=dt; if(comboT<0) combo=0;
   for(let i=fruits.length-1;i>=0;i--){const f=fruits[i];
-    if(f.fall){f.h-=430*dt; if(f.h<=f.th){f.h=f.th;f.fall=false;}}
+    if(f.fall){f.h-=(f.vf||430)*dt; if(f.h<=f.th){f.h=f.th;f.fall=false;}}
     if(pw.ima>0&&f.x-lx<300+80*up('ima')&&f.x>lx-80){const k=Math.min(1,dt*7);f.x+=(lx+10-f.x)*k;f.h+=(leo.y+50-f.h)*k;}
     if(f.x>lx-58&&f.x<lx+72&&f.h>leo.y-22&&f.h<leo.y+122){collect(f);fruits.splice(i,1);continue;}
     if(f.x<cam-60) fruits.splice(i,1);
@@ -2154,6 +2169,8 @@ $('vfx').addEventListener('input',e=>{save.vfx=e.target.value/100;$('vfxN').text
 $('vmus').addEventListener('input',e=>{save.vmus=e.target.value/100;$('vmusN').textContent=e.target.value;paintSlider(e.target);dirty=true;audioInit();musicVolume();});
 for(const b of [$('difF'),$('difN'),$('difD')]) b.addEventListener('click',()=>{save.dif=b.dataset.d;persist();sfx.tap();syncCfg();paintMenu();});
 $('cfgOk').addEventListener('click',()=>{persist();sfx.tap();paintMenu();setState(cfgBack);});
+for(const id of ['openHelp','cfgHelp']) $(id).addEventListener('click',()=>{audioInit();sfx.tap();$('helpBox').querySelector('.hbody').scrollTop=0;show('helpBox',true);});
+$('helpOk').addEventListener('click',()=>{sfx.tap();show('helpBox',false);});
 updateHud();paintMenu();
 $('rollBtn').addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();audioInit();roll();});
 /* nome do jogador */
