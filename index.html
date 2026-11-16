@@ -113,6 +113,27 @@
     .fases{margin-top:9px;padding:4px 8px}.fase{width:44px;height:44px;font-size:22px}
     .row2{margin-top:9px}#openShop,#openUpg,#openHelp{font-size:15px;padding:8px 16px}
   }
+  /* celular deitado: o menu fica entre o placar (esquerda) e a dificuldade (direita), longe do leopardo */
+  @media (max-height:470px) and (min-aspect-ratio:1/1) and (min-width:600px){
+    #menu{padding:6px var(--hudR,124px) 6px var(--hudL,280px)}
+    h1{font-size:clamp(19px,3.2vw,26px);-webkit-text-stroke-width:1.5px;text-shadow:0 3px 0 #1d6b3f}
+    .modes{gap:7px;margin-top:4px}.modes .big{font-size:14px;padding:6px 12px;box-shadow:0 5px 0 rgba(0,0,0,.25)}
+    .fases{margin-top:7px;gap:6px;padding:3px 7px}.fase{width:38px;height:38px;font-size:19px;border-width:3px}
+    .fase.lock::after{font-size:14px}
+    .row2{margin-top:9px;gap:7px}#openShop,#openUpg,#openHelp{font-size:13.5px;padding:6px 12px;box-shadow:0 5px 0 rgba(0,0,0,.25)}
+    .difside{padding:7px 6px;gap:5px}.dst{font-size:12px}.ds{min-width:74px;padding:3px 6px;font-size:18px}.ds span{font-size:13px}.ds small{font-size:10px}
+    body.apertado h1{font-size:18px}
+    body.apertado .modes .big,body.apertado #openShop,body.apertado #openUpg,body.apertado #openHelp{font-size:12.5px;padding:5px 9px}
+    body.apertado .fase{width:32px;height:32px;font-size:16px}
+    body.apertado .modes,body.apertado .row2{gap:5px}
+  }
+  /* celular em pé: as 6 fases cabem numa linha, e os botões de baixo não chegam no leopardo */
+  @media (max-width:430px) and (min-height:471px){
+    .fases{gap:6px;padding:6px 8px;margin-top:10px}.fase{width:44px;height:44px;font-size:23px}
+    .sub{margin:4px 0 8px}
+    .modes{gap:9px}.modes .big{font-size:18px;padding:9px 18px}
+    .row2{margin-top:10px;gap:8px}#openShop,#openUpg,#openHelp{font-size:15px;padding:8px 14px}
+  }
   #shop,#unlock,#result{background:rgba(12,60,36,.72);backdrop-filter:blur(3px)}
   #unlock{z-index:11}
   .panel{background:#fff8e7;border-radius:26px;padding:14px 14px 16px;max-width:760px;width:100%;max-height:94vh;display:flex;flex-direction:column;
@@ -312,7 +333,7 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.14</div>
+    <div class="ver" id="ver">versão 1.15</div>
   </div>
 </div>
 
@@ -1992,6 +2013,13 @@ function updateHud(bump){
     drawLeopard(nextCtx,46,62,.5,nx,still());}
 }
 function show(id,on){$(id).classList.toggle('on',on)}
+// mede o placar (esquerda) e o painel de dificuldade (direita) para o menu não ficar por baixo deles
+function fitMenu(){const st=document.documentElement.style, l=$('hud').firstElementChild.getBoundingClientRect(), d=$('difSide').getBoundingClientRect();
+  st.setProperty('--hudL',Math.ceil(l.right+12)+'px');
+  let R=124; if(getComputedStyle($('difSide')).position==='fixed'){R=Math.ceil(innerWidth-d.left+10);st.setProperty('--hudR',R+'px');}
+  document.body.classList.toggle('apertado',innerWidth-l.right-12-R<300);}
+if(window.ResizeObserver) new ResizeObserver(fitMenu).observe($('hud').firstElementChild);
+addEventListener('resize',fitMenu);
 function setState(s){
   state=s;
   for(const id of ['menu','shop','unlock','result','config']) show(id,s===id);
@@ -2171,7 +2199,7 @@ for(const b of [$('difF'),$('difN'),$('difD')]) b.addEventListener('click',()=>{
 $('cfgOk').addEventListener('click',()=>{persist();sfx.tap();paintMenu();setState(cfgBack);});
 for(const id of ['openHelp','cfgHelp']) $(id).addEventListener('click',()=>{audioInit();sfx.tap();$('helpBox').querySelector('.hbody').scrollTop=0;show('helpBox',true);});
 $('helpOk').addEventListener('click',()=>{sfx.tap();show('helpBox',false);});
-updateHud();paintMenu();
+updateHud();paintMenu();fitMenu();
 $('rollBtn').addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();audioInit();roll();});
 /* nome do jogador */
 function cleanName(v){return String(v||'').replace(/[<>]/g,'').trim().slice(0,14);}
