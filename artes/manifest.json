@@ -1,0 +1,5563 @@
+{
+ "versao": 1,
+ "observacao": "Gerado por ferramentas/extrair-artes.js. Coordenadas em pixels do PNG. ancora_x/ancora_y = ponto do PNG que fica na posição do objeto no jogo. escala_px_por_unidade = quantos pixels do PNG valem 1 unidade do jogo (o leopardo do jogador é desenhado com escala 0.82).",
+ "grupos": {
+  "leopardo_leo": {
+   "pasta": "personagens/leo_leo",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/leo_leo/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/leo_leo/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/leo_leo/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/leo_leo/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/leo_leo/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/leo_leo/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_neve": {
+   "pasta": "personagens/neve_floquinho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/neve_floquinho/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/neve_floquinho/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_rosa": {
+   "pasta": "personagens/rosa_rosinha",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/rosa_rosinha/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/rosa_rosinha/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_azul": {
+   "pasta": "personagens/azul_azulzinho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/azul_azulzinho/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/azul_azulzinho/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_verde": {
+   "pasta": "personagens/verde_folhinha",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/verde_folhinha/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/verde_folhinha/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_roxo": {
+   "pasta": "personagens/roxo_uvinha",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/roxo_uvinha/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/roxo_uvinha/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_noite": {
+   "pasta": "personagens/noite_pantera",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/noite_pantera/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/noite_pantera/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/noite_pantera/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/noite_pantera/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/noite_pantera/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/noite_pantera/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_ouro": {
+   "pasta": "personagens/ouro_rei_dourado",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/ouro_rei_dourado/parado.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_01.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_02.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_03.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_04.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_05.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_06.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_07.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/correndo_08.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/pulando_subindo.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/pulando_descendo.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/piscando.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/tropecando.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519
+    },
+    {
+     "arquivo": "personagens/ouro_rei_dourado/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 575,
+     "ancora_x": 348,
+     "ancora_y": 519,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_iris": {
+   "pasta": "personagens/iris_arco_iris",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/iris_arco_iris/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/iris_arco_iris/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_choco": {
+   "pasta": "personagens/choco_chocolate",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/choco_chocolate/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/choco_chocolate/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_menta": {
+   "pasta": "personagens/menta_mentinha",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/menta_mentinha/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/menta_mentinha/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_tigre": {
+   "pasta": "personagens/tigre_tigrinho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/tigre_tigrinho/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/tigre_tigrinho/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_doce": {
+   "pasta": "personagens/doce_algodao_doce",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/doce_algodao_doce/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/doce_algodao_doce/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_fogo": {
+   "pasta": "personagens/fogo_foguinho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/fogo_foguinho/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/fogo_foguinho/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_galax": {
+   "pasta": "personagens/galax_galaxia",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/galax_galaxia/parado.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_01.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_02.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_03.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_04.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_05.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_06.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_07.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/correndo_08.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/pulando_subindo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/pulando_descendo.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/piscando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/tropecando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490
+    },
+    {
+     "arquivo": "personagens/galax_galaxia/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 546,
+     "ancora_x": 348,
+     "ancora_y": 490,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_bianca": {
+   "pasta": "personagens/bianca_bianca",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/bianca_bianca/parado.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_01.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_02.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_03.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_04.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_05.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_06.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_07.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/correndo_08.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/pulando_subindo.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/pulando_descendo.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/piscando.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/tropecando.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494
+    },
+    {
+     "arquivo": "personagens/bianca_bianca/bolinha_rolando.png",
+     "largura": 677,
+     "altura": 550,
+     "ancora_x": 348,
+     "ancora_y": 494,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "leopardo_sara": {
+   "pasta": "personagens/sara_sara",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "personagens/sara_sara/parado.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_01.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_02.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_03.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_04.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_05.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_06.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_07.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/correndo_08.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "personagens/sara_sara/pulando_subindo.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674
+    },
+    {
+     "arquivo": "personagens/sara_sara/pulando_descendo.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674
+    },
+    {
+     "arquivo": "personagens/sara_sara/piscando.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674
+    },
+    {
+     "arquivo": "personagens/sara_sara/tropecando.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674
+    },
+    {
+     "arquivo": "personagens/sara_sara/bolinha_rolando.png",
+     "largura": 874,
+     "altura": 863,
+     "ancora_x": 398,
+     "ancora_y": 674,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_coelho": {
+   "pasta": "rivais/coelho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/coelho/parado.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_01.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_02.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_03.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_04.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_05.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_06.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_07.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/correndo_08.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/coelho/pulando_subindo.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "rivais/coelho/pulando_descendo.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "rivais/coelho/piscando.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "rivais/coelho/tropecando.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "rivais/coelho/bolinha_rolando.png",
+     "largura": 588,
+     "altura": 657,
+     "ancora_x": 259,
+     "ancora_y": 601,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_raposa": {
+   "pasta": "rivais/raposa",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/raposa/parado.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_01.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_02.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_03.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_04.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_05.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_06.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_07.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/correndo_08.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/raposa/pulando_subindo.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/raposa/pulando_descendo.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/raposa/piscando.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/raposa/tropecando.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/raposa/bolinha_rolando.png",
+     "largura": 702,
+     "altura": 568,
+     "ancora_x": 373,
+     "ancora_y": 512,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_elefante": {
+   "pasta": "rivais/elefante",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/elefante/parado.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_01.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_02.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_03.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_04.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_05.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_06.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_07.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/correndo_08.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/elefante/pulando_subindo.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/elefante/pulando_descendo.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/elefante/piscando.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/elefante/tropecando.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/elefante/bolinha_rolando.png",
+     "largura": 579,
+     "altura": 508,
+     "ancora_x": 275,
+     "ancora_y": 452,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_macaco": {
+   "pasta": "rivais/macaco",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/macaco/parado.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_01.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_02.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_03.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_04.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_05.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_06.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_07.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/correndo_08.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/macaco/pulando_subindo.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/macaco/pulando_descendo.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/macaco/piscando.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/macaco/tropecando.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452
+    },
+    {
+     "arquivo": "rivais/macaco/bolinha_rolando.png",
+     "largura": 683,
+     "altura": 508,
+     "ancora_x": 347,
+     "ancora_y": 452,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_zebra": {
+   "pasta": "rivais/zebra",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/zebra/parado.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_01.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_02.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_03.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_04.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_05.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_06.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_07.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/correndo_08.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/zebra/pulando_subindo.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/zebra/pulando_descendo.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/zebra/piscando.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/zebra/tropecando.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/zebra/bolinha_rolando.png",
+     "largura": 604,
+     "altura": 568,
+     "ancora_x": 275,
+     "ancora_y": 512,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "rival_gatinho": {
+   "pasta": "rivais/gatinho",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "rivais/gatinho/parado.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_01.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 1,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_02.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 2,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_03.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 3,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_04.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 4,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_05.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 5,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_06.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 6,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_07.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 7,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/correndo_08.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "animacao": "correndo",
+     "quadro": 8,
+     "de": 8
+    },
+    {
+     "arquivo": "rivais/gatinho/pulando_subindo.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/gatinho/pulando_descendo.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/gatinho/piscando.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/gatinho/tropecando.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512
+    },
+    {
+     "arquivo": "rivais/gatinho/bolinha_rolando.png",
+     "largura": 588,
+     "altura": 568,
+     "ancora_x": 259,
+     "ancora_y": 512,
+     "obs": "gira no jogo"
+    }
+   ]
+  },
+  "acessorios_no_leo": {
+   "pasta": "acessorios/no_leo",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "pés (base) do desenho",
+   "quadros": [
+    {
+     "arquivo": "acessorios/no_leo/_leo_sem_acessorio.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_laco.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "laco",
+     "nome": "Lacinho"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_oculos.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "oculos",
+     "nome": "Óculos escuros"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_festa.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "festa",
+     "nome": "Chapéu de festa"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_cachecol.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "cachecol",
+     "nome": "Cachecol"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_gravata.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "gravata",
+     "nome": "Gravatinha"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_flores.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "flores",
+     "nome": "Coroa de flores"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_fones.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "fones",
+     "nome": "Fones de ouvido"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_capa.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "capa",
+     "nome": "Capa de herói"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_coracao.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "coracao",
+     "nome": "Óculos de coração"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_mago.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "mago",
+     "nome": "Chapéu de mago"
+    },
+    {
+     "arquivo": "acessorios/no_leo/leo_com_asas.png",
+     "largura": 619,
+     "altura": 608,
+     "ancora_x": 314,
+     "ancora_y": 582,
+     "acessorio": "asas",
+     "nome": "Asas de fada"
+    }
+   ]
+  },
+  "acessorios_isolados": {
+   "pasta": "acessorios/so_o_acessorio",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "mesma âncora dos sprites do leopardo (pés)",
+   "quadros": [
+    {
+     "arquivo": "acessorios/so_o_acessorio/laco.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "laco",
+     "nome": "Lacinho"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/oculos.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "oculos",
+     "nome": "Óculos escuros"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/festa.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "festa",
+     "nome": "Chapéu de festa"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/cachecol.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "cachecol",
+     "nome": "Cachecol"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/gravata.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "gravata",
+     "nome": "Gravatinha"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/flores.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "flores",
+     "nome": "Coroa de flores"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/fones.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "fones",
+     "nome": "Fones de ouvido"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/capa.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "capa",
+     "nome": "Capa de herói"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/coracao.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "coracao",
+     "nome": "Óculos de coração"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/mago.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "mago",
+     "nome": "Chapéu de mago"
+    },
+    {
+     "arquivo": "acessorios/so_o_acessorio/asas.png",
+     "largura": 552,
+     "altura": 476,
+     "ancora_x": 254,
+     "ancora_y": 582,
+     "acessorio": "asas",
+     "nome": "Asas de fada"
+    }
+   ]
+  },
+  "frutas": {
+   "pasta": "frutas",
+   "escala_px_por_unidade": 6,
+   "ancora_descricao": "centro da fruta",
+   "quadros": [
+    {
+     "arquivo": "frutas/morango.png",
+     "largura": 210,
+     "altura": 273,
+     "ancora_x": 105,
+     "ancora_y": 165,
+     "tipo": "morango"
+    },
+    {
+     "arquivo": "frutas/morango_dourado.png",
+     "largura": 366,
+     "altura": 366,
+     "ancora_x": 183,
+     "ancora_y": 183,
+     "tipo": "ouro"
+    },
+    {
+     "arquivo": "frutas/laranja.png",
+     "largura": 180,
+     "altura": 214,
+     "ancora_x": 90,
+     "ancora_y": 118,
+     "tipo": "laranja"
+    },
+    {
+     "arquivo": "frutas/banana.png",
+     "largura": 223,
+     "altura": 132,
+     "ancora_x": 123,
+     "ancora_y": 93,
+     "tipo": "banana"
+    },
+    {
+     "arquivo": "frutas/uva.png",
+     "largura": 176,
+     "altura": 204,
+     "ancora_x": 88,
+     "ancora_y": 110,
+     "tipo": "uva"
+    },
+    {
+     "arquivo": "frutas/melancia.png",
+     "largura": 225,
+     "altura": 148,
+     "ancora_x": 121,
+     "ancora_y": 74,
+     "tipo": "melancia"
+    },
+    {
+     "arquivo": "frutas/cereja.png",
+     "largura": 198,
+     "altura": 221,
+     "ancora_x": 96,
+     "ancora_y": 113,
+     "tipo": "cereja"
+    },
+    {
+     "arquivo": "frutas/abacaxi.png",
+     "largura": 144,
+     "altura": 249,
+     "ancora_x": 72,
+     "ancora_y": 132,
+     "tipo": "abacaxi"
+    }
+   ]
+  },
+  "pedra_que_cai": {
+   "pasta": "frutas",
+   "escala_px_por_unidade": 6,
+   "ancora_descricao": "centro (gira no jogo)",
+   "quadros": [
+    {
+     "arquivo": "frutas/pedra_que_cai.png",
+     "largura": 193,
+     "altura": 175,
+     "ancora_x": 97,
+     "ancora_y": 90
+    }
+   ]
+  },
+  "poderes": {
+   "pasta": "poderes",
+   "escala_px_por_unidade": 5,
+   "ancora_descricao": "centro do item",
+   "quadros": [
+    {
+     "arquivo": "poderes/ima.png",
+     "largura": 390,
+     "altura": 390,
+     "ancora_x": 195,
+     "ancora_y": 195,
+     "tipo": "ima"
+    },
+    {
+     "arquivo": "poderes/estrela.png",
+     "largura": 390,
+     "altura": 390,
+     "ancora_x": 195,
+     "ancora_y": 195,
+     "tipo": "estrela"
+    },
+    {
+     "arquivo": "poderes/nuvem_de_frutas.png",
+     "largura": 390,
+     "altura": 390,
+     "ancora_x": 195,
+     "ancora_y": 195,
+     "tipo": "chuva"
+    }
+   ]
+  },
+  "obstaculos": {
+   "pasta": "obstaculos",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "centro da base, no nível do chão",
+   "quadros": [
+    {
+     "arquivo": "obstaculos/tronco.png",
+     "largura": 380,
+     "altura": 255,
+     "ancora_x": 190,
+     "ancora_y": 209,
+     "tipo": "tronco",
+     "largura_jogo": 74,
+     "altura_jogo": 40
+    },
+    {
+     "arquivo": "obstaculos/pedra.png",
+     "largura": 320,
+     "altura": 228,
+     "ancora_x": 160,
+     "ancora_y": 182,
+     "tipo": "pedra",
+     "largura_jogo": 62,
+     "altura_jogo": 42
+    },
+    {
+     "arquivo": "obstaculos/toco.png",
+     "largura": 268,
+     "altura": 244,
+     "ancora_x": 134,
+     "ancora_y": 198,
+     "tipo": "toco",
+     "largura_jogo": 48,
+     "altura_jogo": 46
+    },
+    {
+     "arquivo": "obstaculos/cogumelo.png",
+     "largura": 290,
+     "altura": 245,
+     "ancora_x": 145,
+     "ancora_y": 199,
+     "tipo": "cogumelo",
+     "largura_jogo": 56,
+     "altura_jogo": 48
+    },
+    {
+     "arquivo": "obstaculos/castelo.png",
+     "largura": 340,
+     "altura": 332,
+     "ancora_x": 170,
+     "ancora_y": 286,
+     "tipo": "castelo",
+     "largura_jogo": 66,
+     "altura_jogo": 50
+    },
+    {
+     "arquivo": "obstaculos/boneco.png",
+     "largura": 260,
+     "altura": 324,
+     "ancora_x": 130,
+     "ancora_y": 278,
+     "tipo": "boneco",
+     "largura_jogo": 50,
+     "altura_jogo": 60
+    },
+    {
+     "arquivo": "obstaculos/cupcake.png",
+     "largura": 290,
+     "altura": 272,
+     "ancora_x": 145,
+     "ancora_y": 226,
+     "tipo": "cupcake",
+     "largura_jogo": 56,
+     "altura_jogo": 50
+    },
+    {
+     "arquivo": "obstaculos/cupinzeiro.png",
+     "largura": 280,
+     "altura": 290,
+     "ancora_x": 140,
+     "ancora_y": 244,
+     "tipo": "cupinzeiro",
+     "largura_jogo": 54,
+     "altura_jogo": 62
+    },
+    {
+     "arquivo": "obstaculos/caixa.png",
+     "largura": 270,
+     "altura": 252,
+     "ancora_x": 135,
+     "ancora_y": 206,
+     "tipo": "caixa",
+     "largura_jogo": 52,
+     "altura_jogo": 50
+    },
+    {
+     "arquivo": "obstaculos/pilha.png",
+     "largura": 270,
+     "altura": 388,
+     "ancora_x": 135,
+     "ancora_y": 342,
+     "tipo": "pilha",
+     "largura_jogo": 52,
+     "altura_jogo": 84
+    },
+    {
+     "arquivo": "obstaculos/barril.png",
+     "largura": 230,
+     "altura": 280,
+     "ancora_x": 115,
+     "ancora_y": 234,
+     "tipo": "barril",
+     "largura_jogo": 44,
+     "altura_jogo": 52
+    },
+    {
+     "arquivo": "obstaculos/cerca.png",
+     "largura": 380,
+     "altura": 233,
+     "ancora_x": 190,
+     "ancora_y": 187,
+     "tipo": "cerca",
+     "largura_jogo": 74,
+     "altura_jogo": 44
+    },
+    {
+     "arquivo": "obstaculos/torre.png",
+     "largura": 240,
+     "altura": 896,
+     "ancora_x": 120,
+     "ancora_y": 850,
+     "tipo": "torre",
+     "largura_jogo": 46,
+     "altura_jogo": 185
+    },
+    {
+     "arquivo": "obstaculos/galho.png",
+     "largura": 460,
+     "altura": 1289,
+     "ancora_x": 230,
+     "ancora_y": 1247,
+     "tipo": "galho",
+     "largura_jogo": 112,
+     "altura_jogo": 0,
+     "obs": "o cipó vai até o topo da tela"
+    },
+    {
+     "arquivo": "obstaculos/cristal.png",
+     "largura": 464,
+     "altura": 464,
+     "ancora_x": 232,
+     "ancora_y": 340,
+     "tipo": "cristal",
+     "largura_jogo": 58,
+     "altura_jogo": 54
+    },
+    {
+     "arquivo": "obstaculos/buraco.png",
+     "largura": 404,
+     "altura": 148,
+     "ancora_x": 202,
+     "ancora_y": 46,
+     "tipo": "buraco",
+     "largura_jogo": 88,
+     "altura_jogo": 0
+    },
+    {
+     "arquivo": "obstaculos/poca.png",
+     "largura": 380,
+     "altura": 92,
+     "ancora_x": 190,
+     "ancora_y": 26,
+     "tipo": "poca",
+     "largura_jogo": 92,
+     "altura_jogo": 0
+    },
+    {
+     "arquivo": "obstaculos/pedra_neve.png",
+     "largura": 320,
+     "altura": 228,
+     "ancora_x": 160,
+     "ancora_y": 182,
+     "tipo": "pedra",
+     "tema": "neve"
+    },
+    {
+     "arquivo": "obstaculos/toco_neve.png",
+     "largura": 268,
+     "altura": 244,
+     "ancora_x": 134,
+     "ancora_y": 198,
+     "tipo": "toco",
+     "tema": "neve"
+    }
+   ]
+  },
+  "ceu": {
+   "pasta": "ceu",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "centro (sol/lua) ou ponto de referência do desenho",
+   "quadros": [
+    {
+     "arquivo": "ceu/sol.png",
+     "largura": 484,
+     "altura": 484,
+     "ancora_x": 242,
+     "ancora_y": 242
+    },
+    {
+     "arquivo": "ceu/lua.png",
+     "largura": 364,
+     "altura": 364,
+     "ancora_x": 182,
+     "ancora_y": 182
+    },
+    {
+     "arquivo": "ceu/nuvem.png",
+     "largura": 242,
+     "altura": 167,
+     "ancora_x": 55,
+     "ancora_y": 90
+    },
+    {
+     "arquivo": "ceu/nuvem_rosa_doces.png",
+     "largura": 242,
+     "altura": 167,
+     "ancora_x": 55,
+     "ancora_y": 90
+    },
+    {
+     "arquivo": "ceu/nuvem_azul_doces.png",
+     "largura": 242,
+     "altura": 167,
+     "ancora_x": 55,
+     "ancora_y": 90
+    },
+    {
+     "arquivo": "ceu/nuvem_de_chuva.png",
+     "largura": 344,
+     "altura": 195,
+     "ancora_x": 78,
+     "ancora_y": 109
+    },
+    {
+     "arquivo": "ceu/nuvem_de_chuva_doces.png",
+     "largura": 344,
+     "altura": 195,
+     "ancora_x": 78,
+     "ancora_y": 109
+    },
+    {
+     "arquivo": "ceu/arco_iris.png",
+     "largura": 1694,
+     "altura": 752,
+     "ancora_x": 847,
+     "ancora_y": 858
+    }
+   ]
+  },
+  "bichinhos": {
+   "pasta": "bichinhos",
+   "escala_px_por_unidade": 5,
+   "ancora_descricao": "centro do bichinho",
+   "quadros": [
+    {
+     "arquivo": "bichinhos/passarinho_laranja_1.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_laranja",
+     "quadro": 1,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_laranja_2.png",
+     "largura": 112,
+     "altura": 95,
+     "ancora_x": 41,
+     "ancora_y": 66,
+     "animacao": "passarinho_laranja",
+     "quadro": 2,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_laranja_3.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_laranja",
+     "quadro": 3,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_laranja_4.png",
+     "largura": 112,
+     "altura": 100,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_laranja",
+     "quadro": 4,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_azul_1.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_azul",
+     "quadro": 1,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_azul_2.png",
+     "largura": 112,
+     "altura": 95,
+     "ancora_x": 41,
+     "ancora_y": 66,
+     "animacao": "passarinho_azul",
+     "quadro": 2,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_azul_3.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_azul",
+     "quadro": 3,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_azul_4.png",
+     "largura": 112,
+     "altura": 100,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_azul",
+     "quadro": 4,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_amarelo_1.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_amarelo",
+     "quadro": 1,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_amarelo_2.png",
+     "largura": 112,
+     "altura": 95,
+     "ancora_x": 41,
+     "ancora_y": 66,
+     "animacao": "passarinho_amarelo",
+     "quadro": 2,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_amarelo_3.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_amarelo",
+     "quadro": 3,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_amarelo_4.png",
+     "largura": 112,
+     "altura": 100,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_amarelo",
+     "quadro": 4,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_roxo_1.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_roxo",
+     "quadro": 1,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_roxo_2.png",
+     "largura": 112,
+     "altura": 95,
+     "ancora_x": 41,
+     "ancora_y": 66,
+     "animacao": "passarinho_roxo",
+     "quadro": 2,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_roxo_3.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_roxo",
+     "quadro": 3,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_roxo_4.png",
+     "largura": 112,
+     "altura": 100,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_roxo",
+     "quadro": 4,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_verde_1.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_verde",
+     "quadro": 1,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_verde_2.png",
+     "largura": 112,
+     "altura": 95,
+     "ancora_x": 41,
+     "ancora_y": 66,
+     "animacao": "passarinho_verde",
+     "quadro": 2,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_verde_3.png",
+     "largura": 112,
+     "altura": 63,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_verde",
+     "quadro": 3,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/passarinho_verde_4.png",
+     "largura": 112,
+     "altura": 100,
+     "ancora_x": 41,
+     "ancora_y": 34,
+     "animacao": "passarinho_verde",
+     "quadro": 4,
+     "de": 4
+    },
+    {
+     "arquivo": "bichinhos/gaivota_1.png",
+     "largura": 136,
+     "altura": 51,
+     "ancora_x": 68,
+     "ancora_y": 33,
+     "animacao": "gaivota",
+     "quadro": 1,
+     "de": 4,
+     "temas": "praia, neve"
+    },
+    {
+     "arquivo": "bichinhos/gaivota_2.png",
+     "largura": 136,
+     "altura": 69,
+     "ancora_x": 68,
+     "ancora_y": 47,
+     "animacao": "gaivota",
+     "quadro": 2,
+     "de": 4,
+     "temas": "praia, neve"
+    },
+    {
+     "arquivo": "bichinhos/gaivota_3.png",
+     "largura": 136,
+     "altura": 51,
+     "ancora_x": 68,
+     "ancora_y": 33,
+     "animacao": "gaivota",
+     "quadro": 3,
+     "de": 4,
+     "temas": "praia, neve"
+    },
+    {
+     "arquivo": "bichinhos/gaivota_4.png",
+     "largura": 136,
+     "altura": 55,
+     "ancora_x": 68,
+     "ancora_y": 22,
+     "animacao": "gaivota",
+     "quadro": 4,
+     "de": 4,
+     "temas": "praia, neve"
+    },
+    {
+     "arquivo": "bichinhos/macaquinho.png",
+     "largura": 145,
+     "altura": 392,
+     "ancora_x": 81,
+     "ancora_y": 206,
+     "temas": "floresta, mística",
+     "obs": "pendurado pelo cipó; o galho fica 40 unidades acima da âncora"
+    },
+    {
+     "arquivo": "bichinhos/borboleta_1_1.png",
+     "largura": 134,
+     "altura": 92,
+     "ancora_x": 67,
+     "ancora_y": 61,
+     "animacao": "borboleta_1",
+     "quadro": 1,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_1_2.png",
+     "largura": 86,
+     "altura": 88,
+     "ancora_x": 43,
+     "ancora_y": 59,
+     "animacao": "borboleta_1",
+     "quadro": 2,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_1_3.png",
+     "largura": 52,
+     "altura": 86,
+     "ancora_x": 26,
+     "ancora_y": 58,
+     "animacao": "borboleta_1",
+     "quadro": 3,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_2_1.png",
+     "largura": 134,
+     "altura": 92,
+     "ancora_x": 67,
+     "ancora_y": 61,
+     "animacao": "borboleta_2",
+     "quadro": 1,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_2_2.png",
+     "largura": 86,
+     "altura": 88,
+     "ancora_x": 43,
+     "ancora_y": 59,
+     "animacao": "borboleta_2",
+     "quadro": 2,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_2_3.png",
+     "largura": 52,
+     "altura": 86,
+     "ancora_x": 26,
+     "ancora_y": 58,
+     "animacao": "borboleta_2",
+     "quadro": 3,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_3_1.png",
+     "largura": 134,
+     "altura": 92,
+     "ancora_x": 67,
+     "ancora_y": 61,
+     "animacao": "borboleta_3",
+     "quadro": 1,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_3_2.png",
+     "largura": 86,
+     "altura": 88,
+     "ancora_x": 43,
+     "ancora_y": 59,
+     "animacao": "borboleta_3",
+     "quadro": 2,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_3_3.png",
+     "largura": 52,
+     "altura": 86,
+     "ancora_x": 26,
+     "ancora_y": 58,
+     "animacao": "borboleta_3",
+     "quadro": 3,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_4_1.png",
+     "largura": 134,
+     "altura": 92,
+     "ancora_x": 67,
+     "ancora_y": 61,
+     "animacao": "borboleta_4",
+     "quadro": 1,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_4_2.png",
+     "largura": 86,
+     "altura": 88,
+     "ancora_x": 43,
+     "ancora_y": 59,
+     "animacao": "borboleta_4",
+     "quadro": 2,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/borboleta_4_3.png",
+     "largura": 52,
+     "altura": 86,
+     "ancora_x": 26,
+     "ancora_y": 58,
+     "animacao": "borboleta_4",
+     "quadro": 3,
+     "de": 3
+    },
+    {
+     "arquivo": "bichinhos/vagalume.png",
+     "largura": 140,
+     "altura": 140,
+     "ancora_x": 70,
+     "ancora_y": 70
+    },
+    {
+     "arquivo": "bichinhos/amiguinho_passaro_1.png",
+     "largura": 202,
+     "altura": 110,
+     "ancora_x": 96,
+     "ancora_y": 64,
+     "animacao": "amiguinho",
+     "quadro": 1,
+     "de": 4,
+     "obs": "upgrade Amiguinho"
+    },
+    {
+     "arquivo": "bichinhos/amiguinho_passaro_2.png",
+     "largura": 202,
+     "altura": 143,
+     "ancora_x": 96,
+     "ancora_y": 97,
+     "animacao": "amiguinho",
+     "quadro": 2,
+     "de": 4,
+     "obs": "upgrade Amiguinho"
+    },
+    {
+     "arquivo": "bichinhos/amiguinho_passaro_3.png",
+     "largura": 202,
+     "altura": 110,
+     "ancora_x": 96,
+     "ancora_y": 64,
+     "animacao": "amiguinho",
+     "quadro": 3,
+     "de": 4,
+     "obs": "upgrade Amiguinho"
+    },
+    {
+     "arquivo": "bichinhos/amiguinho_passaro_4.png",
+     "largura": 202,
+     "altura": 160,
+     "ancora_x": 96,
+     "ancora_y": 64,
+     "animacao": "amiguinho",
+     "quadro": 4,
+     "de": 4,
+     "obs": "upgrade Amiguinho"
+    }
+   ]
+  },
+  "amigos_do_chao": {
+   "pasta": "bichinhos",
+   "escala_px_por_unidade": 5,
+   "ancora_descricao": "centro do bichinho",
+   "quadros": [
+    {
+     "arquivo": "bichinhos/caranguejo.png",
+     "largura": 212,
+     "altura": 162,
+     "ancora_x": 106,
+     "ancora_y": 91,
+     "tema": "praia"
+    },
+    {
+     "arquivo": "bichinhos/pinguim.png",
+     "largura": 117,
+     "altura": 212,
+     "ancora_x": 56,
+     "ancora_y": 121,
+     "tema": "neve"
+    }
+   ]
+  },
+  "chegada": {
+   "pasta": "chegada",
+   "escala_px_por_unidade": 4,
+   "ancora_descricao": "centro da base, no nível do chão",
+   "quadros": [
+    {
+     "arquivo": "chegada/chegada_fim_da_fase.png",
+     "largura": 521,
+     "altura": 1055,
+     "ancora_x": 260,
+     "ancora_y": 977
+    },
+    {
+     "arquivo": "chegada/chegada_corrida.png",
+     "largura": 434,
+     "altura": 1015,
+     "ancora_x": 215,
+     "ancora_y": 937
+    },
+    {
+     "arquivo": "chegada/chegada_sem_texto.png",
+     "largura": 300,
+     "altura": 884,
+     "ancora_x": 150,
+     "ancora_y": 806
+    },
+    {
+     "arquivo": "chegada/bandeira_checkpoint.png",
+     "largura": 200,
+     "altura": 520,
+     "ancora_x": 26,
+     "ancora_y": 506
+    },
+    {
+     "arquivo": "chegada/bandeira_checkpoint_ok.png",
+     "largura": 200,
+     "altura": 520,
+     "ancora_x": 26,
+     "ancora_y": 506
+    }
+   ]
+  },
+  "interface": {
+   "pasta": "interface",
+   "escala_px_por_unidade": 8,
+   "ancora_descricao": "centro",
+   "quadros": [
+    {
+     "arquivo": "interface/coracao_vida_cheio.png",
+     "largura": 193,
+     "altura": 175,
+     "ancora_x": 97,
+     "ancora_y": 75
+    },
+    {
+     "arquivo": "interface/coracao_vida_vazio.png",
+     "largura": 193,
+     "altura": 175,
+     "ancora_x": 97,
+     "ancora_y": 75
+    },
+    {
+     "arquivo": "interface/estrelinha_brilho.png",
+     "largura": 204,
+     "altura": 204,
+     "ancora_x": 102,
+     "ancora_y": 102
+    }
+   ]
+  },
+  "cenario_floresta_camadas": {
+   "pasta": "cenario/floresta/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/floresta/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/floresta/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_floresta_arvore_ao_fundo": {
+   "pasta": "cenario/floresta/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_01.png",
+     "largura": 407,
+     "altura": 534,
+     "ancora_x": 200,
+     "ancora_y": 528
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_02.png",
+     "largura": 466,
+     "altura": 630,
+     "ancora_x": 229,
+     "ancora_y": 624
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_03.png",
+     "largura": 304,
+     "altura": 674,
+     "ancora_x": 149,
+     "ancora_y": 668
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_04.png",
+     "largura": 315,
+     "altura": 628,
+     "ancora_x": 155,
+     "ancora_y": 622
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_05.png",
+     "largura": 383,
+     "altura": 671,
+     "ancora_x": 188,
+     "ancora_y": 665
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_06.png",
+     "largura": 516,
+     "altura": 768,
+     "ancora_x": 254,
+     "ancora_y": 762
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_07.png",
+     "largura": 517,
+     "altura": 609,
+     "ancora_x": 254,
+     "ancora_y": 603
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_ao_fundo_08.png",
+     "largura": 490,
+     "altura": 620,
+     "ancora_x": 241,
+     "ancora_y": 614
+    }
+   ]
+  },
+  "cenario_floresta_arvore": {
+   "pasta": "cenario/floresta/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_01.png",
+     "largura": 628,
+     "altura": 953,
+     "ancora_x": 310,
+     "ancora_y": 935
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_02.png",
+     "largura": 626,
+     "altura": 857,
+     "ancora_x": 309,
+     "ancora_y": 839
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_03.png",
+     "largura": 603,
+     "altura": 993,
+     "ancora_x": 283,
+     "ancora_y": 950
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_04.png",
+     "largura": 604,
+     "altura": 1144,
+     "ancora_x": 284,
+     "ancora_y": 1106
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_05.png",
+     "largura": 628,
+     "altura": 1134,
+     "ancora_x": 310,
+     "ancora_y": 1116
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_06.png",
+     "largura": 660,
+     "altura": 1009,
+     "ancora_x": 326,
+     "ancora_y": 991
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_07.png",
+     "largura": 551,
+     "altura": 844,
+     "ancora_x": 272,
+     "ancora_y": 826
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arvore_08.png",
+     "largura": 673,
+     "altura": 1117,
+     "ancora_x": 332,
+     "ancora_y": 1099
+    }
+   ]
+  },
+  "cenario_floresta_arbusto": {
+   "pasta": "cenario/floresta/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_01.png",
+     "largura": 412,
+     "altura": 248,
+     "ancora_x": 99,
+     "ancora_y": 185
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_02.png",
+     "largura": 377,
+     "altura": 227,
+     "ancora_x": 91,
+     "ancora_y": 169
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_03.png",
+     "largura": 425,
+     "altura": 256,
+     "ancora_x": 102,
+     "ancora_y": 191
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_04.png",
+     "largura": 346,
+     "altura": 209,
+     "ancora_x": 84,
+     "ancora_y": 155
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_05.png",
+     "largura": 265,
+     "altura": 161,
+     "ancora_x": 65,
+     "ancora_y": 119
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_06.png",
+     "largura": 464,
+     "altura": 279,
+     "ancora_x": 111,
+     "ancora_y": 208
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_07.png",
+     "largura": 260,
+     "altura": 158,
+     "ancora_x": 64,
+     "ancora_y": 116
+    },
+    {
+     "arquivo": "cenario/floresta/elementos/arbusto_08.png",
+     "largura": 282,
+     "altura": 171,
+     "ancora_x": 69,
+     "ancora_y": 126
+    }
+   ]
+  },
+  "cenario_praia_camadas": {
+   "pasta": "cenario/praia/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/praia/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/praia/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_praia_arvore": {
+   "pasta": "cenario/praia/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/praia/elementos/arvore_01.png",
+     "largura": 604,
+     "altura": 924,
+     "ancora_x": 284,
+     "ancora_y": 876
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_02.png",
+     "largura": 604,
+     "altura": 819,
+     "ancora_x": 284,
+     "ancora_y": 782
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_03.png",
+     "largura": 603,
+     "altura": 993,
+     "ancora_x": 283,
+     "ancora_y": 950
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_04.png",
+     "largura": 604,
+     "altura": 1144,
+     "ancora_x": 284,
+     "ancora_y": 1106
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_05.png",
+     "largura": 604,
+     "altura": 1100,
+     "ancora_x": 284,
+     "ancora_y": 1057
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_06.png",
+     "largura": 603,
+     "altura": 969,
+     "ancora_x": 284,
+     "ancora_y": 921
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_07.png",
+     "largura": 604,
+     "altura": 842,
+     "ancora_x": 284,
+     "ancora_y": 796
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arvore_08.png",
+     "largura": 604,
+     "altura": 1069,
+     "ancora_x": 284,
+     "ancora_y": 1025
+    }
+   ]
+  },
+  "cenario_praia_arbusto": {
+   "pasta": "cenario/praia/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_01.png",
+     "largura": 384,
+     "altura": 464,
+     "ancora_x": 192,
+     "ancora_y": 456
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_02.png",
+     "largura": 377,
+     "altura": 227,
+     "ancora_x": 91,
+     "ancora_y": 169
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_03.png",
+     "largura": 425,
+     "altura": 256,
+     "ancora_x": 102,
+     "ancora_y": 191
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_04.png",
+     "largura": 346,
+     "altura": 209,
+     "ancora_x": 84,
+     "ancora_y": 155
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_05.png",
+     "largura": 265,
+     "altura": 161,
+     "ancora_x": 65,
+     "ancora_y": 119
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_06.png",
+     "largura": 432,
+     "altura": 522,
+     "ancora_x": 216,
+     "ancora_y": 514
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_07.png",
+     "largura": 242,
+     "altura": 292,
+     "ancora_x": 121,
+     "ancora_y": 284
+    },
+    {
+     "arquivo": "cenario/praia/elementos/arbusto_08.png",
+     "largura": 262,
+     "altura": 317,
+     "ancora_x": 131,
+     "ancora_y": 309
+    }
+   ]
+  },
+  "cenario_savana_camadas": {
+   "pasta": "cenario/savana/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/savana/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/savana/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_savana_arvore_ao_fundo": {
+   "pasta": "cenario/savana/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_01.png",
+     "largura": 400,
+     "altura": 268,
+     "ancora_x": 200,
+     "ancora_y": 262
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_02.png",
+     "largura": 300,
+     "altura": 353,
+     "ancora_x": 150,
+     "ancora_y": 347
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_03.png",
+     "largura": 508,
+     "altura": 388,
+     "ancora_x": 254,
+     "ancora_y": 382
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_04.png",
+     "largura": 509,
+     "altura": 300,
+     "ancora_x": 255,
+     "ancora_y": 294
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_05.png",
+     "largura": 482,
+     "altura": 308,
+     "ancora_x": 241,
+     "ancora_y": 302
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_06.png",
+     "largura": 414,
+     "altura": 249,
+     "ancora_x": 207,
+     "ancora_y": 243
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_07.png",
+     "largura": 171,
+     "altura": 285,
+     "ancora_x": 60,
+     "ancora_y": 297
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_ao_fundo_08.png",
+     "largura": 171,
+     "altura": 285,
+     "ancora_x": 60,
+     "ancora_y": 297
+    }
+   ]
+  },
+  "cenario_savana_arvore": {
+   "pasta": "cenario/savana/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/savana/elementos/arvore_01.png",
+     "largura": 758,
+     "altura": 761,
+     "ancora_x": 379,
+     "ancora_y": 715
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_02.png",
+     "largura": 395,
+     "altura": 544,
+     "ancora_x": 218,
+     "ancora_y": 526
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_03.png",
+     "largura": 434,
+     "altura": 648,
+     "ancora_x": 241,
+     "ancora_y": 630
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_04.png",
+     "largura": 409,
+     "altura": 745,
+     "ancora_x": 226,
+     "ancora_y": 727
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_05.png",
+     "largura": 396,
+     "altura": 715,
+     "ancora_x": 219,
+     "ancora_y": 697
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_06.png",
+     "largura": 407,
+     "altura": 630,
+     "ancora_x": 225,
+     "ancora_y": 612
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_07.png",
+     "largura": 774,
+     "altura": 685,
+     "ancora_x": 387,
+     "ancora_y": 641
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arvore_08.png",
+     "largura": 412,
+     "altura": 694,
+     "ancora_x": 228,
+     "ancora_y": 676
+    }
+   ]
+  },
+  "cenario_savana_arbusto": {
+   "pasta": "cenario/savana/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_01.png",
+     "largura": 261,
+     "altura": 254,
+     "ancora_x": 35,
+     "ancora_y": 237
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_02.png",
+     "largura": 231,
+     "altura": 218,
+     "ancora_x": 25,
+     "ancora_y": 201
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_03.png",
+     "largura": 262,
+     "altura": 263,
+     "ancora_x": 24,
+     "ancora_y": 246
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_04.png",
+     "largura": 244,
+     "altura": 218,
+     "ancora_x": 34,
+     "ancora_y": 201
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_05.png",
+     "largura": 217,
+     "altura": 167,
+     "ancora_x": 44,
+     "ancora_y": 150
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_06.png",
+     "largura": 313,
+     "altura": 264,
+     "ancora_x": 47,
+     "ancora_y": 247
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_07.png",
+     "largura": 173,
+     "altura": 162,
+     "ancora_x": 27,
+     "ancora_y": 145
+    },
+    {
+     "arquivo": "cenario/savana/elementos/arbusto_08.png",
+     "largura": 186,
+     "altura": 180,
+     "ancora_x": 23,
+     "ancora_y": 163
+    }
+   ]
+  },
+  "cenario_neve_camadas": {
+   "pasta": "cenario/neve/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/neve/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/neve/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_neve_arvore_ao_fundo": {
+   "pasta": "cenario/neve/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_01.png",
+     "largura": 290,
+     "altura": 400,
+     "ancora_x": 145,
+     "ancora_y": 394
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_02.png",
+     "largura": 330,
+     "altura": 467,
+     "ancora_x": 165,
+     "ancora_y": 461
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_03.png",
+     "largura": 217,
+     "altura": 557,
+     "ancora_x": 109,
+     "ancora_y": 551
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_04.png",
+     "largura": 224,
+     "altura": 513,
+     "ancora_x": 112,
+     "ancora_y": 507
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_05.png",
+     "largura": 272,
+     "altura": 530,
+     "ancora_x": 136,
+     "ancora_y": 524
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_06.png",
+     "largura": 366,
+     "altura": 576,
+     "ancora_x": 183,
+     "ancora_y": 570
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_07.png",
+     "largura": 366,
+     "altura": 432,
+     "ancora_x": 183,
+     "ancora_y": 426
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_ao_fundo_08.png",
+     "largura": 348,
+     "altura": 450,
+     "ancora_x": 174,
+     "ancora_y": 444
+    }
+   ]
+  },
+  "cenario_neve_arvore": {
+   "pasta": "cenario/neve/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/neve/elementos/arvore_01.png",
+     "largura": 502,
+     "altura": 821,
+     "ancora_x": 251,
+     "ancora_y": 803
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_02.png",
+     "largura": 500,
+     "altura": 714,
+     "ancora_x": 250,
+     "ancora_y": 696
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_03.png",
+     "largura": 558,
+     "altura": 904,
+     "ancora_x": 279,
+     "ancora_y": 886
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_04.png",
+     "largura": 522,
+     "altura": 1081,
+     "ancora_x": 261,
+     "ancora_y": 1063
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_05.png",
+     "largura": 502,
+     "altura": 1025,
+     "ancora_x": 251,
+     "ancora_y": 1007
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_06.png",
+     "largura": 518,
+     "altura": 871,
+     "ancora_x": 259,
+     "ancora_y": 853
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_07.png",
+     "largura": 464,
+     "altura": 730,
+     "ancora_x": 232,
+     "ancora_y": 712
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arvore_08.png",
+     "largura": 524,
+     "altura": 988,
+     "ancora_x": 262,
+     "ancora_y": 970
+    }
+   ]
+  },
+  "cenario_neve_arbusto": {
+   "pasta": "cenario/neve/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_01.png",
+     "largura": 412,
+     "altura": 248,
+     "ancora_x": 99,
+     "ancora_y": 185
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_02.png",
+     "largura": 377,
+     "altura": 227,
+     "ancora_x": 91,
+     "ancora_y": 169
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_03.png",
+     "largura": 425,
+     "altura": 256,
+     "ancora_x": 102,
+     "ancora_y": 191
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_04.png",
+     "largura": 346,
+     "altura": 209,
+     "ancora_x": 84,
+     "ancora_y": 155
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_05.png",
+     "largura": 265,
+     "altura": 161,
+     "ancora_x": 65,
+     "ancora_y": 119
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_06.png",
+     "largura": 464,
+     "altura": 279,
+     "ancora_x": 111,
+     "ancora_y": 208
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_07.png",
+     "largura": 260,
+     "altura": 158,
+     "ancora_x": 64,
+     "ancora_y": 116
+    },
+    {
+     "arquivo": "cenario/neve/elementos/arbusto_08.png",
+     "largura": 282,
+     "altura": 171,
+     "ancora_x": 69,
+     "ancora_y": 126
+    }
+   ]
+  },
+  "cenario_mistica_camadas": {
+   "pasta": "cenario/mistica/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/mistica/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/mistica/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_mistica_arvore_ao_fundo": {
+   "pasta": "cenario/mistica/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_01.png",
+     "largura": 407,
+     "altura": 534,
+     "ancora_x": 200,
+     "ancora_y": 528
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_02.png",
+     "largura": 466,
+     "altura": 630,
+     "ancora_x": 229,
+     "ancora_y": 624
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_03.png",
+     "largura": 304,
+     "altura": 674,
+     "ancora_x": 149,
+     "ancora_y": 668
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_04.png",
+     "largura": 315,
+     "altura": 628,
+     "ancora_x": 155,
+     "ancora_y": 622
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_05.png",
+     "largura": 383,
+     "altura": 671,
+     "ancora_x": 188,
+     "ancora_y": 665
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_06.png",
+     "largura": 516,
+     "altura": 768,
+     "ancora_x": 254,
+     "ancora_y": 762
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_07.png",
+     "largura": 517,
+     "altura": 609,
+     "ancora_x": 254,
+     "ancora_y": 603
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_ao_fundo_08.png",
+     "largura": 490,
+     "altura": 620,
+     "ancora_x": 241,
+     "ancora_y": 614
+    }
+   ]
+  },
+  "cenario_mistica_arvore": {
+   "pasta": "cenario/mistica/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_01.png",
+     "largura": 628,
+     "altura": 953,
+     "ancora_x": 310,
+     "ancora_y": 935
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_02.png",
+     "largura": 626,
+     "altura": 857,
+     "ancora_x": 309,
+     "ancora_y": 839
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_03.png",
+     "largura": 740,
+     "altura": 1067,
+     "ancora_x": 365,
+     "ancora_y": 1049
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_04.png",
+     "largura": 666,
+     "altura": 1196,
+     "ancora_x": 329,
+     "ancora_y": 1178
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_05.png",
+     "largura": 628,
+     "altura": 1134,
+     "ancora_x": 310,
+     "ancora_y": 1116
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_06.png",
+     "largura": 660,
+     "altura": 1009,
+     "ancora_x": 326,
+     "ancora_y": 991
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_07.png",
+     "largura": 551,
+     "altura": 844,
+     "ancora_x": 272,
+     "ancora_y": 826
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arvore_08.png",
+     "largura": 673,
+     "altura": 1117,
+     "ancora_x": 332,
+     "ancora_y": 1099
+    }
+   ]
+  },
+  "cenario_mistica_arbusto": {
+   "pasta": "cenario/mistica/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_01.png",
+     "largura": 481,
+     "altura": 481,
+     "ancora_x": 139,
+     "ancora_y": 402
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_02.png",
+     "largura": 362,
+     "altura": 363,
+     "ancora_x": 106,
+     "ancora_y": 304
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_03.png",
+     "largura": 462,
+     "altura": 462,
+     "ancora_x": 135,
+     "ancora_y": 411
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_04.png",
+     "largura": 333,
+     "altura": 333,
+     "ancora_x": 97,
+     "ancora_y": 271
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_05.png",
+     "largura": 299,
+     "altura": 299,
+     "ancora_x": 85,
+     "ancora_y": 274
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_06.png",
+     "largura": 590,
+     "altura": 591,
+     "ancora_x": 161,
+     "ancora_y": 500
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_07.png",
+     "largura": 259,
+     "altura": 259,
+     "ancora_x": 77,
+     "ancora_y": 235
+    },
+    {
+     "arquivo": "cenario/mistica/elementos/arbusto_08.png",
+     "largura": 278,
+     "altura": 278,
+     "ancora_x": 82,
+     "ancora_y": 239
+    }
+   ]
+  },
+  "cenario_doces_camadas": {
+   "pasta": "cenario/doces/camadas",
+   "escala_px_por_unidade": 2,
+   "ancora_descricao": "tela inteira 960x540 (unidades do jogo); chão em y=432",
+   "quadros": [
+    {
+     "arquivo": "cenario/doces/camadas/1_ceu.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/2_colinas_ou_mar.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/3_arvores_ao_fundo.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/4_arvores.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/5_arbustos.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/6_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/7_amigos_do_chao.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    },
+    {
+     "arquivo": "cenario/doces/camadas/8_folhas_primeiro_plano.png",
+     "largura": 1920,
+     "altura": 1080,
+     "ancora_x": 960,
+     "ancora_y": 1080
+    }
+   ]
+  },
+  "cenario_doces_arvore_ao_fundo": {
+   "pasta": "cenario/doces/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_01.png",
+     "largura": 234,
+     "altura": 507,
+     "ancora_x": 117,
+     "ancora_y": 501
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_02.png",
+     "largura": 268,
+     "altura": 598,
+     "ancora_x": 134,
+     "ancora_y": 592
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_03.png",
+     "largura": 176,
+     "altura": 653,
+     "ancora_x": 88,
+     "ancora_y": 647
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_04.png",
+     "largura": 182,
+     "altura": 607,
+     "ancora_x": 91,
+     "ancora_y": 601
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_05.png",
+     "largura": 220,
+     "altura": 645,
+     "ancora_x": 110,
+     "ancora_y": 639
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_06.png",
+     "largura": 296,
+     "altura": 733,
+     "ancora_x": 148,
+     "ancora_y": 727
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_07.png",
+     "largura": 296,
+     "altura": 574,
+     "ancora_x": 148,
+     "ancora_y": 568
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_ao_fundo_08.png",
+     "largura": 280,
+     "altura": 586,
+     "ancora_x": 140,
+     "ancora_y": 580
+    }
+   ]
+  },
+  "cenario_doces_arvore": {
+   "pasta": "cenario/doces/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/doces/elementos/arvore_01.png",
+     "largura": 628,
+     "altura": 953,
+     "ancora_x": 310,
+     "ancora_y": 935
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_02.png",
+     "largura": 348,
+     "altura": 819,
+     "ancora_x": 174,
+     "ancora_y": 784
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_03.png",
+     "largura": 398,
+     "altura": 1013,
+     "ancora_x": 199,
+     "ancora_y": 978
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_04.png",
+     "largura": 366,
+     "altura": 1153,
+     "ancora_x": 183,
+     "ancora_y": 1118
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_05.png",
+     "largura": 348,
+     "altura": 1095,
+     "ancora_x": 174,
+     "ancora_y": 1060
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_06.png",
+     "largura": 362,
+     "altura": 966,
+     "ancora_x": 181,
+     "ancora_y": 931
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_07.png",
+     "largura": 551,
+     "altura": 844,
+     "ancora_x": 272,
+     "ancora_y": 826
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arvore_08.png",
+     "largura": 368,
+     "altura": 1073,
+     "ancora_x": 184,
+     "ancora_y": 1038
+    }
+   ]
+  },
+  "cenario_doces_arbusto": {
+   "pasta": "cenario/doces/elementos",
+   "escala_px_por_unidade": 3,
+   "ancora_descricao": "ponto de referência no chão (centro do tronco; nos arbustos, a ponta esquerda)",
+   "quadros": [
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_01.png",
+     "largura": 232,
+     "altura": 188,
+     "ancora_x": 6,
+     "ancora_y": 176
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_02.png",
+     "largura": 217,
+     "altura": 177,
+     "ancora_x": 6,
+     "ancora_y": 165
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_03.png",
+     "largura": 237,
+     "altura": 193,
+     "ancora_x": 6,
+     "ancora_y": 181
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_04.png",
+     "largura": 203,
+     "altura": 166,
+     "ancora_x": 6,
+     "ancora_y": 154
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_05.png",
+     "largura": 169,
+     "altura": 139,
+     "ancora_x": 6,
+     "ancora_y": 127
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_06.png",
+     "largura": 254,
+     "altura": 205,
+     "ancora_x": 6,
+     "ancora_y": 193
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_07.png",
+     "largura": 166,
+     "altura": 137,
+     "ancora_x": 6,
+     "ancora_y": 125
+    },
+    {
+     "arquivo": "cenario/doces/elementos/arbusto_08.png",
+     "largura": 177,
+     "altura": 145,
+     "ancora_x": 7,
+     "ancora_y": 133
+    }
+   ]
+  }
+ }
+}
