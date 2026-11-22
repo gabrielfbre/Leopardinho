@@ -295,6 +295,12 @@
   #casaBar{position:fixed;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;display:none;gap:10px}
   #casaBar.on{display:flex}
   /* Cozinha: fazer bolo */
+  #gire{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;
+    background:radial-gradient(circle at 50% 40%,#4fb37a,#1f6b45);color:#fff;font-weight:800;font-size:28px;line-height:1.25;text-shadow:0 3px 0 rgba(0,0,0,.25);padding:24px}
+  #gire.on{display:flex}
+  #gire img{border-radius:28px;box-shadow:0 6px 0 rgba(0,0,0,.2)}
+  #gire .cel{animation:gireCel 2.2s ease-in-out infinite}
+  @keyframes gireCel{0%,20%{transform:rotate(0)}55%,85%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
   #bolo{background:rgba(60,35,20,.55);padding:8px}
   #boloCv{background:#fff4f7;border-radius:12px;box-shadow:0 0 0 3px #f3cfd9;max-width:100%;max-height:100%;aspect-ratio:4/3;touch-action:none;display:block}
   #boloTit{font-weight:800;color:#5b3a1e;font-size:18px;text-align:center;line-height:1.2}
@@ -426,6 +432,11 @@
   </div>
 </div>
 
+<div id="gire" aria-live="polite">
+  <img src="icon-192.png?v=2" alt="" width="120" height="120">
+  <svg class="cel" viewBox="0 0 64 64" width="96" height="96" aria-hidden="true"><rect x="20" y="6" width="24" height="44" rx="5" fill="#fff" stroke="#5b3a1e" stroke-width="3"/><rect x="24" y="12" width="16" height="30" rx="2" fill="#bfe6ff"/><circle cx="32" cy="46" r="1.8" fill="#5b3a1e"/></svg>
+  <p>Vire o celular<br>para brincar!</p>
+</div>
 <div class="overlay" id="bolo">
   <div class="arteBox">
     <div class="arteMeio"><canvas id="boloCv" width="800" height="600"></canvas></div>
@@ -466,7 +477,7 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.19</div>
+    <div class="ver" id="ver">versão 1.20</div>
   </div>
 </div>
 
@@ -965,10 +976,12 @@ function musicVolume(){ if(mSong&&AC&&!mTroca){try{mSong.gain.cancelScheduledVal
 /* ---------- tela ---------- */
 let W=0,H=0,S=1,VW=0,VH=0,DPR=1,GY=0,LX=0,px=0;
 const LS=0.6,LK=LS/.82; // tamanho do Leo nas fases (as colisões não mudam)
+function resolucao(){DPR=Math.max(1,Math.min(window.devicePixelRatio||1,2,Math.sqrt(2.3e6*QUAL/(W*H))));cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);}
+let QUAL=1; // baixa sozinho se o aparelho não der conta (tablets com tela grande)
 function resize(){
-  DPR=Math.min(window.devicePixelRatio||1,2);
   W=window.innerWidth||320; H=window.innerHeight||480;
-  cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR);
+  // nitidez até 2x, mas no máximo ~2,3 milhões de pixels por quadro (em tablet o canvas ficava enorme e o jogo travava)
+  resolucao();
   S=Math.min(W/480,H/380); VW=W/S; VH=H/S;
   GY=VH-Math.max(88,VH*0.2); LX=Math.max(95,VW*0.2);
   if(typeof mode==='undefined'||mode!=='chuva'||state!=='play') px=LX; else px=clamp(px,50,VW-50);
@@ -1047,6 +1060,7 @@ resize(); window.addEventListener('resize',resize);
 function clearWorld(){hills=[];sur=[];aves=[];amigoRun=null;toca=null;sara=null;saraT=14+Math.random()*12;leo.onPlat=false;starGrace=0;obstacles=[];fruits=[];items=[];parts=[];pops=[];pw.ima=pw.estrela=pw.chuva=0;
   leo.y=0;leo.vy=0;leo.air=false;leo.jumps=0;leo.stumble=0;leo.face=1;leo.falling=0;leo.roll=0;leo.rollQ=false;}
 function startGame(m,keepLives){
+  try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});}catch(e){}
   try{for(const e of Object.values(PICON))icoImg(icoOf(e));}catch(e){} // carrega os ícones dos poderes antes de aparecerem
   ociosoT=0;ocioso=false;borb.st=0;borb.t=10;
   mode=m; lvTot=0; lvGot=0; pal.x=0; pal.f=null; pal.cool=1; if(!keepLives){lives=maxLives();slotUsed=[false,false,false];}
@@ -3218,11 +3232,14 @@ const PET_POSES=['anda1','anda2','anda3','anda4','senta','deita'];
 const PET_SPR={};['cachorro','gato','gatinho','porquinho','laranja1','laranja2'].forEach(k=>{PET_SPR[k]={};PET_POSES.forEach(q=>{const im=new Image();im.src='img/casinha/pets/'+k+'_'+q+'.webp?v=1';PET_SPR[k][q]=im;});});
 // carinho: o bichinho fecha um olhinho (o gato deitado já pisca na própria arte; o porquinho, todo preto, só ganha coraçõezinhos)
 [['cachorro',['senta','deita']],['gato',['senta']],['gatinho',['senta','deita']],['laranja1',['senta','deita']],['laranja2',['senta','deita']]].forEach(([k,qs])=>qs.forEach(q=>{const im=new Image();im.src='img/casinha/pets/'+k+'_'+q+'_pisca.webp?v=1';PET_SPR[k][q+'_pisca']=im;}));
+// dormindo: deitado com os olhinhos fechados (o porquinho já dorme de olhos fechados na arte)
+['cachorro','gato','gatinho','laranja1','laranja2'].forEach(k=>{const im=new Image();im.src='img/casinha/pets/'+k+'_dorme.webp?v=1';PET_SPR[k].dorme=im;});
+function petDorme(p){return p.alvo==null&&p.st==='deita'&&!(p.cari>0)&&(casa.acao==='dormir'&&p.sala==='quarto'||p.esp>9);}
 const VEL_PET={cachorro:72,gato:60,gatinho:52,porquinho:38,laranja1:56,laranja2:54};
 function petPronto(k){const S0=PET_SPR[k];return !!S0&&PET_POSES.every(q=>S0[q].width);}
 // imagem e tamanho do bichinho agora (h = altura dele sentado)
 function petQuadro(p,g){const sk=PET_SPR[p.k];
-  if(petPronto(p.k)){const pose=p.alvo!=null?'anda'+(1+Math.floor(p.ph||0)%4):(p.st||'senta'),pi=p.cari>0&&sk[pose+'_pisca'],im=pi&&pi.width?pi:sk[pose],k=p.h*g.s/sk.senta.height;return {im,w:im.width*k,h:im.height*k,lado:true,pose};}
+  if(petPronto(p.k)){const pose=p.alvo!=null?'anda'+(1+Math.floor(p.ph||0)%4):(p.st||'senta'),pi=p.cari>0&&sk[pose+'_pisca'],zz=pose==='deita'&&petDorme(p)&&sk.dorme,im=pi&&pi.width?pi:zz&&zz.width?zz:sk[pose],k=p.h*g.s/sk.senta.height;return {im,w:im.width*k,h:im.height*k,lado:true,pose};}
   const im0=PET_IM[p.k];if(!im0.width)return null;const im=p.alvo!=null&&p.anda&&PET_IM[p.anda].width?PET_IM[p.anda]:im0,h=p.h*g.s;return {im,w:h*im.width/im.height,h,lado:false,pose:'velho'};}
 const SONECA={t:18,on:0}; // os gatinhos laranjas tiram soneca abraçadinhos de vez em quando
 function petsUpd(dt,g){const L1=PETS.find(p=>p.k==='laranja1'),L2=PETS.find(p=>p.k==='laranja2');
@@ -3249,7 +3266,7 @@ function petsDraw(g){
     if(p.cari>0){const u=Math.sin(T*9)*.035*Math.min(1,p.cari*2);ctx.rotate(u*.6);ctx.scale(1+u*.4,1-u*.3);} // se aconchega no carinho
     else if(!andando)ctx.scale(1,1+Math.sin(T*(deitado?1.6:2.4)+p.fx*7)*(deitado?.02:.012)); // respira
     ctx.drawImage(im,-w/2,-h,w,h);ctx.restore();
-    if((dorme||deitado&&p.esp>9)&&Math.floor(T*1.5+p.fx*5)%3===0){ctx.textAlign='center';ctx.textBaseline='middle';label('z',p.x+p.face*w*.3,y-h-6*g.s,14,'#fff');}}}
+    if(petDorme(p)&&Math.floor(T*1.5+p.fx*5)%3===0){ctx.textAlign='center';ctx.textBaseline='middle';label('z',p.x+p.face*w*.3,y-h-6*g.s,14,'#fff');}}}
 function petsToque(g,x,y){
   if((casa.sala||'quarto')==='cozinha'&&SONECA.on>0){const L1=PETS.find(p=>p.k==='laranja1'),L2=PETS.find(p=>p.k==='laranja2'),m=(L1.x+L2.x)/2,yb=g.fy-14*g.s;
     if(Math.abs(x-m)<50*g.s&&y>yb-80*g.s&&y<yb+12){SONECA.on=0;SONECA.t=25;for(const p of [L1,L2]){p.hop=1;p.hv=380;}petSom('miau2');falar('Os gatinhos acordaram!');figurinha('laranjas');for(let i=0;i<5;i++)casa.coracoes.push({x:m+(Math.random()-.5)*50,y:yb-60*g.s,vy:50,t:1});return true;}}
@@ -3631,8 +3648,7 @@ function draw(){FL.bud=2;macVis.length=0;
     ctx.fillStyle='#FF5A73';rr(ctx,cx-cw/2,hy+22,Math.max(8,cw*clamp(rain.time/30,0,1)),8,4);ctx.fill();
     rowY+=hardish()?68:34;
   }
-  if(mode==='balao'){label('⏰ '+Math.max(0,Math.ceil(bal.time)),cx,hy,30,bal.time<6?'#FFB3B3':'#fff');
-    ctx.fillStyle='rgba(255,255,255,.5)';rr(ctx,cx-cw/2,hy+22,cw,8,4);ctx.fill();ctx.fillStyle='#4DABF7';rr(ctx,cx-cw/2,hy+22,Math.max(8,cw*clamp(bal.time/40,0,1)),8,4);ctx.fill();rowY+=34;}
+  if(mode==='balao'){label('⏰ '+Math.max(0,Math.ceil(bal.time)),cx,hy,30,bal.time<6?'#FFB3B3':'#fff');rowY+=10;} // só o relógio: a barra tampava o balão
   if(hardish()&&!semPulo()){const ml=maxLives();for(let k=0;k<ml;k++){const x=cx-(ml-1)*16+k*32,y=rowY+10;
       ctx.fillStyle='rgba(255,255,255,.85)';heart(ctx,x,y,13);ctx.fillStyle=k<lives?'#FF3B6B':'#d9d0d6';heart(ctx,x,y,10);}
     rowY+=34;}
@@ -3677,6 +3693,7 @@ function updateHud(bump){
 function show(id,on){$(id).classList.toggle('on',on)}
 // mede o placar (esquerda) e o painel de dificuldade (direita) para o menu não ficar por baixo deles
 function fitMenu(){const st=document.documentElement.style, l=$('hud').firstElementChild.getBoundingClientRect(), d=$('difSide').getBoundingClientRect();
+  if(!$('menu').classList.contains('on')||d.width<=0||l.width<=0)return; // só mede com o menu na tela (escondido, o painel mede zero e espremia o menu)
   st.setProperty('--hudL',Math.ceil(l.right+12)+'px');
   let R=124; if(getComputedStyle($('difSide')).position==='fixed'){R=Math.ceil(innerWidth-d.left+10);st.setProperty('--hudR',R+'px');}
   document.body.classList.toggle('apertado',innerWidth-l.right-12-R<300);}
@@ -3685,7 +3702,7 @@ addEventListener('resize',fitMenu);
 function setState(s){if(s!=='play')varalMenuFecha();
   state=s;
   for(const id of ['menu','shop','unlock','result','config']) show(id,s===id);
-  show('pinBox',false);
+  show('pinBox',false);if(s==='menu')requestAnimationFrame(fitMenu);
   $('home').style.display=s==='play'?'grid':'none';$('openHelp').style.display=s==='menu'?'grid':'none';
   $('rollBtn').classList.toggle('on',s==='play'&&!semPulo());show('casaBar',s==='play'&&mode==='casa'&&casa.sala!=='arte');
   if(typeof paintSlots==='function') paintSlots();
@@ -3902,9 +3919,14 @@ setInterval(()=>{if(dirty) persist()},1500);
 
 /* ---------- laço principal ---------- */
 let last=0;
+let gireOn=false;const perf={t:0,n:0};
 function frame(now){
-  const dt=Math.min(0.034,(now-last)/1000||0.016); last=now;
-  update(dt); draw();
+  const dtr=(now-last)/1000||0.016,dt=Math.min(0.034,dtr); last=now;
+  if(state==='play'&&!document.hidden&&dtr<.5){perf.t+=dtr;perf.n++;if(perf.t>3){const media=perf.t/perf.n;perf.t=0;perf.n=0;
+    if(media>1/42&&QUAL>.45&&DPR>1){QUAL*=.7;resolucao();}}} // abaixo de ~42 quadros/s: menos pixels
+  const emPe=state==='play'&&innerHeight>innerWidth*1.1; // o jogo é feito para o celular deitado
+  if(emPe!==gireOn){gireOn=emPe;$('gire').classList.toggle('on',emPe);}
+  if(!emPe)update(dt); draw();
   if(unlockCur&&$('unlock').classList.contains('on')){
     unlockCtx.setTransform(1,0,0,1,0,0);unlockCtx.clearRect(0,0,720,520);
     const g=unlockCtx.createRadialGradient(360,290,20,360,290,300);g.addColorStop(0,'rgba(255,240,170,.9)');g.addColorStop(1,'rgba(255,240,170,0)');
