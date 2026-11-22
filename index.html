@@ -323,6 +323,11 @@
   #arteCores{display:grid;grid-template-columns:repeat(2,auto);gap:8px;align-content:center;justify-content:center;padding:4px}
   #arteCores .cor{width:34px;height:34px;border-radius:50%;border:0;padding:0;box-shadow:0 0 0 2px #5b3a1e;cursor:pointer}
   #arteCores .cor.on{box-shadow:0 0 0 3px #fff,0 0 0 5.5px #5b3a1e;transform:scale(1.08)}
+  #arte .arteLado{justify-content:flex-start}
+  #arte .arteLado>.ok{margin-top:auto;position:relative}
+  #arte .arteLado>.ok::before{content:'';position:absolute;left:10%;right:10%;top:-13px;border-top:2px dashed rgba(91,58,30,.25)}
+  #arte .arteLado>.sai{margin-top:4px}
+  #arte .arteLado>.lin:last-of-type{margin-bottom:22px}
   .arteMeio{flex:1;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
   #arteCv{background:#fff;border-radius:12px;box-shadow:0 0 0 3px #e9d6b6;max-width:100%;max-height:100%;aspect-ratio:4/3;touch-action:none;display:block}
   .arteLado{width:156px;display:flex;flex-direction:column;gap:8px;justify-content:safe center;overflow-y:auto;padding:4px 3px 6px}
@@ -477,7 +482,7 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.20</div>
+    <div class="ver" id="ver">versão 1.21</div>
   </div>
 </div>
 
@@ -3174,7 +3179,7 @@ function cozinhaToque(g,x,y){const J=g.jan;if(!J)return false;const k=J.k0,I=(ix
 setInterval(()=>{if(BOLO.cv&&$('bolo').classList.contains('on'))boloDesenha(1/30);},33);
 
 /* desenhar com o dedo e colorir tocando */
-const ARTE={cv:null,ctx:null,cor:null,cc:null,lin:null,cores:['#FF5FA2','#FFB3D1','#E63946','#FF9F1C','#FFE066','#5CC66B','#4DA8FF','#9B6BFF','#8B5A2B','#333333'],
+const ARTE={cv:null,ctx:null,cor:null,cc:null,lin:null,cores:['#FF5FA2','#FFB3D1','#E63946','#FF9F1C','#FFE066','#F6C9A0','#5CC66B','#2E8B57','#9ED8F6','#4DA8FF','#CDB4FF','#9B6BFF','#8B5A2B','#A0A0A0','#333333','#FFFFFF'],
   corAt:'#FF5FA2',ferr:'pincel',tam:24,desf:[],pag:null,ult:null,riscou:false};
 function arteInit(){if(ARTE.cv)return;ARTE.cv=$('arteCv');ARTE.ctx=ARTE.cv.getContext('2d');ARTE.cor=document.createElement('canvas');ARTE.cor.width=800;ARTE.cor.height=600;ARTE.cc=ARTE.cor.getContext('2d');
   const cs=$('arteCores');ARTE.cores.forEach((c,i)=>{const b=document.createElement('button');b.className='cor'+(i===0?' on':'');b.style.background=c;b.onclick=()=>{ARTE.corAt=c;cs.querySelectorAll('.cor').forEach(x=>x.classList.toggle('on',x===b));if(ARTE.ferr==='borracha')arteFerr('pincel');sfx.tap();};cs.appendChild(b);});
