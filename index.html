@@ -196,6 +196,7 @@
   .fase.shake{animation:shake .35s}
   @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
   .ver{align-self:center;color:#c4a882;font-weight:800;font-size:12px;padding:6px 14px;cursor:default}
+  .cred{align-self:center;text-align:center;color:#c4a882;font-weight:600;font-size:10px;line-height:1.35;padding:0 14px 4px;max-width:420px}
   #devBox{display:none;background:#fff3e0;border:4px dashed #ffb74d;border-radius:18px;padding:8px 10px}
   #devBox.on{display:block}
   .devs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}
@@ -328,7 +329,9 @@
   #arte .arteLado>.ok::before{content:'';position:absolute;left:10%;right:10%;top:-13px;border-top:2px dashed rgba(91,58,30,.25)}
   #arte .arteLado>.sai{margin-top:4px}
   #arte .arteLado>.lin:last-of-type{margin-bottom:22px}
-  .arteMeio{flex:1;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
+  .arteMeio{flex:1;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;overflow:hidden;border-radius:12px}
+  #arteCv{transition:transform .25s ease}
+  #arteCv.mira{cursor:zoom-in;box-shadow:0 0 0 4px #6FB4F0}
   #arteCv{background:#fff;border-radius:12px;box-shadow:0 0 0 3px #e9d6b6;max-width:100%;max-height:100%;aspect-ratio:4/3;touch-action:none;display:block}
   .arteLado{width:156px;display:flex;flex-direction:column;gap:8px;justify-content:safe center;overflow-y:auto;padding:4px 3px 6px}
   .arteLado .lin{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
@@ -430,7 +433,7 @@
     <div class="arteLado">
       <div class="lin"><button data-f="pincel" class="on" aria-label="Pincel"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M18.6 2.6 21.4 5.4 12.9 13.9 10.1 11.1z" fill="#D29A5A"/><path d="M10.1 11.1 12.9 13.9 11.2 15.6 8.4 12.8z" fill="#C3CED8"/><path d="M8.4 12.8 11.2 15.6c-.5 3.2-3.5 5.9-8.2 5.9 0-4.6 2.8-7.6 5.4-8.7z" fill="#FF5F8F"/></svg></button><button data-f="balde" aria-label="Balde de tinta"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M4.5 8.5h13l-1.6 11.2a1.6 1.6 0 0 1-1.6 1.3H7.7a1.6 1.6 0 0 1-1.6-1.3z" fill="#8FC3EE"/><ellipse cx="11" cy="8.5" rx="6.5" ry="2" fill="#5FA5E0"/><path d="M6 8.3C6 4.5 16 4.5 16 8.3" /><path d="M17.5 9.5c2.3.7 3.2 2.6 2.6 5.2-.6 2-1.8 2.3-1.8 2.3" stroke="#FF5F8F" stroke-width="2.2"/></svg></button><button data-f="borracha" aria-label="Borracha"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><g transform="rotate(-35 12 12)"><rect x="3" y="8" width="18" height="8.5" rx="2" fill="#FF9EBB"/><rect x="11" y="8" width="5" height="8.5" fill="#6FB4F0"/><rect x="16" y="8" width="5" height="8.5" rx="2" fill="#fff"/></g><path d="M5 21h14" stroke-width="1.4" stroke-dasharray="1.5 2"/></svg></button>
         <button data-f="estrela" aria-label="Carimbo de estrela"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.8l2.8 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17.1l-5.7 3 1.2-6.3-4.6-4.4 6.3-.8z" fill="#FFC93C"/></svg></button><button data-f="coracao" aria-label="Carimbo de coração"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 20.5S3.5 15.4 3.5 9.3A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 8.5 1.9c0 6.1-8.5 11.2-8.5 11.2z" fill="#FF4F7B"/></svg></button><button data-t="10" aria-label="Traço fino"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="2.6" fill="#5b3a1e"/></svg></button>
-        <button data-t="24" class="on" aria-label="Traço grosso"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="6.5" fill="#5b3a1e"/></svg></button><button id="arteDesf" aria-label="Desfazer"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 5 4.5 9.5 9 14" stroke-width="2.2"/><path d="M5 9.5h9a5.5 5.5 0 0 1 0 11h-3" stroke-width="2.2"/></svg></button><button id="arteLimpa" aria-label="Limpar"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M5.5 7.5h13l-1.2 12.3a1.5 1.5 0 0 1-1.5 1.2H8.2a1.5 1.5 0 0 1-1.5-1.2z" fill="#C9D6E3"/><path d="M3.5 7.5h17M9.5 7.5V4.5h5v3M10 11v6M14 11v6"/></svg></button></div>
+        <button data-t="24" class="on" aria-label="Traço grosso"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="6.5" fill="#5b3a1e"/></svg></button><button id="arteDesf" aria-label="Desfazer"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 5 4.5 9.5 9 14" stroke-width="2.2"/><path d="M5 9.5h9a5.5 5.5 0 0 1 0 11h-3" stroke-width="2.2"/></svg></button><button id="arteLimpa" aria-label="Limpar"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M5.5 7.5h13l-1.2 12.3a1.5 1.5 0 0 1-1.5 1.2H8.2a1.5 1.5 0 0 1-1.5-1.2z" fill="#C9D6E3"/><path d="M3.5 7.5h17M9.5 7.5V4.5h5v3M10 11v6M14 11v6"/></svg></button><button id="arteLupa" aria-label="Lupa: ver de perto"><svg viewBox="0 0 24 24" fill="none" stroke="#5b3a1e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="10" cy="10" r="6.2" fill="#BFE6FF"/><path d="M14.6 14.6 20.5 20.5" stroke-width="3.2"/><path d="M7.4 8.2a3.2 3.2 0 0 1 2.4-2" stroke="#fff" stroke-width="1.8"/></svg></button></div>
       <button class="ok" id="artePronto">Pendurar no varal ✔</button>
       <button class="sai" id="arteSai">Voltar</button>
     </div>
@@ -482,7 +485,8 @@
       </div>
     </div>
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.21</div>
+    <div class="ver" id="ver">versão 1.22</div>
+    <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
 
@@ -2596,7 +2600,7 @@ function aveVoa(x,y,hh,flip,ph,rot){const f=Math.sin(ph),q=Math.floor((((ph%TAU)
   vDraw('passaro_voa',x,y+hh*.5+f*3,hh,flip,(rot||0)+f*.06,.78+.22*Math.abs(Math.cos(ph)));}
 function vDraw(k,x,by,hh,flip,rot,sy){const im=VIVO.im[k];if(!im||!im.width)return;const w=hh*im.width/im.height;
   ctx.save();ctx.translate(x,by);if(rot)ctx.rotate(rot);ctx.scale(flip?-1:1,sy||1);ctx.drawImage(im,-w/2,-hh,w,hh);ctx.restore();}
-const SARA={};['acena','pula','bochecha','em_pe','abraco','retrato','boneca','coelho','carinho3','ursinho','leopardo_pel','dalmata','passo1','passo2','passo3','passo4'].forEach(k=>{const im=new Image();im.src='img/sara/'+k+'.webp?v='+(k==='leopardo_pel'?2:1);SARA[k]=im;});
+const SARA={};['acena','pula','bochecha','em_pe','abraco','retrato','boneca','coelho','carinho3','ursinho','leopardo_pel','dalmata','passo1','passo2','passo3','passo4'].forEach(k=>{const im=new Image();im.src='img/sara/'+k+'.webp?v='+(k==='retrato'?3:k==='leopardo_pel'?2:1);SARA[k]=im;});
 function sDraw(k,x,by,hh,flip){const im=SARA[k];if(!im||!im.width)return;const w=hh*im.width/im.height;ctx.save();ctx.translate(x,by);ctx.scale(flip?-1:1,1);ctx.drawImage(im,-w/2,-hh,w,hh);ctx.restore();}
 let sara=null,saraT=14+Math.random()*10;
 let sur=[],aves=[],amigoRun=null,toca=null,tocaT=9,macVis=[],macT=7,poeiraT=0,ambT=4;
@@ -2830,7 +2834,7 @@ function buildAlbum(){const g=$('albumGrid');g.innerHTML='';const al=save.album|
       if(f.img){const im=new Image();im.onload=()=>{const s=Math.min(110/im.width,(f.arco?40:92)/im.height),w=im.width*s,h=im.height*s;
           if(f.arco){x.drawImage(im,4,96-h,w,h);x.drawImage(im,116-w,96-h,w,h);}else if(f.fruta){x.drawImage(im,48-w/2,96-h,w,h);drawFruit(x,f.fruta,93,62,1.05,0);}else x.drawImage(im,60-w/2,96-h,w,h);
           if(!has){x.globalCompositeOperation='source-atop';x.fillStyle='#d8cbb6';x.fillRect(0,0,120,100);x.globalCompositeOperation='source-over';}};
-        im.src='img/'+f.img+'.webp?v=2';}
+        im.src='img/'+f.img+'.webp?v=3';}
       if(!has&&!f.img){x.globalCompositeOperation='source-atop';x.fillStyle='#d8cbb6';x.fillRect(0,0,120,100);x.globalCompositeOperation='source-over';}};
     pinta();}
   $('albumCount').textContent=n+' de '+FIGS.length;$('openAlbum').classList.remove('novo');}
@@ -2932,7 +2936,7 @@ function brinqSolta(){const d=casa.drag;if(!d)return;casa.drag=null;const g=casa
     persist();const o=brinqPos(g).find(p=>p.k===d.k);if(o)for(let i=0;i<3;i++)casa.coracoes.push({x:o.x+(Math.random()-.5)*30,y:o.y-o.h*.8,vy:40+Math.random()*30,t:.8});}
   else{const o=brinqPos(g).find(p=>p.k===d.k);if(o)brinqToque(o);}}
 // coisinhas da Sara no quarto (posições na imagem do quarto 1400x781)
-const DECOR={};['mochila_sara','abajur_estrela','desenho1','desenho2','desenho3','desenho4'].forEach(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=1';DECOR[k]=im;});
+const DECOR={};['mochila_sara','abajur_estrela','desenho1','desenho2','desenho3','desenho4'].forEach(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v='+(k==='mochila_sara'?2:1);DECOR[k]=im;});
 const PAREDE=[{k:'desenho1',x:474,y:296,h:36,r:-.03},{k:'desenho4',x:944,y:298,h:72,r:.06},{k:'desenho2',x:1060,y:394,h:78,r:-.04},{k:'desenho3',x:930,y:562,h:92,r:.05}];
 const COR_EST=['#FFE066','#FF9EC7','#C3A6FF','#8FD8FF','#9BF0C0','#FFB38A'];
 const ESTRELAS_PROJ=Array.from({length:46},(_,i)=>({a:i*2.399,r:90+((i*97)%560),s:.6+((i*37)%10)/10,f:i*1.7}));
@@ -2956,7 +2960,7 @@ function casaProjetor(g,forte){const J=g.jan,ab=DECOR.abajur_estrela;if(!J||!ab.
 {const im=new Image();im.src='img/casinha/atelie.webp?v=1';CASA.atelie=im;}
 const SARA_REAIS=['sara_real1','sara_real2'].map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=2';return im;});
 const PAGINAS=['colorir1','colorir2','colorir3','colorir4','colorir5','colorir6','colorir7','colorir8','colorir9','colorir10','colorir11','colorir12'];
-const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=2';return im;});
+const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=3';return im;});
 const VARAL={x0:420,x1:895,y:268,pins:[452,530,617,700,775,845]}; // varal medido na imagem do Ateliê (1400x781)
 const galeriaIm=[];
 function galeriaLista(){if(!save.galeria)save.galeria=[];const out=SARA_REAIS.slice();
@@ -3186,16 +3190,22 @@ function arteInit(){if(ARTE.cv)return;ARTE.cv=$('arteCv');ARTE.ctx=ARTE.cv.getCo
   document.querySelectorAll('#arte [data-f]').forEach(b=>b.onclick=()=>{arteFerr(b.dataset.f);sfx.tap();});
   document.querySelectorAll('#arte [data-t]').forEach(b=>b.onclick=()=>{ARTE.tam=+b.dataset.t;document.querySelectorAll('#arte [data-t]').forEach(x=>x.classList.toggle('on',x===b));sfx.tap();});
   $('arteDesf').onclick=()=>{const d=ARTE.desf.pop();if(d){ARTE.cc.putImageData(d,0,0);artePinta();sfx.tap();}};
+  $('arteLupa').onclick=()=>{arteZoom(ARTE.zoom?0:1);sfx.tap();};
   $('arteLimpa').onclick=()=>{arteGuarda();ARTE.cc.clearRect(0,0,800,600);artePinta();sfx.splash();};
   $('arteSai').onclick=()=>{arteFecha(false);};$('artePagSai').onclick=()=>{arteFecha(false);};
   $('artePronto').onclick=()=>{arteFecha(true);};
-  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=1">';b.onclick=()=>{sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
+  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=3">';b.onclick=()=>{if(performance.now()-(ARTE.pagT||0)<500)return;sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
   const pt=e=>{const r=ARTE.cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*800,(e.clientY-r.top)/r.height*600];};
-  ARTE.cv.addEventListener('pointerdown',e=>{e.preventDefault();ARTE.cv.setPointerCapture(e.pointerId);const [x,y]=pt(e);arteGuarda();
+  ARTE.cv.addEventListener('pointerdown',e=>{e.preventDefault();ARTE.cv.setPointerCapture(e.pointerId);const [x,y]=pt(e);
+    if(ARTE.zoom===1){arteZoom(2,x,y);sfx.tap();return;} // lupa: este toque só escolhe onde ver de perto
+    arteGuarda();
     if(ARTE.ferr==='balde'){arteBalde(x,y);return;}if(ARTE.ferr==='estrela'||ARTE.ferr==='coracao'){arteCarimbo(x,y);return;}
     ARTE.ult=[x,y];arteTraco(x,y,x+.1,y);});
   ARTE.cv.addEventListener('pointermove',e=>{if(!ARTE.ult)return;const [x,y]=pt(e);arteTraco(ARTE.ult[0],ARTE.ult[1],x,y);ARTE.ult=[x,y];});
   const fim=()=>{ARTE.ult=null;};ARTE.cv.addEventListener('pointerup',fim);ARTE.cv.addEventListener('pointercancel',fim);}
+// lupa: 0 normal; 1 esperando o toque que escolhe o ponto; 2 ampliado (pinta normalmente; tocar na lupa volta)
+function arteZoom(z,x,y){ARTE.zoom=z;const c=ARTE.cv;if(!c)return;c.classList.toggle('mira',z===1);$('arteLupa').classList.toggle('on',z>0);
+  if(z===2){c.style.transformOrigin=(x/8)+'% '+(y/6)+'%';c.style.transform='scale(2.3)';}else c.style.transform='';}
 function arteFerr(f){ARTE.ferr=f;document.querySelectorAll('#arte [data-f]').forEach(x=>x.classList.toggle('on',x.dataset.f===f));}
 function arteGuarda(){ARTE.desf.push(ARTE.cc.getImageData(0,0,800,600));if(ARTE.desf.length>12)ARTE.desf.shift();}
 function artePinta(){const c=ARTE.ctx;c.fillStyle='#fff';c.fillRect(0,0,800,600);c.drawImage(ARTE.cor,0,0);if(ARTE.lin)c.drawImage(ARTE.lin,0,0);}
@@ -3214,14 +3224,14 @@ function arteBalde(x,y){x=x|0;y=y|0;if(x<0||y<0||x>=800||y>=600)return;
   for(let p=0;p<W*H;p++){let m=mk[p];if(!m){const px=p%W;m=(px>0&&mk[p-1])||(px<W-1&&mk[p+1])||(p>=W&&mk[p-W])||(p<W*(H-1)&&mk[p+W]);if(m){const j=p*4;if(tmp[j]+tmp[j+1]+tmp[j+2]<200)m=0;}}
     if(m){const j=p*4;d[j]=R;d[j+1]=G;d[j+2]=B;d[j+3]=255;}}
   ARTE.cc.putImageData(cd,0,0);ARTE.riscou=true;artePinta();sfx.splash();}
-function arteEscolhe(){arteInit();show('arte',true);$('artePag').classList.add('on');sfx.tap();}
-function arteAbre(pag){arteInit();show('arte',true);$('artePag').classList.remove('on');ARTE.cc.clearRect(0,0,800,600);ARTE.desf=[];ARTE.riscou=false;ARTE.pag=pag;
+function arteEscolhe(){arteInit();ARTE.pagT=performance.now();show('arte',true);$('artePag').classList.add('on');sfx.tap();} // o toque que abriu a lista não pode escolher um desenho sem querer
+function arteAbre(pag){arteInit();arteZoom(0);show('arte',true);$('artePag').classList.remove('on');ARTE.cc.clearRect(0,0,800,600);ARTE.desf=[];ARTE.riscou=false;ARTE.pag=pag;
   if(pag!=null&&PAG_IM[pag].width){const l=document.createElement('canvas');l.width=800;l.height=600;const lc=l.getContext('2d'),im=PAG_IM[pag],k=Math.min(800/im.width,600/im.height),w=im.width*k,h=im.height*k;
     lc.drawImage(im,(800-w)/2,(600-h)/2,w,h);const id=lc.getImageData(0,0,800,600),dd=id.data;
     for(let j=0;j<dd.length;j+=4){const v=(dd[j]+dd[j+1]+dd[j+2])/3;dd[j]=dd[j+1]=dd[j+2]=40;dd[j+3]=v<200?Math.min(255,(200-v)*2.2):0;} // só as linhas (o branco fica transparente)
     lc.putImageData(id,0,0);ARTE.lin=l;arteFerr('balde');}else{ARTE.lin=null;arteFerr('pincel');}
   artePinta();sfx.tap();}
-function arteFecha(guardar){show('arte',false);$('artePag').classList.remove('on');
+function arteFecha(guardar){arteZoom(0);show('arte',false);$('artePag').classList.remove('on');
   if(guardar&&ARTE.riscou){const c=document.createElement('canvas');c.width=400;c.height=300;const x=c.getContext('2d');x.drawImage(ARTE.cv,0,0,400,300);
     try{if(!save.galeria)save.galeria=[];const cheio=save.galeria.length>=4;save.galeria.unshift(c.toDataURL('image/jpeg',.72));save.galeria=save.galeria.slice(0,4);if(!save.galeriaRot)save.galeriaRot=[];save.galeriaRot.unshift(0);save.galeriaRot=save.galeriaRot.slice(0,4);galeriaIm.length=0;persist();
       if(cheio)casa.aviso={t:4.5,txt:'Varal cheio: o desenho mais antigo saiu para dar lugar ao novo'};}catch(e){}
@@ -3508,8 +3518,11 @@ function casaDraw(){const g=casaGeo(),im=CASA.quarto,sk=skinOf(save.sel);
   if(casa.drag&&casa.drag.moved&&casa.drag.cx!=null){const a=pratAlvo(g,casa.drag);if(a){const t=a.t;ctx.save();ctx.globalAlpha=.22;ctx.strokeStyle='#FFFBE6';ctx.lineWidth=9*S2;ctx.lineCap='round';
     ctx.beginPath();ctx.moveTo(t.x0,t.y);ctx.lineTo(t.x1,t.y);ctx.stroke();ctx.restore();}} // acende a prateleira onde o brinquedo vai ficar
   if(!arte&&casaSaraAtras())casaSaraDraw(g);
-  if(!arte)for(const o of bqs){if(casa.acao==='dormir'&&o.k==='coe')continue;if(casa.drag&&casa.drag.moved&&casa.drag.k===o.k)continue;bqDraw(o,0);}
+  // profundidade: brinquedos mais ao fundo que os bichinhos (prateleiras, fundo do chão) antes; os da frente depois, por cima deles
+  const petY=g.fy-14*S2,bqOk=o=>!arte&&!(casa.acao==='dormir'&&o.k==='coe')&&!(casa.drag&&casa.drag.moved&&casa.drag.k===o.k);
+  for(const o of bqs)if(bqOk(o)&&(o.prat||o.y<=petY))bqDraw(o,0);
   petsDraw(g);
+  for(const o of bqs)if(bqOk(o)&&!o.prat&&o.y>petY)bqDraw(o,0);
   const di=(k,cx,by,hh)=>{const m=CASA[k];if(!m.width)return;const w=hh*m.width/m.height;ctx.drawImage(m,cx-w/2,by-hh,w,hh);};
   // sombra
   ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.ellipse(x,fy+2,58*S2,10*S2,0,0,TAU);ctx.fill();
