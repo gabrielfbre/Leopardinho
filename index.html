@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- segurança: o jogo só carrega arquivos dele mesmo e não se conecta a nenhum endereço de fora -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
 <title>Leopardinho na Floresta</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -221,6 +223,11 @@
   .pad{display:grid;grid-template-columns:repeat(3,64px);gap:9px}
   .pad button{font-family:inherit;font-weight:900;font-size:24px;height:56px;border:0;border-radius:16px;background:#fff;color:#5b3a1e;box-shadow:0 4px 0 rgba(0,0,0,.15);cursor:pointer}
   #pinCancel{font-size:17px;padding:9px 26px;background:linear-gradient(#bdbdbd,#9e9e9e)}
+  #portao{background:rgba(12,60,36,.85);backdrop-filter:blur(3px);z-index:14}
+  #portaoQ{margin:0;color:#5b3a1e;font-size:18px;font-weight:800;text-align:center;line-height:1.3}
+  #portaoResp{min-width:120px;height:46px;border-radius:14px;background:#fff;color:#5b3a1e;font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 3px #f0dfc0}
+  #portaoResp.bad{animation:shake .35s}
+  #portaoSai{font-size:17px;padding:9px 26px;background:linear-gradient(#bdbdbd,#9e9e9e)}
   #resRank{display:none;background:rgba(255,255,255,.92);border-radius:18px;padding:8px 12px;margin:-4px 0 12px;min-width:260px;max-width:92vw}
   .rkt{font-weight:900;color:#b3541e;font-size:16px;margin-bottom:4px}
   .rk{display:grid;grid-template-columns:2.2em 1fr auto 3.2em;gap:8px;align-items:center;font-weight:800;color:#5b3a1e;font-size:15px;padding:2px 6px;border-radius:10px;text-align:left}
@@ -346,6 +353,7 @@
   #varalMenu button.certeza{background:#ff8a8a;color:#fff}
   #artePag{position:absolute;inset:10px;background:#fff8e7;border-radius:18px;display:none;flex-direction:column;align-items:center;gap:10px;padding:12px;overflow:auto}
   #artePag.on{display:flex}
+  #artePag{z-index:5}#arte.escolhe .arteLado,#arte.escolhe #arteCores{visibility:hidden} /* escolhendo o desenho: só a lista, sem os botões da pintura */
   #artePag .pags{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
   #artePag button.pg{width:190px;height:150px;border-radius:16px;border:0;background:#fff;box-shadow:0 0 0 2.5px #5b3a1e,0 4px 0 2.5px #5b3a1e;padding:6px;cursor:pointer}
   #artePag button.pg img{width:100%;height:100%;object-fit:contain}
@@ -464,7 +472,6 @@
 <div class="overlay" id="config">
   <div class="panel cfg">
     <h2>⚙️ Configurações</h2>
-    <label class="sl nmrow"><span>👤 Nome</span><input id="cfgName" maxlength="14" autocomplete="off" placeholder="Seu nome"></label>
     <label class="sl"><span>🔊 Barulhinhos</span><input type="range" id="vfx" min="0" max="100" step="1"><em id="vfxN"></em></label>
     <label class="sl"><span>🎵 Música</span><input type="range" id="vmus" min="0" max="100" step="1"><em id="vmusN"></em></label>
     <div class="dtit">Modo de jogo</div>
@@ -474,6 +481,7 @@
       <button class="dif" id="difD" data-d="dificil"><b>🔥 Difícil</b><small>3 vidas, muito mais rápido e mais obstáculos. Frutas valem o dobro!</small></button>
     </div>
     <button class="big hbtn" id="cfgHelp">📖 Como jogar</button>
+    <!--DEV-INICIO (sai da versão da loja)-->
     <div id="devBox">
       <div class="dtit">🛠️ Modo desenvolvedor</div>
       <div class="devs">
@@ -484,8 +492,9 @@
         <button class="dv gray" id="dvOut">🚪 Sair do modo desenvolvedor</button>
       </div>
     </div>
+    <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.22</div>
+    <div class="ver" id="ver">versão 1.23</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -533,12 +542,24 @@
   </div>
 </div>
 
+<!--DEV-INICIO-->
 <div class="overlay" id="pinBox">
   <div class="panel pin">
     <b>🛠️ Código do desenvolvedor</b>
     <div class="dots" id="pinDots"></div>
     <div class="pad" id="pad"></div>
     <button class="big" id="pinCancel">Cancelar</button>
+  </div>
+</div>
+<!--DEV-FIM-->
+
+<div class="overlay" id="portao">
+  <div class="panel pin">
+    <b>Só para adultos</b>
+    <p id="portaoQ"></p>
+    <div id="portaoResp"></div>
+    <div class="pad" id="portaoPad"></div>
+    <button class="big" id="portaoSai">Voltar</button>
   </div>
 </div>
 
@@ -721,7 +742,7 @@ const UPG=[
  {id:'ima',    icon:'🧲',name:'Ímã mais forte',    desc:'O ímã dura mais e puxa de mais longe.',      cost:[1500,3500,7000]},
  {id:'estrela',icon:'⭐',name:'Estrela mais longa',desc:'A estrela começa com mais tempo.',           cost:[1500,3500,7000]},
  {id:'amigo',  icon:'🐦',name:'Amiguinho',         desc:'Um passarinho voa junto e busca frutas para você.', cost:[2000,5000]},
- {id:'bau',    icon:'🎁',name:'Baú surpresa',      desc:'Ganhe um baú com prêmios no fim de cada partida.',  cost:[1500,4000]},
+ {id:'bau',    icon:'🎁',name:'Baú de prêmios',    desc:'No fim de cada partida: +50 🍓 (nível 2: +95 🍓) e, de vez em quando, um dourado.',  cost:[1500,4000]},
  {id:'escudo', icon:'🛡️',name:'Escudo inicial',    desc:'Começa cada partida dentro de uma bolha que salva de 1 batida.', cost:[6000]},
  {id:'sorte',  icon:'🍀',name:'Mais poderes',      desc:'Ímã, estrela e nuvem aparecem mais vezes.',  cost:[2500,6000]},
  {id:'turbo',  icon:'💨',name:'Turbo de corrida',  desc:'Frutas dão mais impulso na Corrida.',        cost:[2500,6000]},
@@ -781,7 +802,15 @@ const THEME_IDS=['floresta','praia','savana','neve','mistica','doces'];
 /* ---------- salvar ---------- */
 const KEY='leopardinho-v1';
 let save={total:0,owned:['leo'],sel:'leo',mute:false,trof:0,accOwned:[],acc:'',fase:'floresta',music:true,vfx:.8,vmus:.6,dif:'facil',fasesOk:1,recs:[],upg:{},nome:'',inv:{},slots:[null,null,null],slotsOk:0,stars:{}};
-try{const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&typeof s.total==='number') save=Object.assign(save,s);}catch(e){}
+// salvamento com cópia de segurança: se o save principal estiver estragado, usa a cópia (feita no início de cada sessão e ao sair do jogo)
+const KEY_COPIA=KEY+'-copia';
+function lerSave(k){try{const s=JSON.parse(localStorage.getItem(k)||'null');return s&&typeof s==='object'&&!Array.isArray(s)&&typeof s.total==='number'&&isFinite(s.total)?s:null;}catch(e){return null;}}
+{const s=lerSave(KEY)||lerSave(KEY_COPIA);if(s)save=Object.assign(save,s);}
+for(const k of ['total','gold','trof'])if(typeof save[k]==='number'&&(!isFinite(save[k])||save[k]<0))save[k]=0; // número estragado não derruba o jogo
+for(const k of ['owned','accOwned','recs'])if(!Array.isArray(save[k]))save[k]=k==='owned'?['leo']:[];
+if(!save.owned.includes('leo'))save.owned.unshift('leo');
+// não guardar mais o nome da criança: apaga o nome salvo e, nos recordes, fica só o leopardo
+if(save.nome||save.nomeSkip){save.nome='';delete save.nomeSkip;}(save.recs||[]).forEach(r=>{r.n=r.l||'Leo';});
 if(!THEMES[save.fase]) save.fase='floresta';
 if(!['facil','normal','dificil'].includes(save.dif)) save.dif='facil';
 if(typeof save.gold!=='number') save.gold=Math.floor((save.total||0)/40);
@@ -797,6 +826,10 @@ if(save.music===false){save.vmus=0;save.music=true;}
 save.fasesOk=clamp(Math.max(save.fasesOk|0,1,THEME_IDS.indexOf(save.fase)+1),1,THEME_IDS.length);
 let dirty=false;
 function persist(){dirty=false;try{localStorage.setItem(KEY,JSON.stringify(save))}catch(e){}}
+function salvaCopia(){try{localStorage.setItem(KEY_COPIA,JSON.stringify(save))}catch(e){}}
+salvaCopia(); // a cópia guarda o progresso validado do começo da sessão
+document.addEventListener('visibilitychange',()=>{if(document.hidden){persist();salvaCopia();}});
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist();}catch(e){} // pede ao navegador para não apagar os dados sozinho
 const skinOf=id=>SKINS.find(s=>s.id===id)||SKINS[0];
 const nextSkin=()=>SKINS.find(s=>!save.owned.includes(s.id));
 const nextAcc=()=>ACCS.find(a=>!save.accOwned.includes(a.id));
@@ -1294,13 +1327,15 @@ function gameOver(){
 }
 function bau(){
   const L=up('bau'); if(!L) return '';
-  const red=L===1?20+ri(61):40+ri(111); let g=0; if(Math.random()<(L===1?.15:.3)) g=1+ri(L===1?2:3);
+  // prêmio fixo, sem sorteio (ECA Digital), com a MESMA média do baú antigo: nível 1 = 50 🍓 e 0,225 dourado por partida;
+  // nível 2 = 95 🍓 e 0,6 dourado. O dourado vai se juntando (save.bauG) e sai inteiro quando completa 1.
+  const red=L===1?50:95; save.bauG=(save.bauG||0)+(L===1?.225:.6); const g=Math.floor(save.bauG+1e-9); save.bauG-=g;
   save.total+=red; save.gold+=g; persist(); updateHud();
-  return '<br>🎁 Baú surpresa: +'+red+' 🍓'+(g?' +'+g+' '+GS():'');
+  return '<br>🎁 Baú de prêmios: +'+red+' 🍓'+(g?' +'+g+' '+GS():'');
 }
 function infinityOver(){
   const m=metros(), recs=(save.recs||[]).slice(), best=recs.length?recs[0].m:0, dt=new Date();
-  const rec={m,n:save.nome||'Jogador',l:skinOf(save.sel).name,d:String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0'),t:Date.now()};
+  const rec={m,n:skinOf(save.sel).name,l:skinOf(save.sel).name,d:String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0'),t:Date.now()};
   recs.push(rec);recs.sort((a,b)=>b.m-a.m);save.recs=recs.slice(0,10);
   const gb=Math.floor(m/150); save.gold+=gb; persist(); updateHud();
   const novo=m>best&&m>0;
@@ -2959,8 +2994,9 @@ function casaProjetor(g,forte){const J=g.jan,ab=DECOR.abajur_estrela;if(!J||!ab.
 /* ---------- cômodos da Casinha: Quarto e Ateliê da Sara ---------- */
 {const im=new Image();im.src='img/casinha/atelie.webp?v=1';CASA.atelie=im;}
 const SARA_REAIS=['sara_real1','sara_real2'].map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=2';return im;});
-const PAGINAS=['colorir1','colorir2','colorir3','colorir4','colorir5','colorir6','colorir7','colorir8','colorir9','colorir10','colorir11','colorir12'];
-const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=3';return im;});
+// primeiro os 6 desenhos simples (áreas grandes, para começar); depois os mais detalhados
+const PAGINAS=['colorir13','colorir14','colorir15','colorir16','colorir17','colorir18','colorir1','colorir2','colorir3','colorir4','colorir5','colorir6','colorir7','colorir8','colorir9','colorir10','colorir11','colorir12'];
+const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=5';return im;});
 const VARAL={x0:420,x1:895,y:268,pins:[452,530,617,700,775,845]}; // varal medido na imagem do Ateliê (1400x781)
 const galeriaIm=[];
 function galeriaLista(){if(!save.galeria)save.galeria=[];const out=SARA_REAIS.slice();
@@ -3110,7 +3146,11 @@ const MESA={prL:[472,536],prR:[912,536],copos:[[566,536],[842,536],[880,512]],ja
 function pratinho(x,y,w){ctx.fillStyle='rgba(0,0,0,.1)';ctx.beginPath();ctx.ellipse(x,y+w*.05,w*.5,w*.14,0,0,TAU);ctx.fill();
   ctx.fillStyle='#fff';ctx.strokeStyle='#5b3a1e';ctx.lineWidth=Math.max(1.5,w*.04);ctx.beginPath();ctx.ellipse(x,y,w*.5,w*.15,0,0,TAU);ctx.fill();ctx.stroke();
   ctx.strokeStyle='#FF9EC7';ctx.lineWidth=Math.max(1,w*.035);ctx.beginPath();ctx.ellipse(x,y,w*.38,w*.1,0,0,TAU);ctx.stroke();}
-function copoSuco(x,y,h){const w=h*.68,top=y-h;ctx.save();ctx.lineJoin='round';
+const SUCO={};['jarra_suco','copo_suco'].forEach(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=1';SUCO[k]=im;});
+// jarra e copinho de suco ilustrados; (x,y) = centro da base, h = altura do corpo (o canudo e a rodela de laranja ficam acima)
+function sucoIm(im,x,y,hTot,dx){const w=hTot*im.width/im.height;ctx.drawImage(im,x-w/2+dx*w,y-hTot,w,hTot);}
+function copoSuco(x,y,h){const im=SUCO.copo_suco;if(im.complete&&im.width){sucoIm(im,x,y+h*.04,h*1.6,.06);return;}
+  const w=h*.68,top=y-h;ctx.save();ctx.lineJoin='round';
   ctx.fillStyle='rgba(225,245,255,.75)';ctx.beginPath();ctx.moveTo(x-w/2,top);ctx.lineTo(x+w/2,top);ctx.lineTo(x+w*.4,y);ctx.lineTo(x-w*.4,y);ctx.closePath();ctx.fill();
   const lv=top+h*.22;ctx.fillStyle='#FFA61C';ctx.beginPath();ctx.moveTo(x-w*.48,lv);ctx.lineTo(x+w*.48,lv);ctx.lineTo(x+w*.4,y);ctx.lineTo(x-w*.4,y);ctx.closePath();ctx.fill();
   ctx.fillStyle='rgba(255,255,255,.55)';ctx.fillRect(x-w*.3,lv+h*.08,w*.1,h*.5);
@@ -3118,7 +3158,8 @@ function copoSuco(x,y,h){const w=h*.68,top=y-h;ctx.save();ctx.lineJoin='round';
   ctx.strokeStyle='#FF6FA8';ctx.lineWidth=Math.max(2,h*.08);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x+w*.12,y-h*.25);ctx.lineTo(x+w*.3,top-h*.28);ctx.lineTo(x+w*.55,top-h*.36);ctx.stroke(); // canudinho
   ctx.fillStyle='#FFD43B';ctx.strokeStyle='#5b3a1e';ctx.lineWidth=Math.max(1,h*.04);ctx.beginPath();ctx.arc(x-w*.42,top+h*.02,h*.15,PI*1.05,PI*2.1);ctx.closePath();ctx.fill();ctx.stroke(); // rodela de laranja
   ctx.restore();}
-function jarraSuco(x,y,h){const w=h*.62,top=y-h;ctx.save();ctx.lineJoin='round';
+function jarraSuco(x,y,h){const im=SUCO.jarra_suco;if(im.complete&&im.width){sucoIm(im,x,y+h*.04,h*1.3,.05);return;}
+  const w=h*.62,top=y-h;ctx.save();ctx.lineJoin='round';
   const forma=()=>{ctx.beginPath();ctx.moveTo(x-w*.4,top);ctx.lineTo(x+w*.32,top);ctx.quadraticCurveTo(x+w*.55,y-h*.55,x+w*.5,y);ctx.lineTo(x-w*.5,y);ctx.quadraticCurveTo(x-w*.55,y-h*.55,x-w*.4,top);ctx.closePath();};
   ctx.fillStyle='rgba(225,245,255,.75)';forma();ctx.fill();
   ctx.save();forma();ctx.clip();ctx.fillStyle='#FFA61C';ctx.fillRect(x-w,top+h*.25,w*2,h);ctx.restore();
@@ -3184,28 +3225,51 @@ setInterval(()=>{if(BOLO.cv&&$('bolo').classList.contains('on'))boloDesenha(1/30
 
 /* desenhar com o dedo e colorir tocando */
 const ARTE={cv:null,ctx:null,cor:null,cc:null,lin:null,cores:['#FF5FA2','#FFB3D1','#E63946','#FF9F1C','#FFE066','#F6C9A0','#5CC66B','#2E8B57','#9ED8F6','#4DA8FF','#CDB4FF','#9B6BFF','#8B5A2B','#A0A0A0','#333333','#FFFFFF'],
-  corAt:'#FF5FA2',ferr:'pincel',tam:24,desf:[],pag:null,ult:null,riscou:false};
+  corAt:'#FF5FA2',ferr:'pincel',tam:24,desf:[],pag:null,ult:null,riscou:false,vs:1,vx:0,vy:0,zoom:0,gesto:null,pintando:false};
 function arteInit(){if(ARTE.cv)return;ARTE.cv=$('arteCv');ARTE.ctx=ARTE.cv.getContext('2d');ARTE.cor=document.createElement('canvas');ARTE.cor.width=800;ARTE.cor.height=600;ARTE.cc=ARTE.cor.getContext('2d');
   const cs=$('arteCores');ARTE.cores.forEach((c,i)=>{const b=document.createElement('button');b.className='cor'+(i===0?' on':'');b.style.background=c;b.onclick=()=>{ARTE.corAt=c;cs.querySelectorAll('.cor').forEach(x=>x.classList.toggle('on',x===b));if(ARTE.ferr==='borracha')arteFerr('pincel');sfx.tap();};cs.appendChild(b);});
   document.querySelectorAll('#arte [data-f]').forEach(b=>b.onclick=()=>{arteFerr(b.dataset.f);sfx.tap();});
   document.querySelectorAll('#arte [data-t]').forEach(b=>b.onclick=()=>{ARTE.tam=+b.dataset.t;document.querySelectorAll('#arte [data-t]').forEach(x=>x.classList.toggle('on',x===b));sfx.tap();});
   $('arteDesf').onclick=()=>{const d=ARTE.desf.pop();if(d){ARTE.cc.putImageData(d,0,0);artePinta();sfx.tap();}};
-  $('arteLupa').onclick=()=>{arteZoom(ARTE.zoom?0:1);sfx.tap();};
+  $('arteLupa').onclick=()=>{arteZoom(ARTE.vs>1||ARTE.zoom===1?0:1);sfx.tap();};
   $('arteLimpa').onclick=()=>{arteGuarda();ARTE.cc.clearRect(0,0,800,600);artePinta();sfx.splash();};
   $('arteSai').onclick=()=>{arteFecha(false);};$('artePagSai').onclick=()=>{arteFecha(false);};
   $('artePronto').onclick=()=>{arteFecha(true);};
-  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=3">';b.onclick=()=>{if(performance.now()-(ARTE.pagT||0)<500)return;sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
+  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=5">';b.onclick=()=>{if(performance.now()-(ARTE.pagT||0)<500)return;sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
   const pt=e=>{const r=ARTE.cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*800,(e.clientY-r.top)/r.height*600];};
-  ARTE.cv.addEventListener('pointerdown',e=>{e.preventDefault();ARTE.cv.setPointerCapture(e.pointerId);const [x,y]=pt(e);
+  ARTE.dedos=new Map(); // dedos encostados no desenho: 1 dedo pinta; 2 dedos aproximam e arrastam
+  ARTE.cv.addEventListener('pointerdown',e=>{e.preventDefault();try{ARTE.cv.setPointerCapture(e.pointerId);}catch(_){}ARTE.dedos.set(e.pointerId,[e.clientX,e.clientY]);
+    if(ARTE.dedos.size===2){ // chegou o segundo dedo: é zoom, não pintura; desfaz o que o primeiro dedo começou
+      if(ARTE.pintando){const d=ARTE.desf.pop();if(d){ARTE.cc.putImageData(d,0,0);artePinta();}}
+      ARTE.ult=null;ARTE.pintando=false;arteGestoIni();return;}
+    if(ARTE.dedos.size>2||ARTE.gesto)return;
+    const [x,y]=pt(e);
     if(ARTE.zoom===1){arteZoom(2,x,y);sfx.tap();return;} // lupa: este toque só escolhe onde ver de perto
-    arteGuarda();
+    arteGuarda();ARTE.pintando=true;
     if(ARTE.ferr==='balde'){arteBalde(x,y);return;}if(ARTE.ferr==='estrela'||ARTE.ferr==='coracao'){arteCarimbo(x,y);return;}
     ARTE.ult=[x,y];arteTraco(x,y,x+.1,y);});
-  ARTE.cv.addEventListener('pointermove',e=>{if(!ARTE.ult)return;const [x,y]=pt(e);arteTraco(ARTE.ult[0],ARTE.ult[1],x,y);ARTE.ult=[x,y];});
-  const fim=()=>{ARTE.ult=null;};ARTE.cv.addEventListener('pointerup',fim);ARTE.cv.addEventListener('pointercancel',fim);}
-// lupa: 0 normal; 1 esperando o toque que escolhe o ponto; 2 ampliado (pinta normalmente; tocar na lupa volta)
-function arteZoom(z,x,y){ARTE.zoom=z;const c=ARTE.cv;if(!c)return;c.classList.toggle('mira',z===1);$('arteLupa').classList.toggle('on',z>0);
-  if(z===2){c.style.transformOrigin=(x/8)+'% '+(y/6)+'%';c.style.transform='scale(2.3)';}else c.style.transform='';}
+  ARTE.cv.addEventListener('pointermove',e=>{if(ARTE.dedos.has(e.pointerId))ARTE.dedos.set(e.pointerId,[e.clientX,e.clientY]);
+    if(ARTE.gesto){arteGestoMove();return;}if(!ARTE.ult)return;const [x,y]=pt(e);arteTraco(ARTE.ult[0],ARTE.ult[1],x,y);ARTE.ult=[x,y];});
+  const fim=e=>{ARTE.dedos.delete(e.pointerId);ARTE.ult=null;if(!ARTE.dedos.size){ARTE.gesto=null;ARTE.pintando=false;}}; // depois do zoom, só volta a pintar quando todos os dedos saírem
+  ARTE.cv.addEventListener('pointerup',fim);ARTE.cv.addEventListener('pointercancel',fim);
+  ARTE.cv.addEventListener('wheel',e=>{e.preventDefault();const r=ARTE.cv.getBoundingClientRect(),lx=r.left-ARTE.vx,ly=r.top-ARTE.vy,mx=e.clientX-lx,my=e.clientY-ly,
+    qx=(mx-ARTE.vx)/ARTE.vs,qy=(my-ARTE.vy)/ARTE.vs,S=Math.max(1,Math.min(4,ARTE.vs*Math.exp(-e.deltaY*.0015)));if(ARTE.zoom===1)arteZoom(0);arteVista(S,mx-qx*S,my-qy*S,false);},{passive:false});} // computador: rodinha do mouse
+// vista do desenho: escala s (1 a 4) e deslocamento (tx,ty) em px; o desenho sempre cobre a moldura
+function arteVista(s,tx,ty,anim){const c=ARTE.cv;if(!c)return;const w=c.offsetWidth,h=c.offsetHeight;s=Math.max(1,Math.min(4,s));
+  tx=Math.min(0,Math.max(w*(1-s),tx));ty=Math.min(0,Math.max(h*(1-s),ty));if(s<1.001){s=1;tx=0;ty=0;}ARTE.vs=s;ARTE.vx=tx;ARTE.vy=ty;
+  c.style.transition=anim?'':'none';c.style.transformOrigin='0 0';c.style.transform=s>1?'translate('+tx+'px,'+ty+'px) scale('+s+')':'';
+  $('arteLupa').classList.toggle('on',s>1||ARTE.zoom===1);}
+function arteGestoIni(){const [a,b]=[...ARTE.dedos.values()],r=ARTE.cv.getBoundingClientRect(),lx=r.left-ARTE.vx,ly=r.top-ARTE.vy, // canto do desenho sem zoom
+    mx=(a[0]+b[0])/2-lx,my=(a[1]+b[1])/2-ly;
+  ARTE.gesto={d0:Math.max(10,Math.hypot(a[0]-b[0],a[1]-b[1])),s0:ARTE.vs,qx:(mx-ARTE.vx)/ARTE.vs,qy:(my-ARTE.vy)/ARTE.vs,lx,ly};
+  if(ARTE.zoom===1){ARTE.zoom=0;ARTE.cv.classList.remove('mira');}}
+function arteGestoMove(){const G=ARTE.gesto,v=[...ARTE.dedos.values()];if(v.length<2)return;const [a,b]=v,
+    S=Math.max(1,Math.min(4,G.s0*Math.hypot(a[0]-b[0],a[1]-b[1])/G.d0)),mx=(a[0]+b[0])/2-G.lx,my=(a[1]+b[1])/2-G.ly;
+  arteVista(S,mx-G.qx*S,my-G.qy*S,false);} // o ponto que estava entre os dedos continua entre os dedos
+// lupa: 0 normal; 1 esperando o toque que escolhe o ponto; 2 ampliado no ponto tocado. Tocar na lupa com o desenho ampliado volta ao normal.
+function arteZoom(z,x,y){const c=ARTE.cv;ARTE.zoom=z;if(!c)return;c.classList.toggle('mira',z===1);
+  if(z===2){const w=c.offsetWidth,h=c.offsetHeight,px=x/800*w,py=y/600*h,S=2.3;arteVista(S,px*(1-S),py*(1-S),true);}
+  else if(z===0)arteVista(1,0,0,true);else $('arteLupa').classList.add('on');}
 function arteFerr(f){ARTE.ferr=f;document.querySelectorAll('#arte [data-f]').forEach(x=>x.classList.toggle('on',x.dataset.f===f));}
 function arteGuarda(){ARTE.desf.push(ARTE.cc.getImageData(0,0,800,600));if(ARTE.desf.length>12)ARTE.desf.shift();}
 function artePinta(){const c=ARTE.ctx;c.fillStyle='#fff';c.fillRect(0,0,800,600);c.drawImage(ARTE.cor,0,0);if(ARTE.lin)c.drawImage(ARTE.lin,0,0);}
@@ -3213,7 +3277,10 @@ function arteTraco(x0,y0,x1,y1){const c=ARTE.cc;c.save();if(ARTE.ferr==='borrach
   c.strokeStyle=ARTE.corAt;c.lineWidth=ARTE.ferr==='borracha'?ARTE.tam*1.6:ARTE.tam;c.lineCap='round';c.lineJoin='round';c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke();c.restore();ARTE.riscou=true;artePinta();}
 function arteCarimbo(x,y){const c=ARTE.cc;c.fillStyle=ARTE.corAt;c.strokeStyle='rgba(0,0,0,.25)';c.lineWidth=3;const r=ARTE.tam*1.6+14;
   if(ARTE.ferr==='estrela')star5(c,x,y,r);else heart(c,x,y,r*.9);ARTE.riscou=true;artePinta();sfx.get(ri(5));}
+// Balde. Com desenho de colorir, usa o mapa de áreas da página (arteMapa): o traço conta como 2 px mais grosso,
+// o que fecha frestas pequenas do desenho (a tinta não vaza), e o toque escolhe a área com folga para o dedo.
 function arteBalde(x,y){x=x|0;y=y|0;if(x<0||y<0||x>=800||y>=600)return;
+  if(ARTE.mapa){const k=arteArea(x,y);if(k)arteEnche(k);return;}
   const tmp=ARTE.ctx.getImageData(0,0,800,600).data,W=800,H=600,i0=(y*W+x)*4,r0=tmp[i0],g0=tmp[i0+1],b0=tmp[i0+2];
   if(r0+g0+b0<150)return; // tocou na linha preta
   const hex=ARTE.corAt,R=parseInt(hex.substr(1,2),16),G=parseInt(hex.substr(3,2),16),B=parseInt(hex.substr(5,2),16);
@@ -3224,14 +3291,49 @@ function arteBalde(x,y){x=x|0;y=y|0;if(x<0||y<0||x>=800||y>=600)return;
   for(let p=0;p<W*H;p++){let m=mk[p];if(!m){const px=p%W;m=(px>0&&mk[p-1])||(px<W-1&&mk[p+1])||(p>=W&&mk[p-W])||(p<W*(H-1)&&mk[p+W]);if(m){const j=p*4;if(tmp[j]+tmp[j+1]+tmp[j+2]<200)m=0;}}
     if(m){const j=p*4;d[j]=R;d[j+1]=G;d[j+2]=B;d[j+3]=255;}}
   ARTE.cc.putImageData(cd,0,0);ARTE.riscou=true;artePinta();sfx.splash();}
-function arteEscolhe(){arteInit();ARTE.pagT=performance.now();show('arte',true);$('artePag').classList.add('on');sfx.tap();} // o toque que abriu a lista não pode escolher um desenho sem querer
-function arteAbre(pag){arteInit();arteZoom(0);show('arte',true);$('artePag').classList.remove('on');ARTE.cc.clearRect(0,0,800,600);ARTE.desf=[];ARTE.riscou=false;ARTE.pag=pag;
+// mapa de áreas: dono[p] = número da área do pixel p (0 = traço). Calculado uma vez ao abrir o desenho.
+function arteMapa(){ARTE.mapa=null;const L=ARTE.lin;if(!L)return;const W=800,H=600,N=W*H,a=L.getContext('2d').getImageData(0,0,W,H).data;
+  const lin=new Uint8Array(N);for(let p=0;p<N;p++)lin[p]=a[p*4+3]>24?1:0; // mesmo limite em que o balde antigo parava
+  const t=new Uint8Array(N),bar=new Uint8Array(N),R=2; // traço engrossado R px (quadrado 5x5): fecha frestas de até ~4 px
+  for(let y=0;y<H;y++){const o=y*W;for(let x=0;x<W;x++){let m=0;for(let d=-R;d<=R&&!m;d++){const xx=x+d;if(xx>=0&&xx<W&&lin[o+xx])m=1;}t[o+x]=m;}}
+  for(let y=0;y<H;y++){for(let x=0;x<W;x++){let m=0;for(let d=-R;d<=R&&!m;d++){const yy=y+d;if(yy>=0&&yy<H&&t[yy*W+x])m=1;}bar[y*W+x]=m;}}
+  const dono=new Int32Array(N),fila=new Int32Array(N);let n=0;
+  const rotula=livre=>{for(let p0=0;p0<N;p0++){if(dono[p0]||!livre(p0))continue;n++;let h=0,q=0;fila[q++]=p0;dono[p0]=n;
+    while(h<q){const p=fila[h++],x=p%W;
+      if(x>0&&!dono[p-1]&&livre(p-1)){dono[p-1]=n;fila[q++]=p-1;}if(x<W-1&&!dono[p+1]&&livre(p+1)){dono[p+1]=n;fila[q++]=p+1;}
+      if(p>=W&&!dono[p-W]&&livre(p-W)){dono[p-W]=n;fila[q++]=p-W;}if(p<N-W&&!dono[p+W]&&livre(p+W)){dono[p+W]=n;fila[q++]=p+W;}}}};
+  rotula(p=>!bar[p]);
+  // a área volta a crescer até encostar no traço de verdade (sem deixar branco na borda); na fresta, cada lado fica com a sua metade
+  let h=0,q=0;for(let p=0;p<N;p++)if(dono[p])fila[q++]=p;
+  while(h<q){const p=fila[h++],x=p%W,d=dono[p];
+    if(x>0&&!dono[p-1]&&!lin[p-1]){dono[p-1]=d;fila[q++]=p-1;}if(x<W-1&&!dono[p+1]&&!lin[p+1]){dono[p+1]=d;fila[q++]=p+1;}
+    if(p>=W&&!dono[p-W]&&!lin[p-W]){dono[p-W]=d;fila[q++]=p-W;}if(p<N-W&&!dono[p+W]&&!lin[p+W]){dono[p+W]=d;fila[q++]=p+W;}}
+  rotula(p=>!lin[p]); // áreas tão finas que sumiriam com o traço engrossado: ficam com número próprio
+  const tam=new Int32Array(n+1),rep=new Int32Array(n+1).fill(-1);for(let p=0;p<N;p++){const d=dono[p];if(d){tam[d]++;if(rep[d]<0)rep[d]=p;}}
+  ARTE.mapa={dono,lin,tam,rep};}
+// qual área pintar no toque (x,y)
+function arteArea(x,y){const M=ARTE.mapa,W=800,H=600,r=Math.max(3,Math.round(9/(ARTE.vs||1)));let d=M.dono[y*W+x];const cont=new Map();let tot=0;
+  for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){if(dx*dx+dy*dy>r*r)continue;const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=W||yy>=H)continue;tot++;const k=M.dono[yy*W+xx];if(k)cont.set(k,(cont.get(k)||0)+1);}
+  if(!d){let b=0;for(const [k,c] of cont)if(c>b){b=c;d=k;}if(!d)return 0;} // tocou em cima do traço: a área que mais aparece sob o dedo
+  // dedo grande: se uma área pequena (caule, pétala, olho) ocupa boa parte do toque, é ela que a criança quis pintar
+  let esc=d;for(const [k,c] of cont)if(k!==d&&M.tam[k]<1500&&M.tam[k]*4<M.tam[d]&&c>=tot*.25&&M.tam[k]<M.tam[esc])esc=k;
+  if(esc!==d){const j=M.rep[esc]*4,cd=ARTE.cc.getImageData(M.rep[esc]%W,(M.rep[esc]/W)|0,1,1).data,hx=ARTE.corAt;
+    if(cd[3]>200&&Math.abs(cd[0]-parseInt(hx.substr(1,2),16))+Math.abs(cd[1]-parseInt(hx.substr(3,2),16))+Math.abs(cd[2]-parseInt(hx.substr(5,2),16))<12)esc=d;} // a pequena já está dessa cor: então era a outra
+  return esc;}
+function arteEnche(k){const M=ARTE.mapa,W=800,N=W*600,hex=ARTE.corAt,R=parseInt(hex.substr(1,2),16),G=parseInt(hex.substr(3,2),16),B=parseInt(hex.substr(5,2),16);
+  const cd=ARTE.cc.getImageData(0,0,W,600),d=cd.data,o=M.dono;
+  for(let p=0;p<N;p++){let m=o[p]===k;if(!m&&M.lin[p]){const x=p%W;m=(x>0&&o[p-1]===k)||(x<W-1&&o[p+1]===k)||(p>=W&&o[p-W]===k)||(p<N-W&&o[p+W]===k);} // pinta também a borda do traço, sem halo branco
+    if(m){const j=p*4;d[j]=R;d[j+1]=G;d[j+2]=B;d[j+3]=255;}}
+  ARTE.cc.putImageData(cd,0,0);ARTE.riscou=true;artePinta();sfx.splash();}
+function arteEscolhe(){arteInit();ARTE.pagT=performance.now();show('arte',true);$('artePag').classList.add('on');$('arte').classList.add('escolhe');sfx.tap();} // o toque que abriu a lista não pode escolher um desenho sem querer
+function arteAbre(pag){arteInit();arteZoom(0);show('arte',true);$('artePag').classList.remove('on');$('arte').classList.remove('escolhe');ARTE.cc.clearRect(0,0,800,600);ARTE.desf=[];ARTE.riscou=false;ARTE.pag=pag;
   if(pag!=null&&PAG_IM[pag].width){const l=document.createElement('canvas');l.width=800;l.height=600;const lc=l.getContext('2d'),im=PAG_IM[pag],k=Math.min(800/im.width,600/im.height),w=im.width*k,h=im.height*k;
     lc.drawImage(im,(800-w)/2,(600-h)/2,w,h);const id=lc.getImageData(0,0,800,600),dd=id.data;
     for(let j=0;j<dd.length;j+=4){const v=(dd[j]+dd[j+1]+dd[j+2])/3;dd[j]=dd[j+1]=dd[j+2]=40;dd[j+3]=v<200?Math.min(255,(200-v)*2.2):0;} // só as linhas (o branco fica transparente)
     lc.putImageData(id,0,0);ARTE.lin=l;arteFerr('balde');}else{ARTE.lin=null;arteFerr('pincel');}
+  arteMapa();
   artePinta();sfx.tap();}
-function arteFecha(guardar){arteZoom(0);show('arte',false);$('artePag').classList.remove('on');
+function arteFecha(guardar){arteZoom(0);show('arte',false);$('artePag').classList.remove('on');$('arte').classList.remove('escolhe');
   if(guardar&&ARTE.riscou){const c=document.createElement('canvas');c.width=400;c.height=300;const x=c.getContext('2d');x.drawImage(ARTE.cv,0,0,400,300);
     try{if(!save.galeria)save.galeria=[];const cheio=save.galeria.length>=4;save.galeria.unshift(c.toDataURL('image/jpeg',.72));save.galeria=save.galeria.slice(0,4);if(!save.galeriaRot)save.galeriaRot=[];save.galeriaRot.unshift(0);save.galeriaRot=save.galeriaRot.slice(0,4);galeriaIm.length=0;persist();
       if(cheio)casa.aviso={t:4.5,txt:'Varal cheio: o desenho mais antigo saiu para dar lugar ao novo'};}catch(e){}
@@ -3708,7 +3810,7 @@ function updateHud(bump){
     nextCtx.setTransform(1,0,0,1,0,0);nextCtx.clearRect(0,0,88,68);
     drawLeopardFit(nextCtx,88,68,nx,still(),.5,3);}
 }
-function show(id,on){$(id).classList.toggle('on',on)}
+function show(id,on){const e=$(id);if(e)e.classList.toggle('on',on)} // tolera elemento que não existe (ex.: teclado do desenvolvedor, fora da versão da loja)
 // mede o placar (esquerda) e o painel de dificuldade (direita) para o menu não ficar por baixo deles
 function fitMenu(){const st=document.documentElement.style, l=$('hud').firstElementChild.getBoundingClientRect(), d=$('difSide').getBoundingClientRect();
   if(!$('menu').classList.contains('on')||d.width<=0||l.width<=0)return; // só mede com o menu na tela (escondido, o painel mede zero e espremia o menu)
@@ -3720,7 +3822,7 @@ addEventListener('resize',fitMenu);
 function setState(s){if(s!=='play')varalMenuFecha();
   state=s;
   for(const id of ['menu','shop','unlock','result','config']) show(id,s===id);
-  show('pinBox',false);if(s==='menu')requestAnimationFrame(fitMenu);
+  show('pinBox',false);show('portao',false);if(s==='menu')requestAnimationFrame(fitMenu);
   $('home').style.display=s==='play'?'grid':'none';$('openHelp').style.display=s==='menu'?'grid':'none';
   $('rollBtn').classList.toggle('on',s==='play'&&!semPulo());show('casaBar',s==='play'&&mode==='casa'&&casa.sala!=='arte');
   if(typeof paintSlots==='function') paintSlots();
@@ -3865,10 +3967,10 @@ $('next').addEventListener('click',()=>{audioInit();sfx.tap();if(state!=='play'&
 /* configurações */
 let cfgBack='menu', vfxT=0;
 /* modo desenvolvedor: 7 toques em "versão" e código de 6 dígitos */
+/*DEV-INICIO (sai da versão da loja)*/
 const DEV_H=1796751912;
 const devHash=t=>{let x=5381;for(const ch of 'leo-dev:'+t) x=(((x<<5)+x)+ch.charCodeAt(0))>>>0;return x;};
 let verTaps=0,verT=0,pinTxt='',resetArm=0;
-function devShow(){$('devBox').classList.toggle('on',!!save.dev);}
 function pinPaint(){$('pinDots').innerHTML='';for(let k=0;k<6;k++){const i=document.createElement('i');if(k<pinTxt.length)i.className='on';$('pinDots').appendChild(i);}}
 ['1','2','3','4','5','6','7','8','9','⌫','0','✓'].forEach(k=>{const b=document.createElement('button');b.textContent=k;$('pad').appendChild(b);
   b.addEventListener('click',()=>{sfx.tap();
@@ -3882,6 +3984,22 @@ function pinPaint(){$('pinDots').innerHTML='';for(let k=0;k<6;k++){const i=docum
 $('ver').addEventListener('click',()=>{const n=performance.now();verTaps=n-verT<900?verTaps+1:1;verT=n;
   if(verTaps>=7){verTaps=0;if(save.dev){devShow();return;}pinTxt='';pinPaint();show('pinBox',true);}});
 $('pinCancel').addEventListener('click',()=>{sfx.tap();show('pinBox',false);});
+/*DEV-FIM*/
+function devShow(){const b=$('devBox');if(b)b.classList.toggle('on',!!save.dev);}
+// portão parental (compra, política, Área dos pais): conta escrita por extenso, que uma criança pequena não lê nem resolve.
+// Uso: portaoPais(()=>{ ...o que só o adulto pode fazer... })
+const NUM_EXT=['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove'],PORTAO={ok:null,a:0,b:0,txt:''};
+function portaoPais(ok){PORTAO.ok=ok;portaoNova();show('portao',true);sfx.tap();}
+function portaoNova(){PORTAO.a=3+ri(7);PORTAO.b=3+ri(7);PORTAO.txt='';$('portaoQ').textContent='Quanto é '+NUM_EXT[PORTAO.a]+' vezes '+NUM_EXT[PORTAO.b]+'?';$('portaoResp').textContent='';}
+['1','2','3','4','5','6','7','8','9','⌫','0','✓'].forEach(k=>{const b=document.createElement('button');b.textContent=k;$('portaoPad').appendChild(b);
+  b.addEventListener('click',()=>{sfx.tap();const P=PORTAO;
+    if(k==='⌫')P.txt=P.txt.slice(0,-1);
+    else if(k==='✓'){if(P.txt&&+P.txt===P.a*P.b){show('portao',false);const f=P.ok;P.ok=null;if(f)f();return;}
+      const r=$('portaoResp');r.classList.remove('bad');void r.offsetWidth;r.classList.add('bad');sfx.bonk();portaoNova();return;} // errou: outra conta
+    else if(P.txt.length<2)P.txt+=k;
+    $('portaoResp').textContent=P.txt;});});
+$('portaoSai').addEventListener('click',()=>{sfx.tap();PORTAO.ok=null;show('portao',false);});
+/*DEV-INICIO*/
 $('dvAll').addEventListener('click',()=>{save.owned=SKINS.map(s=>s.id);save.accOwned=ACCS.map(a=>a.id);save.fasesOk=THEME_IDS.length;
   save.total=Math.max(save.total,5000);save.gold=Math.max(save.gold,500);UPG.forEach(u=>save.upg[u.id]=u.cost.length);save.slotsOk=3;POW.forEach(q=>save.inv[q.id]=Math.max(save.inv[q.id]|0,5));save.slots=['estrela','escudo','ima'];THEME_IDS.forEach(id=>save.stars[id]=Math.max(save.stars[id]|0,2));
   persist();updateHud(true);buildFases();sfx.yay();confetti();});
@@ -3893,9 +4011,10 @@ $('dvReset').addEventListener('click',()=>{const n=performance.now();
   Object.assign(save,{total:0,gold:0,owned:['leo'],sel:'leo',trof:0,accOwned:[],acc:'',fase:'floresta',fasesOk:1,recs:[],upg:{},inv:{},slots:[null,null,null],slotsOk:0,stars:{}});paintMenu();
   resetArm=0;$('dvReset').textContent='🗑️ Zerar progresso';persist();updateHud.last=null;updateHud();setFase('floresta');sfx.tap();});
 $('dvOut').addEventListener('click',()=>{save.dev=false;persist();devShow();sfx.tap();});
+/*DEV-FIM*/
 function paintSlider(el){el.style.setProperty('--p',el.value+'%');}
 function syncCfg(){
-  devShow(); $('cfgName').value=save.nome||'';
+  devShow();
   $('vfx').value=Math.round(save.vfx*100);$('vmus').value=Math.round(save.vmus*100);
   $('vfxN').textContent=$('vfx').value;$('vmusN').textContent=$('vmus').value;paintSlider($('vfx'));paintSlider($('vmus'));
   $('difF').classList.toggle('on',save.dif==='facil');$('difN').classList.toggle('on',save.dif==='normal');$('difD').classList.toggle('on',save.dif==='dificil');
@@ -3915,8 +4034,7 @@ function cleanName(v){return String(v||'').replace(/[<>]/g,'').trim().slice(0,14
 $('nameOk').addEventListener('click',()=>{const v=cleanName($('nameIn').value);if(!v){$('nameIn').focus();return;}save.nome=v;persist();sfx.yay();show('nameBox',false);});
 $('nameIn').addEventListener('keydown',e=>{if(e.key==='Enter') $('nameOk').click();});
 $('nameSkip').addEventListener('click',()=>{save.nome=save.nome||'';save.nomeSkip=true;persist();sfx.tap();show('nameBox',false);});
-$('cfgName').addEventListener('change',e=>{save.nome=cleanName(e.target.value);e.target.value=save.nome;persist();});
-if(!save.nome&&!save.nomeSkip) setTimeout(()=>show('nameBox',true),400);
+// o jogo não pede mais o nome do jogador (decisão de 23/11/2026: não guardar dado de criança); o recorde mostra o leopardo
 /* instalação como aplicativo */
 let installEvt=null;
 const standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
@@ -3929,9 +4047,11 @@ $('instalar').addEventListener('click',async()=>{audioInit();sfx.tap();
   if(installEvt){try{installEvt.prompt();await installEvt.userChoice;}catch(e){} installEvt=null;$('instalar').classList.remove('on');}
   else show('iosTip',true);});
 $('iosOk').addEventListener('click',()=>{sfx.tap();show('iosTip',false);});
+/*WEB-INICIO (service worker: só no navegador; o app da loja já tem tudo dentro)*/
 if('serviceWorker' in navigator&&location.protocol==='https:'&&!framed){
   window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
 }
+/*WEB-FIM*/
 document.addEventListener('visibilitychange',()=>{if(document.hidden) persist(); if(AC){try{document.hidden?AC.suspend():AC.resume()}catch(e){}}});
 setInterval(()=>{if(dirty) persist()},1500);
 
