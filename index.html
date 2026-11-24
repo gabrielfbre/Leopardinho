@@ -227,6 +227,42 @@
   .pad{display:grid;grid-template-columns:repeat(3,64px);gap:9px}
   .pad button{font-family:inherit;font-weight:900;font-size:24px;height:56px;border:0;border-radius:16px;background:#fff;color:#5b3a1e;box-shadow:0 4px 0 rgba(0,0,0,.15);cursor:pointer}
   #pinCancel{font-size:17px;padding:9px 26px;background:linear-gradient(#bdbdbd,#9e9e9e)}
+  /* versão completa, Área dos pais e hora de descansar */
+  .cad{position:absolute;right:-7px;top:-9px;width:26px;height:26px;border-radius:50%;background:#fff8e7;box-shadow:0 0 0 2px #5b3a1e;display:grid;place-items:center;font-style:normal;pointer-events:none}
+  .cad .ic{width:18px;height:18px}
+  .big.pago{filter:saturate(.55) brightness(.95)}
+  .fase.pago{opacity:.8}.fase.pago::after{content:none}.fase .cad{right:-8px;top:auto;bottom:-8px;width:22px;height:22px}.fase .cad .ic{width:15px;height:15px}
+  .card.pago canvas{filter:none}
+  .card.pago b{color:#5b3a1e}
+  .card.pago small{color:#b3741e}
+  .card .faixa{position:absolute;left:6px;right:6px;top:6px;background:linear-gradient(#ffd66b,#ffb703);color:#5b3a1e;font-weight:900;font-size:11px;border-radius:9px;padding:2px 4px;box-shadow:0 0 0 2px #5b3a1e;pointer-events:none}
+  .card .cad{right:-8px;top:-10px}
+  .ucard.pago{opacity:.92}.ucard.pago .buy{color:#b3741e}
+  .ucard{position:relative}
+  #cmpCv{width:min(300px,70vw);height:auto;display:block;margin:-6px auto -4px}
+  @media (max-height:470px){#cmpCv{width:auto;height:34vh;margin:-4px auto -6px}.cmp{gap:4px;padding-top:8px;padding-bottom:10px}.cmp h2{font-size:20px}#completa .cmp p,#pais .cmp p{font-size:14px}#completa .cmp ul{columns:2;column-gap:22px;font-size:13px;line-height:1.3;margin:2px 0}.cmp li{break-inside:avoid}.cmp .grande{font-size:38px}.cmp .big{font-size:16px;padding:8px 20px}.vitrine canvas{width:60px;height:50px}.dias{height:56px}}
+  .vitrine{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+  .vitrine canvas{width:76px;height:63px;background:#fff;border-radius:12px;box-shadow:0 0 0 2px #f0dfc0}
+  #completa,#pais,#descanso{background:rgba(12,60,36,.85);backdrop-filter:blur(3px);z-index:13}
+  #descanso{z-index:60}
+  .cmp{max-width:520px;align-items:center;text-align:center;gap:8px;color:#5b3a1e;overflow:auto}
+  .cmp h2{margin:2px 0 0}
+  .cmp p{margin:2px 0;font-weight:800;line-height:1.35;font-size:16px}
+  .cmp ul{margin:4px 0;padding:0 0 0 20px;text-align:left;font-weight:800;line-height:1.45;font-size:16px}
+  .cmp .big{font-size:18px;padding:10px 24px}
+  .cmp .verde{background:linear-gradient(#8fe07a,#41b54d)}
+  .cmp .azul{background:linear-gradient(#6cc4ff,#2f8be0)}
+  .cmp .cinza{background:linear-gradient(#bdbdbd,#9e9e9e);font-size:15px;padding:8px 20px}
+  .cmp .linha{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .cmp .msg{min-height:1.3em;color:#2f7d3a}
+  .cmp .grande{font-size:54px;line-height:1}
+  .limites{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .limites button{font-family:inherit;font-weight:900;border:3px solid #f0dfc0;background:#fff;border-radius:14px;padding:6px 10px;color:#5b3a1e;cursor:pointer;min-height:44px}
+  .limites button.on{border-color:#34c759;background:#eafbe9}
+  .dias{display:flex;gap:6px;align-items:flex-end;height:70px;margin:4px 0}
+  .dias div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-size:11px;font-weight:800;height:100%}
+  .dias i{display:block;width:22px;background:#ffb703;border-radius:6px 6px 2px 2px;min-height:3px}
+  .dias b{font-size:11px}
   #portao{background:rgba(12,60,36,.85);backdrop-filter:blur(3px);z-index:14}
   #portaoQ{margin:0;color:#5b3a1e;font-size:18px;font-weight:800;text-align:center;line-height:1.3}
   #portaoResp{min-width:120px;height:46px;border-radius:14px;background:#fff;color:#5b3a1e;font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 3px #f0dfc0}
@@ -501,6 +537,7 @@
       <button class="dif" data-q="leve"><b>Leve</b><small>Para aparelhos lentos.</small></button>
     </div>
     <button class="big hbtn" id="cfgHelp">📖 Como jogar</button>
+    <button class="big hbtn" id="cfgPais">👪 Área dos pais</button>
     <!--DEV-INICIO (sai da versão da loja)-->
     <div id="devBox">
       <div class="dtit">🛠️ Modo desenvolvedor</div>
@@ -514,7 +551,7 @@
     </div>
     <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.28</div>
+    <div class="ver" id="ver">versão 1.29</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -580,6 +617,55 @@
     <div id="portaoResp"></div>
     <div class="pad" id="portaoPad"></div>
     <button class="big" id="portaoSai">Voltar</button>
+  </div>
+</div>
+
+<div class="overlay" id="completa">
+  <div class="panel cmp">
+    <div id="cmpKid">
+      <div class="grande" id="cmpCad">🔒</div>
+      <canvas id="cmpCv" width="360" height="260" hidden></canvas>
+      <h2 id="cmpKidTit">Versão completa</h2>
+      <p id="cmpKidTxt">Essa brincadeira é da versão completa.</p>
+      <p>Peça para um adulto!</p>
+      <div class="linha"><button class="big azul" id="cmpAdulto">Sou adulto</button><button class="big cinza" id="cmpVolta">Voltar</button></div>
+    </div>
+    <div id="cmpPais" hidden>
+      <h2>Versão completa</h2>
+      <div class="vitrine" id="cmpVit"></div>
+      <ul>
+        <li>As 6 fases da Aventura</li>
+        <li>Corrida, Chuva de frutas e Infinito</li>
+        <li>Balão à vontade (no grátis, 1 vez por dia)</li>
+        <li>Ateliê de pintura e cozinha da Casinha</li>
+        <li>Todos os leopardos, acessórios e melhorias para comprar com as frutinhas</li>
+      </ul>
+      <p>Pagamento único<span id="cmpPreco"></span>. Sem anúncios e sem assinatura.</p>
+      <div class="linha"><button class="big verde" id="cmpCompra">Comprar</button><button class="big azul" id="cmpRest">Restaurar compra</button><button class="big cinza" id="cmpFecha">Agora não</button></div>
+      <p class="msg" id="cmpMsg"></p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="pais">
+  <div class="panel cmp">
+    <h2>Área dos pais</h2>
+    <p id="paisHoje"></p>
+    <div class="dias" id="paisDias"></div>
+    <p>Limite de tempo por dia:</p>
+    <div class="limites" id="paisLim"></div>
+    <p style="font-size:13px;font-weight:700">Quando o tempo acaba, o jogo mostra "Hora de descansar" no fim da partida. Para continuar, é preciso responder à conta dos adultos.</p>
+    <div id="paisCompra"></div>
+    <button class="big cinza" id="paisSai">Voltar</button>
+  </div>
+</div>
+
+<div class="overlay" id="descanso">
+  <div class="panel cmp">
+    <div class="grande">😴</div>
+    <h2>Hora de descansar!</h2>
+    <p>O Leo foi dormir. Amanhã tem mais brincadeira!</p>
+    <button class="big cinza" id="descAdulto">Adulto: continuar hoje</button>
   </div>
 </div>
 
@@ -831,6 +917,7 @@ for(const k of ['total','gold','trof'])if(typeof save[k]==='number'&&(!isFinite(
 for(const k of ['owned','accOwned','recs'])if(!Array.isArray(save[k]))save[k]=k==='owned'?['leo']:[];
 if(!save.owned.includes('leo'))save.owned.unshift('leo');
 if(!['auto','alta','media','leve'].includes(save.graf))save.graf='auto';
+if(![0,20,30,45,60,90].includes(save.limite))save.limite=0;if(!save.tempo||typeof save.tempo!=='object'||Array.isArray(save.tempo))save.tempo={};
 // não guardar mais o nome da criança: apaga o nome salvo e, nos recordes, fica só o leopardo
 if(save.nome||save.nomeSkip){save.nome='';delete save.nomeSkip;}(save.recs||[]).forEach(r=>{r.n=r.l||'Leo';});
 if(!THEMES[save.fase]) save.fase='floresta';
@@ -1130,6 +1217,10 @@ resize(); window.addEventListener('resize',resize);
 function clearWorld(){hills=[];sur=[];aves=[];amigoRun=null;toca=null;sara=null;saraT=14+Math.random()*12;leo.onPlat=false;starGrace=0;obstacles=[];fruits=[];items=[];parts=[];pops=[];pw.ima=pw.estrela=pw.chuva=pw.estX=0;
   leo.y=0;leo.vy=0;leo.air=false;leo.jumps=0;leo.stumble=0;leo.face=1;leo.falling=0;leo.roll=0;leo.rollQ=false;}
 function startGame(m,keepLives){
+  if(!keepLives&&!limiteOk()){descansa();return;}
+  if(!modoLivre(m)&&!keepLives){abreCompleta();return;}
+  if(m==='balao'&&!completa())save.balaoDia=hojeStr();
+  if(m==='aventura'&&!faseLivre(save.fase))setFase('floresta');
   try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});}catch(e){}
   try{for(const e of Object.values(PICON))icoImg(icoOf(e));}catch(e){} // carrega os ícones dos poderes antes de aparecerem
   ociosoT=0;ocioso=false;borb.st=0;borb.t=10;
@@ -1562,11 +1653,12 @@ function finishLevel(){
   if(novo) save.fasesOk=i+2;
   const gb=(novo?5:st>old?3:1)*(isHard()?2:1);
   save.total+=30; save.gold+=gb; persist(); updateHud(true); buildFases();
-  const canNext=!!nx&&save.fasesOk>=i+2;
+  const canNext=!!nx&&save.fasesOk>=i+2&&faseLivre(nx);
   resNext=canNext?nx:null;
   const stars='<span class="stars">'+'★'.repeat(st)+'<s>'+'★'.repeat(3-st)+'</s></span>';
   const info=stars+'<br>Você pegou '+Math.round(pct*100)+'% das frutas  •  +30 🍓 +'+gb+' '+GS()+bau();
-  if(novo) showResult(THEMES[nx].icon,'Fase completa! 🎉',info+'<br>Nova fase liberada: '+THEMES[nx].name.replace(/^n[ao]s? /,'')+'!',true);
+  if(novo&&!faseLivre(nx)) showResult('⭐','Fase completa! 🎉',info+'<br>A próxima fase, '+THEMES[nx].name.replace(/^n[ao]s? /,'')+', é da versão completa.',true);
+  else if(novo) showResult(THEMES[nx].icon,'Fase completa! 🎉',info+'<br>Nova fase liberada: '+THEMES[nx].name.replace(/^n[ao]s? /,'')+'!',true);
   else if(!nx) showResult('👑','Você venceu todas as fases!',info,true);
   else if(canNext) showResult('⭐','Fase completa! 🎉',info,true);
   else showResult('🙂','Fase completa!',info+'<br><b class="tip">Pegue 60% das frutas (★★) para liberar a próxima fase!</b>',false);
@@ -3047,7 +3139,7 @@ function varalMenuFecha(){const m=$('varalMenu');if(m)m.classList.remove('on');c
 function varalPos(g,i,im){const J=g.jan;if(!J)return null;const ix=VARAL.pins[i],sag=Math.sin((ix-VARAL.x0)/(VARAL.x1-VARAL.x0)*PI)*22,ar0=im&&im.width?im.width/im.height:.8,ar=varalRot(i)%2?1/ar0:ar0,wMax=72*J.k0,h=Math.min(104*J.k0,wMax/ar),w=h*ar;
   return {x:J.ox+ix*J.k0,y:J.oy+(VARAL.y+sag)*J.k0,w,h};}
 function casaSalaBtns(g){const s=g.s,w=118*s*.8,h=46*s*.8,outras=SALAS.filter(r=>r.id!==(casa.sala||'quarto'));return outras.map((r,i)=>({id:r.id,t:r.t,x:12*s,y:VH*.36+i*(h+10*s),w,h}));}
-function casaTrocaSala(id){varalMenuFecha();casa.sk=null;casa.sala=id;casa.acao=null;casa.t=0;casa.pend=null;casa.drag=null;casa.x=90*casaGeo().s;casa.alvo=VW*.45;casa.face=1;sfx.boing();
+function casaTrocaSala(id){if(!salaLivre(id)){abreCompleta(id==='arte'?'O Ateliê de pintura é da versão completa.':'A cozinha é da versão completa.');return;}varalMenuFecha();casa.sk=null;casa.sala=id;casa.acao=null;casa.t=0;casa.pend=null;casa.drag=null;casa.x=90*casaGeo().s;casa.alvo=VW*.45;casa.face=1;sfx.boing();
   falar({arte:'Vamos desenhar!',cozinha:'Vamos fazer um bolo?',quarto:'Voltei pro quarto!'}[id]);show('casaBar',casa.sala==='quarto');
   document.querySelectorAll('#casaBar .cb').forEach(b=>b.classList.remove('on'));if(casa.sala==='arte')figurinha('atelie');if(casa.sala==='cozinha')figurinha('cozinha');}
 function casaArteDraw(g){const J=g.jan;if(!J)return;const k=J.k0;
@@ -3700,7 +3792,7 @@ function casaDraw(){const g=casaGeo(),im=CASA.quarto,sk=skinOf(save.sel);
   if(!arte&&!casaSaraAtras())casaSaraDraw(g);
   if(sala==='cozinha')cozSaraDraw(g);
   if(!dorme)for(const b of casaSalaBtns(g)){ctx.save();ctx.fillStyle='rgba(255,255,255,.93)';ctx.strokeStyle='#5b3a1e';ctx.lineWidth=2.5;rr(ctx,b.x,b.y,b.w,b.h,b.h/2);ctx.fill();ctx.stroke();
-    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#5b3a1e';ctx.font='700 '+Math.round(b.h*.4)+'px Fredoka,sans-serif';ctx.fillText(b.t,b.x+b.w/2,b.y+b.h/2+1);ctx.restore();}
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#5b3a1e';ctx.font='700 '+Math.round(b.h*.4)+'px Fredoka,sans-serif';ctx.fillText(b.t+(salaLivre(b.id)?'':' 🔒'),b.x+b.w/2,b.y+b.h/2+1);ctx.restore();}
   if(casa.drag&&casa.drag.moved){const o=bqs.find(p=>p.k===casa.drag.k);if(o)bqDraw(o,10*S2);}
   for(const c of casa.coracoes){ctx.globalAlpha=clamp(c.t,0,1);ctx.fillStyle='#FF5F8F';heart(ctx,c.x,c.y,9*S2);}ctx.globalAlpha=1;
   if(casa.aviso&&casa.aviso.t>0){ctx.globalAlpha=clamp(casa.aviso.t,0,1);ctx.textAlign='center';ctx.textBaseline='middle';label(casa.aviso.txt,VW/2,VH*.3,Math.min(18,VW/40),'#fff');ctx.globalAlpha=1;}
@@ -3882,6 +3974,7 @@ function buildFases(){
 }
 THEME_IDS.forEach((id,i)=>{const b=document.createElement('button');b.className='fase';b.dataset.id=id;b.textContent=THEMES[id].icon;b.setAttribute('aria-label',THEMES[id].name);
   b.addEventListener('click',()=>{audioInit();
+    if(!faseLivre(id)){abreCompleta('Essa fase é da versão completa.');return;}
     if(i>=save.fasesOk){sfx.bonk();b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');
       const old=$('h1sub').textContent;$('h1sub').textContent='🔒 Faça ★★ na fase anterior!';clearTimeout(b._t);b._t=setTimeout(()=>{$('h1sub').textContent=TH.name},1600);return;}
     sfx.tap();setFase(id);});$('fases').appendChild(b);});
@@ -3899,13 +3992,17 @@ function buildShop(){
   const list=shopTab==='L'?SKINS:ACCS;
   for(const s of list){
     const isL=shopTab==='L', own=isL?save.owned.includes(s.id):save.accOwned.includes(s.id), sel=isL?save.sel===s.id:save.acc===s.id;
-    const el=document.createElement('button');el.className='card '+(sel?'sel':own?'own':'lock');
+    const pago=!own&&!itemLivre(isL?'L':'A',s.id);
+    const el=document.createElement('button');el.className='card '+(sel?'sel':own?'own':pago?'pago':'lock');
     const c=document.createElement('canvas');c.width=300;c.height=250;
     {const sk2=isL?s:skinOf(save.sel),pp=still(isL?{acc:save.acc}:{acc:s.id}),i2=list.indexOf(s);
      // desenha os cartões aos poucos: a primeira pintura de cada cor custa alguns ms
      setTimeout(()=>drawLeopardFit(c.getContext('2d'),300,250,sk2,pp,isL?1.7:1.55,8),i2*12);}
     el.appendChild(c);
-    const b=document.createElement('b');b.textContent=own?s.name:'???';el.appendChild(b);
+    const b=document.createElement('b');b.textContent=own||pago?s.name:'???';el.appendChild(b);
+    if(pago){el.insertAdjacentHTML('beforeend','<span class="faixa">Versão completa</span>'+CAD());
+      const sm2=document.createElement('small');sm2.innerHTML=GS()+' '+s.need;el.appendChild(sm2);
+      el.addEventListener('click',()=>{audioInit();previaPaga(isL?'L':'A',s);});g.appendChild(el);continue;}
     const sm=document.createElement('small');
     if(own) sm.textContent=sel?'✓ Escolhido':'Tocar para usar';
     else{sm.innerHTML=GS()+' '+s.need;if(save.gold<s.need) el.classList.add('poor');}
@@ -3948,10 +4045,13 @@ function buildUpg(g){
     g.appendChild(el);}
   sec(g,'🏅 Melhorias para sempre','Ficam valendo em todas as partidas.');
   for(const u of UPG){const lv=up(u.id), max=lv>=u.cost.length, cost=max?0:u.cost[lv];
-    const el=document.createElement('button');el.className='ucard'+(max?' max':save.total<cost?' poor':'');
+    const pago=!max&&!itemLivre('U',u.id,lv);
+    const el=document.createElement('button');el.className='ucard'+(max?' max':pago?' pago':save.total<cost?' poor':'');
     el.innerHTML='<span class="ic">'+u.icon+'</span><b></b><p></p><div class="lv">'+u.cost.map((c,k)=>'<i class="'+(k<lv?'on':'')+'"></i>').join('')+'</div><div class="buy"></div>';
     el.querySelector('b').textContent=u.name;el.querySelector('p').textContent=u.desc;
     const buy=el.querySelector('.buy');buy.textContent=max?'✓ Máximo':'🍓 '+cost;
+    if(pago){buy.textContent=(lv?'Próximo nível: ':'')+'versão completa';el.insertAdjacentHTML('beforeend',CAD());
+      el.addEventListener('click',()=>{audioInit();abreCompleta('Essa melhoria é da versão completa.');});g.appendChild(el);continue;}
     el.addEventListener('click',()=>{audioInit(); if(max) return;
       if(save.total<cost){sfx.bonk();el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');buy.textContent='Faltam 🍓 '+(cost-save.total);return;}
       if(!el.classList.contains('ask')){el.classList.add('ask');buy.textContent='Comprar? Toque de novo';sfx.tap();clearTimeout(el._t);el._t=setTimeout(()=>{el.classList.remove('ask');buy.textContent='🍓 '+cost;},3000);return;}
@@ -3972,6 +4072,7 @@ function showResult(emoji,title,text,party){
   $('again').textContent=resNext?'▶ Próxima fase':(mode==='aventura'&&race.done?'🔁 Tentar de novo':'🔁 De novo!');
   resMode=mode; $('resEmoji').textContent=emoji;$('resTitle').textContent=title;$('resText').innerHTML=text;
   setState('result'); if(party) confetti();
+  if(!limiteOk())setTimeout(()=>{if(state==='result'||state==='menu')descansa();},1600); // tempo do dia acabou: descansa depois de ver o resultado
 }
 function confetti(){
   const cols=['#FF6B6B','#FFD43B','#69DB7C','#4DABF7','#DA77F2','#FFA94D'];
@@ -3981,10 +4082,10 @@ function confetti(){
     document.body.appendChild(d);setTimeout(()=>d.remove(),4200);}
 }
 $('mAv').addEventListener('click',()=>{audioInit();startGame('aventura');});
-$('mCo').addEventListener('click',()=>{audioInit();startGame('corrida');});
-$('mCh').addEventListener('click',()=>{audioInit();startGame('chuva');});
-$('mIn').addEventListener('click',()=>{audioInit();startGame('infinito');});
-$('mBa').addEventListener('click',()=>{audioInit();startGame('balao');});
+$('mCo').addEventListener('click',()=>{audioInit();if(!modoLivre('corrida'))return abreCompleta();startGame('corrida');});
+$('mCh').addEventListener('click',()=>{audioInit();if(!modoLivre('chuva'))return abreCompleta();startGame('chuva');});
+$('mIn').addEventListener('click',()=>{audioInit();if(!modoLivre('infinito'))return abreCompleta();startGame('infinito');});
+$('mBa').addEventListener('click',()=>{audioInit();if(!modoLivre('balao'))return abreCompleta('Hoje o passeio de balão grátis já foi. Amanhã tem mais! O balão à vontade é da versão completa.');startGame('balao');});
 $('mCa').addEventListener('click',()=>{audioInit();startGame('casa');});
 $('varalMenu').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const i=casa.vsel;if(i==null){varalMenuFecha();return;}
   if(b.dataset.v==='girar'){varalGira(i);casa['vw'+i]=1;sfx.boing();}
@@ -3995,6 +4096,7 @@ document.querySelectorAll('#casaBar .cb').forEach(b=>b.addEventListener('pointer
 function paintMenu(){
   document.querySelectorAll('.ds').forEach(b=>b.classList.toggle('on',b.dataset.d===save.dif));
   const best=(save.recs&&save.recs.length)?save.recs[0].m:0;$('mInRec').textContent=best?'🏆 '+best+' m':'sempre Difícil';
+  try{pintaCadeados();}catch(e){} // no carregamento ainda não existe (é definido mais abaixo)
 }
 document.querySelectorAll('.ds').forEach(b=>b.addEventListener('click',()=>{audioInit();save.dif=b.dataset.d;persist();sfx.tap();paintMenu();}));
 $('openAlbum').addEventListener('click',()=>{audioInit();sfx.tap();buildAlbum();show('album',true);});
@@ -4045,6 +4147,83 @@ function portaoNova(){PORTAO.a=3+ri(7);PORTAO.b=3+ri(7);PORTAO.txt='';$('portaoQ
     else if(P.txt.length<2)P.txt+=k;
     $('portaoResp').textContent=P.txt;});});
 $('portaoSai').addEventListener('click',()=>{sfx.tap();PORTAO.ok=null;show('portao',false);});
+
+/* ---------- versão grátis x completa (Etapa 5) ----------
+   O bloqueio só vale no app da loja: no site, LOJA=false e tudo fica liberado até o lançamento.
+   A compra de verdade (Google Play Billing) chega pelo app Android: window.LeoLoja = {preco(), comprar(), restaurar()},
+   cada um devolvendo uma Promise (preço em texto; true/false se a versão completa está liberada). */
+let LOJA=true;/*WEB-INICIO*/LOJA=false;/*WEB-FIM*/
+/*DEV-INICIO*/if(/[?&]loja\b/.test(location.search))LOJA=true; // testar no navegador como se fosse o app da loja
+/*DEV-FIM*/
+const completa=()=>!LOJA||!!save.completa;
+const FASES_GRATIS=['floresta','praia'];
+const faseLivre=id=>completa()||FASES_GRATIS.includes(id);
+const hojeStr=(d=new Date())=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+function modoLivre(m){if(completa())return true;if(m==='corrida'||m==='chuva'||m==='infinito')return false;if(m==='balao')return save.balaoDia!==hojeStr();return true;}
+function salaLivre(id){return completa()||id==='quarto';}
+// na versão grátis: Leo e os 4 primeiros leopardos, os 4 primeiros acessórios e o nível 1 de Ímã, Estrela e Baú
+const ITENS_GRATIS={L:['leo','neve','rosa','azul','verde'],A:['laco','oculos','festa','cachecol'],U:['ima','estrela','bau']};
+function itemLivre(tipo,id,nivel){if(completa())return true;if(tipo==='U')return ITENS_GRATIS.U.includes(id)&&(nivel|0)===0;return ITENS_GRATIS[tipo].includes(id);}
+// prévia do item pago: o leopardo correndo, ou o leopardo da criança usando o acessório
+const PREVIA={on:null};
+function previaPaga(tipo,item){PREVIA.on={tipo,item};$('cmpCad').hidden=true;$('cmpCv').hidden=false;
+  abreCompleta(tipo==='L'?'Esse leopardo é da versão completa.':'Esse acessório é da versão completa.');$('cmpKidTit').textContent='Quer '+(ARTIGO[item.id]||'o')+' '+item.name+'?';}
+const ARTIGO={rosa:'a',roxo:'a',noite:'a',menta:'a',galax:'a',bianca:'a',sara:'a',oculos:'os',gravata:'a',flores:'a',fones:'os',capa:'a',coracao:'os',asas:'as'};
+function previaDesenha(){const P=PREVIA.on;if(!P||!$('completa').classList.contains('on')||$('cmpKid').hidden)return;const c=$('cmpCv').getContext('2d');
+  c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,360,260);c.fillStyle='rgba(0,0,0,.12)';c.beginPath();c.ellipse(180,238,90,12,0,0,TAU);c.fill();
+  const sk=P.tipo==='L'?P.item:skinOf(save.sel);drawLeopard(c,185,236,1.45,sk,{phase:T*9,air:false,vy:0,stumble:0,blink:leo.blink,t:T,acc:P.tipo==='A'?P.item.id:(save.acc||'')});}
+function vitrine(){const v=$('cmpVit');if(v.dataset.ok)return;v.dataset.ok=1;
+  [['L','tigre'],['L','galax'],['L','sara'],['A','asas'],['A','mago']].forEach(([t,id],i)=>{const c=document.createElement('canvas');c.width=300;c.height=250;v.appendChild(c);
+    const it=(t==='L'?SKINS:ACCS).find(x=>x.id===id);if(!it)return;
+    setTimeout(()=>drawLeopardFit(c.getContext('2d'),300,250,t==='L'?it:skinOf('leo'),still({acc:t==='A'?id:''}),1.7,8),i*15);});}
+const CAD=()=>'<i class="cad">'+(typeof svg==='function'?svg('cadeado'):'🔒')+'</i>';
+function pintaCadeados(){
+  [['mCo','corrida'],['mCh','chuva'],['mIn','infinito'],['mBa','balao']].forEach(([id,m])=>{const b=$(id);if(!b)return;const pago=!modoLivre(m);b.classList.toggle('pago',pago);
+    const c=b.querySelector('.cad');if(pago&&!c)b.insertAdjacentHTML('beforeend',CAD());else if(!pago&&c)c.remove();});
+  document.querySelectorAll('.fase').forEach(b=>{const pago=!faseLivre(b.dataset.id);b.classList.toggle('pago',pago);
+    const c=b.querySelector('.cad');if(pago&&!c)b.insertAdjacentHTML('beforeend',CAD());else if(!pago&&c)c.remove();});}
+function abreCompleta(txt){if(!PREVIA.on||!txt||!/leopardo|acessório/.test(txt)){PREVIA.on=null;$('cmpCad').hidden=false;$('cmpCv').hidden=true;$('cmpKidTit').textContent='Versão completa';}
+  $('cmpKidTxt').textContent=txt||'Essa brincadeira é da versão completa.';$('cmpKid').hidden=false;$('cmpPais').hidden=true;$('cmpMsg').textContent='';show('completa',true);sfx.tap();falar('Peça para um adulto!');}
+function compraPais(){try{vitrine();}catch(e){}$('cmpKid').hidden=true;$('cmpPais').hidden=false;$('cmpMsg').textContent='';$('cmpPreco').textContent=COMPRA.preco?' de '+COMPRA.preco:'';show('completa',true);
+  if(window.LeoLoja&&!COMPRA.preco)LeoLoja.preco().then(p=>{if(p){COMPRA.preco=p;$('cmpPreco').textContent=' de '+p;}}).catch(()=>{});}
+function liberaCompleta(){save.completa=true;persist();pintaCadeados();buildFases();if(state==='shop')buildShop();sfx.yay();}
+const COMPRA={preco:'',ocupado:false,
+  faz(acao){const msg=$('cmpMsg');if(COMPRA.ocupado)return;
+    if(window.LeoLoja){COMPRA.ocupado=true;msg.textContent='Aguarde...';
+      LeoLoja[acao]().then(ok=>{COMPRA.ocupado=false;if(ok){liberaCompleta();msg.textContent='Versão completa liberada. Obrigado!';setTimeout(()=>show('completa',false),1400);}
+        else msg.textContent=acao==='restaurar'?'Nenhuma compra encontrada nesta conta do Google.':'A compra não foi concluída.';})
+      .catch(()=>{COMPRA.ocupado=false;msg.textContent='Não deu certo agora. Tente de novo mais tarde.';});return;}
+    /*DEV-INICIO*/if(save.dev){liberaCompleta();msg.textContent='(Modo desenvolvedor) Compra simulada.';return;}
+    /*DEV-FIM*/
+    msg.textContent='A compra fica disponível no app da Google Play.';}};
+$('cmpAdulto').addEventListener('click',()=>{sfx.tap();show('completa',false);portaoPais(compraPais);});
+$('cmpVolta').addEventListener('click',()=>{sfx.tap();show('completa',false);});
+$('cmpFecha').addEventListener('click',()=>{sfx.tap();show('completa',false);});
+$('cmpCompra').addEventListener('click',()=>{sfx.tap();COMPRA.faz('comprar');});
+$('cmpRest').addEventListener('click',()=>{sfx.tap();COMPRA.faz('restaurar');});
+
+/* ---------- Área dos pais: tempo de jogo e limite diário ---------- */
+function tempoHoje(){return (save.tempo&&save.tempo[hojeStr()])||0;}
+function contaTempo(dt){if(!save.tempo||typeof save.tempo!=='object')save.tempo={};const k=hojeStr();save.tempo[k]=(save.tempo[k]||0)+dt;
+  const ks=Object.keys(save.tempo);if(ks.length>15){ks.sort((a,b)=>new Date(a.replace(/-/g,'/'))-new Date(b.replace(/-/g,'/')));delete save.tempo[ks[0]];}}
+const limiteOk=()=>!save.limite||save.limiteLib===hojeStr()||tempoHoje()<save.limite*60;
+function descansa(){show('descanso',true);falar('Hora de descansar!');}
+$('descAdulto').addEventListener('click',()=>{sfx.tap();portaoPais(()=>{save.limiteLib=hojeStr();persist();show('descanso',false);});});
+const minTxt=s=>{const m=Math.round(s/60);return m<60?m+' min':Math.floor(m/60)+' h'+(m%60?' '+(m%60)+' min':'');};
+function abrePais(){
+  const hj=tempoHoje();let sem=0;const dias=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const v=(save.tempo&&save.tempo[hojeStr(d)])||0;sem+=v;dias.push([d,v]);}
+  $('paisHoje').textContent='Tempo de jogo hoje: '+minTxt(hj)+' · últimos 7 dias: '+minTxt(sem);
+  const mx=Math.max(600,...dias.map(x=>x[1])),DS=['dom','seg','ter','qua','qui','sex','sáb'];
+  $('paisDias').innerHTML=dias.map(([d,v])=>'<div><b>'+(v>=60?Math.round(v/60):'')+'</b><i style="height:'+Math.round(46*v/mx)+'px"></i>'+DS[d.getDay()]+'</div>').join('');
+  const L=$('paisLim');L.innerHTML='';[0,20,30,45,60,90].forEach(m=>{const b=document.createElement('button');b.textContent=m?m+' min':'Sem limite';b.classList.toggle('on',(save.limite||0)===m);
+    b.addEventListener('click',()=>{sfx.tap();save.limite=m;save.limiteLib='';persist();abrePais();});L.appendChild(b);});
+  const pc=$('paisCompra');pc.innerHTML='';
+  if(LOJA){if(save.completa)pc.innerHTML='<p>Versão completa: ativada ✓</p>';
+    else{const b=document.createElement('button');b.className='big verde';b.textContent='Versão completa';b.addEventListener('click',()=>{sfx.tap();show('pais',false);compraPais();});pc.appendChild(b);}}
+  show('pais',true);}
+$('cfgPais').addEventListener('click',()=>{audioInit();portaoPais(abrePais);});
+$('paisSai').addEventListener('click',()=>{sfx.tap();show('pais',false);});
+pintaCadeados();
 /*DEV-INICIO*/
 $('dvAll').addEventListener('click',()=>{save.owned=SKINS.map(s=>s.id);save.accOwned=ACCS.map(a=>a.id);save.fasesOk=THEME_IDS.length;
   save.total=Math.max(save.total,5000);save.gold=Math.max(save.gold,500);UPG.forEach(u=>save.upg[u.id]=u.cost.length);save.slotsOk=3;POW.forEach(q=>save.inv[q.id]=Math.max(save.inv[q.id]|0,5));save.slots=['estrela','escudo','ima'];THEME_IDS.forEach(id=>save.stars[id]=Math.max(save.stars[id]|0,2));
@@ -4119,7 +4298,10 @@ $('pausaOk').addEventListener('click',pausaSai);
 // botão "voltar" do Android (ligado no app, Etapa 6): fecha a janela que está por cima; na partida, pausa (não sai sem querer);
 // na Casinha, volta ao menu. No menu devolve false: aí o app pergunta se quer mesmo sair.
 function voltarAndroid(){const on=id=>{const e=$(id);return !!(e&&e.classList.contains('on'));},clica=id=>{const e=$(id);if(e)e.click();return true;};
+  if(on('descanso'))return true; // a criança não sai do descanso pelo voltar
   if(on('portao'))return clica('portaoSai');
+  if(on('completa'))return clica($('cmpPais').hidden?'cmpVolta':'cmpFecha');
+  if(on('pais'))return clica('paisSai');
   if(on('pausa'))return clica('pausaOk');
   if(on('iosTip'))return clica('iosOk');
   if(on('helpBox'))return clica('helpOk');
@@ -4134,11 +4316,14 @@ function voltarAndroid(){const on=id=>{const e=$(id);return !!(e&&e.classList.co
   return false;}
 function frame(now){
   const dtr=(now-last)/1000||0.016,dt=Math.min(0.034,dtr); last=now;
+  if(state==='play'&&!pausado&&!document.hidden&&dtr<.5){contaTempo(dtr);if((frame.k=(frame.k||0)+dtr)>2){frame.k=0;dirty=true;
+    if(!limiteOk()&&tempoHoje()>save.limite*60+180){goMenu();descansa();}}} // partidas sem fim (Casinha, Infinito): até 3 min de tolerância
   if(state==='play'&&!document.hidden&&dtr<.5){perf.t+=dtr;perf.n++;if(perf.t>3){const media=perf.t/perf.n;perf.t=0;perf.n=0;
     if(GRAF()==='auto'&&media>1/42&&QUAL>.18){QUAL=Math.max(.17,QUAL*.72);save.qualAuto=QUAL;dirty=true;resolucao();}}} // abaixo de ~42 quadros/s: menos pixels e efeitos mais leves
   const emPe=state==='play'&&innerHeight>innerWidth*1.1; // o jogo é feito para o celular deitado
   if(emPe!==gireOn){gireOn=emPe;$('gire').classList.toggle('on',emPe);}
   if(!emPe&&!pausado)update(dt); draw();
+  if(PREVIA.on)previaDesenha();
   if(unlockCur&&$('unlock').classList.contains('on')){
     unlockCtx.setTransform(1,0,0,1,0,0);unlockCtx.clearRect(0,0,720,520);
     const g=unlockCtx.createRadialGradient(360,290,20,360,290,300);g.addColorStop(0,'rgba(255,240,170,.9)');g.addColorStop(1,'rgba(255,240,170,0)');
