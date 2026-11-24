@@ -24,11 +24,11 @@
   .hud{position:fixed;top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:5}
   .hud>*{pointer-events:auto}
   .row{display:flex;gap:6px;align-items:center}
-  .pill{background:rgba(255,255,255,.92);border-radius:999px;padding:6px 16px 6px 10px;font-weight:900;font-size:26px;color:#c2253b;
+  .pill{background:rgba(255,255,255,.92);border-radius:999px;padding:4px 13px 4px 8px;font-weight:900;font-size:21px;color:#c2253b;
     display:flex;align-items:center;gap:6px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
-  .pill.g{font-size:22px;color:#b3741e;padding:6px 14px 6px 8px}
+  .pill.g{font-size:18px;color:#b3741e;padding:4px 12px 4px 7px}
   img.gs{width:1.05em;height:1.05em;vertical-align:-.15em;display:inline-block}
-  .pill img.gs{width:28px;height:28px}
+  .pill img.gs{width:23px;height:23px}
   .pill.bump{animation:bump .25s}
   @keyframes bump{50%{transform:scale(1.25)}}
   .next{margin-top:8px;background:rgba(214,240,222,.95);border-radius:999px;padding:4px 10px 4px 4px;display:flex;align-items:center;gap:6px;
@@ -70,7 +70,7 @@
   .ds.on[data-d=normal]{border-color:#ffb703;background:#fff4d6}
   .ds.on[data-d=dificil]{border-color:#ff4d4d;background:#ffe5e5}
   @media (min-aspect-ratio:1/1) and (min-width:600px){
-    #menu{padding-right:130px;padding-left:178px}
+    #menu{padding-right:var(--mR,130px);padding-left:var(--mL,178px)}
     .difside{position:fixed;right:max(12px,env(safe-area-inset-right));top:50%;transform:translateY(-38%);flex-direction:column;margin:0;padding:10px 8px;gap:7px}
     .ds{min-width:84px;padding:6px 8px}
   }
@@ -120,7 +120,9 @@
   }
   /* celular deitado: o menu fica entre o placar (esquerda) e a dificuldade (direita), longe do leopardo */
   @media (max-height:470px) and (min-aspect-ratio:1/1) and (min-width:600px){
-    #menu{padding:6px var(--hudR,124px) 6px var(--hudL,280px)}
+    #menu{padding:6px var(--mR,124px) 6px var(--mL,280px)}
+    .pill{font-size:17px;padding:3px 10px 3px 6px}.pill.g{font-size:15px;padding:3px 10px 3px 6px}.pill img.gs{width:19px;height:19px}
+    .next{margin-top:6px}.next canvas{width:36px;height:28px}.bar{width:70px;height:10px}
     h1{font-size:clamp(19px,3.2vw,26px);-webkit-text-stroke-width:1.5px;text-shadow:0 3px 0 #1d6b3f}
     .modes{gap:7px;margin-top:4px}.modes .big{font-size:14px;padding:6px 12px;box-shadow:0 5px 0 rgba(0,0,0,.25)}
     .fases{margin-top:7px;gap:6px;padding:3px 7px}.fase{width:38px;height:38px;font-size:19px;border-width:3px}
@@ -512,7 +514,7 @@
     </div>
     <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.27</div>
+    <div class="ver" id="ver">versão 1.28</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -3856,9 +3858,11 @@ function show(id,on){const e=$(id);if(e)e.classList.toggle('on',on)} // tolera e
 // mede o placar (esquerda) e o painel de dificuldade (direita) para o menu não ficar por baixo deles
 function fitMenu(){const st=document.documentElement.style, l=$('hud').firstElementChild.getBoundingClientRect(), d=$('difSide').getBoundingClientRect();
   if(!$('menu').classList.contains('on')||d.width<=0||l.width<=0)return; // só mede com o menu na tela (escondido, o painel mede zero e espremia o menu)
-  st.setProperty('--hudL',Math.ceil(l.right+12)+'px');
-  let R=124; if(getComputedStyle($('difSide')).position==='fixed'){R=Math.ceil(innerWidth-d.left+10);st.setProperty('--hudR',R+'px');}
-  document.body.classList.toggle('apertado',innerWidth-l.right-12-R<300);}
+  const L=Math.ceil(l.right+12);let R=124; if(getComputedStyle($('difSide')).position==='fixed')R=Math.ceil(innerWidth-d.left+10);
+  // centraliza na tela: a mesma margem dos dois lados quando cabe; se não couber, chega o mais perto possível do meio sem cobrir o placar nem a dificuldade
+  const minW=430,M=Math.max(L,R);let mL=M,mR=M;if(innerWidth-2*M<minW){mL=L;mR=Math.max(R,Math.min(M,innerWidth-L-minW));}
+  st.setProperty('--hudL',L+'px');st.setProperty('--hudR',R+'px');st.setProperty('--mL',mL+'px');st.setProperty('--mR',mR+'px');
+  document.body.classList.toggle('apertado',innerWidth-mL-mR<300);}
 if(window.ResizeObserver) new ResizeObserver(fitMenu).observe($('hud').firstElementChild);
 addEventListener('resize',fitMenu);
 function setState(s){if(s!=='play'){varalMenuFecha();if(pausado){pausado=false;$('pausa').classList.remove('on');}}
