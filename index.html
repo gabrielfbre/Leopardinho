@@ -512,7 +512,7 @@
     </div>
     <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.26</div>
+    <div class="ver" id="ver">versão 1.27</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -1125,7 +1125,7 @@ const race={len:20000,start:0,finish:0,cd:0,go:false,done:false,doneT:0,place:1,
 const rain={wait:false,stun:0,time:0,spawn:0,target:0,keys:0,hearts:3,over:false};
 resize(); window.addEventListener('resize',resize);
 
-function clearWorld(){hills=[];sur=[];aves=[];amigoRun=null;toca=null;sara=null;saraT=14+Math.random()*12;leo.onPlat=false;starGrace=0;obstacles=[];fruits=[];items=[];parts=[];pops=[];pw.ima=pw.estrela=pw.chuva=0;
+function clearWorld(){hills=[];sur=[];aves=[];amigoRun=null;toca=null;sara=null;saraT=14+Math.random()*12;leo.onPlat=false;starGrace=0;obstacles=[];fruits=[];items=[];parts=[];pops=[];pw.ima=pw.estrela=pw.chuva=pw.estX=0;
   leo.y=0;leo.vy=0;leo.air=false;leo.jumps=0;leo.stumble=0;leo.face=1;leo.falling=0;leo.roll=0;leo.rollQ=false;}
 function startGame(m,keepLives){
   try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});}catch(e){}
@@ -1311,7 +1311,7 @@ function collect(f){
   const gold=f.kind==='ouro', v=(gold?1:f.val)*(pw.estrela>0?2:1)*(isHard()?2:1);
   if(gold){save.gold+=v;runGold+=v;} else save.total+=v;
   runGot+=1; combo++; comboT=1.2; dirty=true;
-  if(pw.estrela>0&&hardish()) pw.estrela=Math.min(6,pw.estrela+.4);
+  if(pw.estrela>0&&hardish()&&(pw.estX||0)<3){const a=Math.min(.4,3-(pw.estX||0));pw.estrela=Math.min(6,pw.estrela+a);pw.estX=(pw.estX||0)+a;} // cada fruta dá mais tempo, mas no máximo +3 s por estrela (senão no Infinito ela nunca acabava)
   burst(f.x,f.h,FCOL[f.kind],7,gold);
   pop(f.x,f.h+18,'+'+v,gold?'#FFD54A':'#fff',gold?30:v>1?24:22);
   if(f.kind==='ouro') sfx.gold(); else sfx.get(combo);
@@ -1380,7 +1380,7 @@ function rankShow(cur){
 }
 function fallInHole(o){
   if(mode==='infinito') race.cp=o.x+o.w/2+70;
-  o.hit=true; leo.falling=1.4; leo.air=false; leo.vy=0; speed=0; pw.ima=pw.estrela=pw.chuva=0;
+  o.hit=true; leo.falling=1.4; leo.air=false; leo.vy=0; speed=0; pw.ima=pw.estrela=pw.chuva=pw.estX=0;
   sfx.fall(); pop(cam+px,150,'Opa! Caiu!','#fff',30); if(hardish()) loseLife(cam+px,205);
 }
 function update(dt){
@@ -1420,7 +1420,7 @@ function update(dt){
   if(leo.roll>0) leo.roll-=dt;
   const hadStar=pw.estrela>0;
   for(const k of ['ima','estrela','chuva']) if(pw[k]>0) pw[k]-=dt;
-  if(hadStar&&pw.estrela<=0) starGrace=1;
+  if(hadStar&&pw.estrela<=0){starGrace=1;pw.estX=0;}
   if(starGrace>0) starGrace-=dt;
   physics(dt);
 
@@ -2021,12 +2021,9 @@ function drawForeground(){
 function drawCritters(){
   if(env.n<0.6&&TH.style!=='neve'&&TH.style!=='mistica'){
     ctx.globalAlpha=1-env.n/0.6;
-    const cols=['#FF8FB1','#FFD166','#8ECDF7','#C8A2FF'];
-    for(let i=0;i<4;i++){
-      const x=((i*211+T*(18+i*5)-cam*.3)%(VW+80)+VW+80)%(VW+80)-40, y=GY-120-i*38+Math.sin(T*1.6+i*2)*26, f=Math.abs(Math.sin(T*11+i));
-      ctx.fillStyle=cols[i];
-      ctx.beginPath();ctx.ellipse(x-5*f,y-3,6*f+1,8,-.4,0,TAU);ctx.ellipse(x+5*f,y-3,6*f+1,8,.4,0,TAU);ctx.fill();
-      ctx.fillStyle='#5b3a1e';ctx.fillRect(x-1,y-7,2,10);
+    for(let i=0;i<4;i++){ // borboletas de fundo: o mesmo desenho da que pousa no Leo, menores e de outras cores
+      const x=((i*211+T*(18+i*5)-cam*.3)%(VW+80)+VW+80)%(VW+80)-40, y=GY-120-i*38+Math.sin(T*1.6+i*2)*26;
+      drawBorb(x,y,.68,T*11+i*1.7,false,BORB_COR[i]);
     }
     ctx.globalAlpha=1;
   }
@@ -2081,7 +2078,12 @@ function drawObstacle(o){
     return;}
   if(MOVEIS.includes(o.k)){if(vivoOk())drawMovel(o,x,y);return;}
   ctx.fillStyle='rgba(0,0,0,.16)';ctx.beginPath();ctx.ellipse(x,y+3,w*.62,7,0,0,TAU);ctx.fill();
-  {const ak=artObs(o.k);if(ak){flDraw(ak,x,y+4,h*(OBS_ESC[o.k]||1.15));
+  {const ak=artObs(o.k);if(ak){const H=h*(OBS_ESC[o.k]||1.15);
+    if(o.k==='castelo'){ // a base do castelo é arredondada: afunda um pouco na areia (corta na linha do chão) e ganha um montinho, senão parece flutuar
+      ctx.save();ctx.beginPath();ctx.rect(x-w*2,0,w*4,y+5);ctx.clip();flDraw(ak,x,y+4+H*.1,H);ctx.restore();
+      ctx.fillStyle=tc(236,205,140);ctx.beginPath();ctx.ellipse(x,y+5,w*.62,5,0,PI,TAU);ctx.fill();
+      ctx.fillStyle=tc(222,186,118);ctx.beginPath();ctx.ellipse(x,y+5,w*.62,2.2,0,0,PI);ctx.fill();}
+    else flDraw(ak,x,y+4,H);
     if(o.k==='torre'){const H=h*(OBS_ESC.torre||1.15);ctx.drawImage(icoImg('cima'),x-H*.0236-13,y+4-H*.397-13,26,26);} // no meio da frente da 2ª caixa (a arte tem a lateral à direita)
     return;}}
   if(o.k==='tronco'){
@@ -2777,17 +2779,18 @@ function hitMovel(o,lx){
 }
 
 /* --- borboleta --- */
+const BORB_COR=[['#FF8FC8','#C9A2FF'],['#FFD166','#FF9F68'],['#8ECDF7','#B5F0C8'],['#C8A2FF','#FF8FB1']];
 function borbUpdate(dt){const b=borb,hx=px+30*LK,hy=GY-leo.y-96*LK;b.ph+=dt*(b.st===2?6:16);
   if(b.st===0){b.t-=dt;if(b.t<=0&&state==='play'){b.st=1;b.x=VW+30;b.y=GY-200-Math.random()*80;}}
   else if(b.st===1){const dx=hx-b.x,dy=hy-b.y,d=Math.hypot(dx,dy);const v=Math.min(d,190*dt);b.x+=dx/d*v+Math.sin(T*5)*.6;b.y+=dy/d*v+Math.cos(T*4)*.8;
     if(d<6){b.st=2;b.t=4.5;figurinha('borboleta');pop(cam+px,leo.y+150,'Que fofa!','#FFD6F0',24);}}
   else if(b.st===2){b.x=hx;b.y=hy;b.t-=dt;if(b.t<=0||leo.stumble>0){b.st=3;}}
   else{b.x+=120*dt;b.y-=90*dt;if(b.y<-30||b.x>VW+30){b.st=0;b.t=18+Math.random()*14;}}}
-function drawBorb(x,y,s,ph,pousada){const f=pousada?.55+.45*Math.abs(Math.sin(ph)):.25+.75*Math.abs(Math.sin(ph));
+function drawBorb(x,y,s,ph,pousada,cs){cs=cs||BORB_COR[0];const f=pousada?.55+.45*Math.abs(Math.sin(ph)):.25+.75*Math.abs(Math.sin(ph));
   ctx.save();ctx.translate(x,y);ctx.scale(s,s);ctx.lineWidth=1.6;ctx.strokeStyle='#5b3a1e';
   for(const sg of [-1,1]){ctx.save();ctx.scale(sg*f,1);
-    ctx.fillStyle='#FF8FC8';ctx.beginPath();ctx.ellipse(7,-5,8,6.5,-.5,0,TAU);ctx.fill();ctx.stroke();
-    ctx.fillStyle='#C9A2FF';ctx.beginPath();ctx.ellipse(6,5,5.5,4.5,.5,0,TAU);ctx.fill();ctx.stroke();
+    ctx.fillStyle=cs[0];ctx.beginPath();ctx.ellipse(7,-5,8,6.5,-.5,0,TAU);ctx.fill();ctx.stroke();
+    ctx.fillStyle=cs[1];ctx.beginPath();ctx.ellipse(6,5,5.5,4.5,.5,0,TAU);ctx.fill();ctx.stroke();
     ctx.fillStyle='rgba(255,255,255,.7)';ctx.beginPath();ctx.arc(8,-6,2,0,TAU);ctx.fill();ctx.restore();}
   ctx.fillStyle='#6b4a2e';ctx.beginPath();ctx.ellipse(0,0,2,8,0,0,TAU);ctx.fill();
   ctx.strokeStyle='#5b3a1e';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(0,-7);ctx.quadraticCurveTo(-3,-13,-5,-14);ctx.moveTo(0,-7);ctx.quadraticCurveTo(3,-13,5,-14);ctx.stroke();
@@ -3027,7 +3030,7 @@ function casaProjetor(g,forte){const J=g.jan,ab=DECOR.abajur_estrela;if(!J||!ab.
 const SARA_REAIS=['sara_real1','sara_real2'].map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=2';return im;});
 // primeiro os 6 desenhos simples (áreas grandes, para começar); depois os mais detalhados
 const PAGINAS=['colorir13','colorir14','colorir15','colorir16','colorir17','colorir18','colorir1','colorir2','colorir3','colorir4','colorir5','colorir6','colorir7','colorir8','colorir9','colorir10','colorir11','colorir12'];
-const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=5';return im;});
+const PAG_IM=PAGINAS.map(k=>{const im=new Image();im.src='img/casinha/'+k+'.webp?v=6';return im;});
 const VARAL={x0:420,x1:895,y:268,pins:[452,530,617,700,775,845]}; // varal medido na imagem do Ateliê (1400x781)
 const galeriaIm=[];
 function galeriaLista(){if(!save.galeria)save.galeria=[];const out=SARA_REAIS.slice();
@@ -3266,7 +3269,7 @@ function arteInit(){if(ARTE.cv)return;ARTE.cv=$('arteCv');ARTE.ctx=ARTE.cv.getCo
   $('arteLimpa').onclick=()=>{arteGuarda();ARTE.cc.clearRect(0,0,800,600);artePinta();sfx.splash();};
   $('arteSai').onclick=()=>{arteFecha(false);};$('artePagSai').onclick=()=>{arteFecha(false);};
   $('artePronto').onclick=()=>{arteFecha(true);};
-  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=5">';b.onclick=()=>{if(performance.now()-(ARTE.pagT||0)<500)return;sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
+  const ps=$('artePags');PAGINAS.forEach((k,i)=>{const b=document.createElement('button');b.className='pg';b.innerHTML='<img alt="" src="img/casinha/'+k+'.webp?v=6">';b.onclick=()=>{if(performance.now()-(ARTE.pagT||0)<500)return;sfx.tap();$('artePag').classList.remove('on');arteAbre(i);};ps.appendChild(b);});
   const pt=e=>{const r=ARTE.cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*800,(e.clientY-r.top)/r.height*600];};
   ARTE.dedos=new Map(); // dedos encostados no desenho: 1 dedo pinta; 2 dedos aproximam e arrastam
   ARTE.cv.addEventListener('pointerdown',e=>{e.preventDefault();try{ARTE.cv.setPointerCapture(e.pointerId);}catch(_){}ARTE.dedos.set(e.pointerId,[e.clientX,e.clientY]);
@@ -3340,7 +3343,15 @@ function arteMapa(){ARTE.mapa=null;const L=ARTE.lin;if(!L)return;const W=800,H=6
     if(x>0&&!dono[p-1]&&!lin[p-1]){dono[p-1]=d;fila[q++]=p-1;}if(x<W-1&&!dono[p+1]&&!lin[p+1]){dono[p+1]=d;fila[q++]=p+1;}
     if(p>=W&&!dono[p-W]&&!lin[p-W]){dono[p-W]=d;fila[q++]=p-W;}if(p<N-W&&!dono[p+W]&&!lin[p+W]){dono[p+W]=d;fila[q++]=p+W;}}
   rotula(p=>!lin[p]); // áreas tão finas que sumiriam com o traço engrossado: ficam com número próprio
-  const tam=new Int32Array(n+1),rep=new Int32Array(n+1).fill(-1);for(let p=0;p<N;p++){const d=dono[p];if(d){tam[d]++;if(rep[d]<0)rep[d]=p;}}
+  const tam=new Int32Array(n+1);for(let p=0;p<N;p++)if(dono[p])tam[dono[p]]++;
+  // lasquinhas (menos de 110 px) entre dois traços quase encostados: viram parte da área vizinha do outro lado do traço fino,
+  // senão sobra uma pontinha branca que o balde nunca alcança
+  const LIM=110,lasca=new Int32Array(n+1);
+  for(let p=0;p<N;p++){const k=dono[p];if(!k||tam[k]>=LIM)continue;if(lasca[k]===0)lasca[k]=-1;
+    const x=p%W,y=(p/W)|0;for(let dy=-3;dy<=3;dy++){const yy=y+dy;if(yy<0||yy>=H)continue;for(let dx=-3;dx<=3;dx++){const xx=x+dx;if(xx<0||xx>=W)continue;const j=dono[yy*W+xx];
+      if(j&&j!==k&&tam[j]>=LIM&&(lasca[k]<=0||tam[j]>tam[lasca[k]]))lasca[k]=j;}}}
+  for(let p=0;p<N;p++){const k=dono[p];if(k&&lasca[k]>0)dono[p]=lasca[k];}
+  tam.fill(0);const rep=new Int32Array(n+1).fill(-1);for(let p=0;p<N;p++){const d=dono[p];if(d){tam[d]++;if(rep[d]<0)rep[d]=p;}}
   ARTE.mapa={dono,lin,tam,rep};}
 // qual área pintar no toque (x,y)
 function arteArea(x,y){const M=ARTE.mapa,W=800,H=600,r=Math.max(3,Math.round(9/(ARTE.vs||1)));let d=M.dono[y*W+x];const cont=new Map();let tot=0;
