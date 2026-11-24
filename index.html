@@ -5,7 +5,7 @@
 <!-- segurança: o jogo só carrega arquivos dele mesmo e não se conecta a nenhum endereço de fora -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
 <title>Leopardinho na Floresta</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Leopardinho">
@@ -21,7 +21,7 @@
   html,body{margin:0;height:100%;overflow:hidden;background:#2e8b57;
     font-family:"Fredoka",ui-rounded,"Arial Rounded MT Bold","Nunito","Baloo 2","Trebuchet MS",system-ui,sans-serif}
   canvas#game{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
-  .hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:5}
+  .hud{position:fixed;top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:5}
   .hud>*{pointer-events:auto}
   .row{display:flex;gap:6px;align-items:center}
   .pill{background:rgba(255,255,255,.92);border-radius:999px;padding:6px 16px 6px 10px;font-weight:900;font-size:26px;color:#c2253b;
@@ -54,6 +54,7 @@
   #menu>*{pointer-events:auto}
   .modes{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:720px}
   .modes .big{font-size:clamp(20px,5.2vw,28px);padding:13px 26px}
+  .modes .big,.row2 button{position:relative}.modes .big::after,.row2 button::after{content:'';position:absolute;left:0;right:0;top:-4px;bottom:-4px} /* toque mais fácil sem mudar o desenho */
   #mAv{background:linear-gradient(#ffb43b,#ff8a1f);animation:pulse 1.2s infinite}
   #mCo{background:linear-gradient(#ff6f7d,#e8364f)}
   #mCh{background:linear-gradient(#b68cff,#8457e6)}
@@ -70,7 +71,7 @@
   .ds.on[data-d=dificil]{border-color:#ff4d4d;background:#ffe5e5}
   @media (min-aspect-ratio:1/1) and (min-width:600px){
     #menu{padding-right:130px;padding-left:178px}
-    .difside{position:fixed;right:12px;top:50%;transform:translateY(-38%);flex-direction:column;margin:0;padding:10px 8px;gap:7px}
+    .difside{position:fixed;right:max(12px,env(safe-area-inset-right));top:50%;transform:translateY(-38%);flex-direction:column;margin:0;padding:10px 8px;gap:7px}
     .ds{min-width:84px;padding:6px 8px}
   }
   .fases{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:14px;background:rgba(255,255,255,.3);padding:7px 10px;border-radius:999px}
@@ -99,7 +100,7 @@
   .slot .ic{font-size:32px;line-height:1}.slot small{font-size:12px;font-weight:900;color:#5b3a1e}
   .slot.lockd{border-style:solid;border-color:#e0d2bb;background:#f6efe3}
   .slot.ask{border-color:#ff8a1f;background:#fff4e6}
-  #slotBar{position:fixed;left:8px;top:max(112px,30%);z-index:6;display:none;flex-direction:column;gap:10px}
+  #slotBar{position:fixed;left:max(8px,env(safe-area-inset-left));top:max(112px,30%);z-index:6;display:none;flex-direction:column;gap:10px}
   #slotBar.on{display:flex}
   .sbtn{width:56px;height:56px;border-radius:16px;border:4px solid #fff;background:rgba(255,255,255,.88);font-size:26px;line-height:1;box-shadow:0 5px 0 rgba(0,0,0,.2);position:relative;cursor:pointer;padding:0;touch-action:none}
   .sbtn i{position:absolute;right:-6px;top:-8px;background:#ff8a1f;color:#fff;font-style:normal;font-weight:900;font-size:12px;border-radius:99px;padding:1px 6px;font-family:inherit}
@@ -181,7 +182,7 @@
   .sl{display:grid;grid-template-columns:auto 1fr 3.2em;align-items:center;gap:10px;background:#fff;border-radius:18px;padding:10px 14px;border:4px solid #f0dfc0}
   .sl span{font-weight:900;color:#5b3a1e;font-size:18px;white-space:nowrap}
   .sl em{font-style:normal;font-weight:900;color:#b3741e;font-size:17px;text-align:right}
-  .sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:16px;border-radius:99px;outline:none;
+  .sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:16px;box-sizing:content-box;border-top:10px solid transparent;border-bottom:10px solid transparent;background-clip:padding-box;border-radius:99px;outline:none;
     background:linear-gradient(90deg,#ff8a1f var(--p,50%),#f0dfc0 var(--p,50%))}
   .sl input::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;border-radius:50%;background:#fff;border:5px solid #ff8a1f;box-shadow:0 3px 0 rgba(0,0,0,.2);cursor:pointer}
   .sl input::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:5px solid #ff8a1f;box-shadow:0 3px 0 rgba(0,0,0,.2);cursor:pointer}
@@ -235,7 +236,7 @@
   .rk i{font-style:normal;color:#a58b6c;font-size:12px;text-align:right}
   .rk.me{background:#fff1b8}
   @media (max-height:470px){#resEmoji{font-size:54px}#resText{margin:2px 0 8px}#resRank{padding:4px 10px}.rk{font-size:13px}#again,#resHome{font-size:18px!important;padding:8px 26px!important}#resHome{margin-top:8px!important}}
-  #rollBtn{position:fixed;right:14px;bottom:16px;z-index:6;width:78px;height:78px;border-radius:50%;border:0;background:rgba(255,255,255,.88);font-size:30px;line-height:1;
+  #rollBtn{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:6;width:78px;height:78px;border-radius:50%;border:0;background:rgba(255,255,255,.88);font-size:30px;line-height:1;
     box-shadow:0 5px 0 rgba(0,0,0,.2);display:none;flex-direction:column;align-items:center;justify-content:center;font-family:inherit;touch-action:none;cursor:pointer}
   #rollBtn small{font-size:12px;font-weight:900;color:#7a5a3c}
   #rollBtn.on{display:flex}
@@ -306,6 +307,11 @@
   #gire{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;
     background:radial-gradient(circle at 50% 40%,#4fb37a,#1f6b45);color:#fff;font-weight:800;font-size:28px;line-height:1.25;text-shadow:0 3px 0 rgba(0,0,0,.25);padding:24px}
   #gire.on{display:flex}
+  #pausa{position:fixed;inset:0;z-index:59;display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;
+    background:radial-gradient(circle at 50% 40%,rgba(79,179,122,.94),rgba(31,107,69,.96));color:#fff;font-weight:800;font-size:28px;text-shadow:0 3px 0 rgba(0,0,0,.25);padding:24px}
+  #pausa.on{display:flex}
+  #pausa img{border-radius:28px;box-shadow:0 6px 0 rgba(0,0,0,.2)}
+  #pausaOk{font-size:30px;padding:16px 44px;min-height:64px;background:linear-gradient(#8fe07a,#41b54d);color:#fff}
   #gire img{border-radius:28px;box-shadow:0 6px 0 rgba(0,0,0,.2)}
   #gire .cel{animation:gireCel 2.2s ease-in-out infinite}
   @keyframes gireCel{0%,20%{transform:rotate(0)}55%,85%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
@@ -359,9 +365,10 @@
   #artePag button.pg img{width:100%;height:100%;object-fit:contain}
   #artePag h2{margin:0;color:#5b3a1e}
   #artePagSai{font-family:inherit;font-weight:700;font-size:18px;border:0;border-radius:16px;padding:10px 30px;background:#fff;box-shadow:0 0 0 2.5px #5b3a1e,0 4px 0 2.5px #5b3a1e;color:#5b3a1e;cursor:pointer}
-  @media (max-height:519px){#arte{padding:5px}.arteBox{padding:7px 10px;gap:8px}.arteLado{width:138px;gap:6px}.arteLado .lin{gap:6px}.arteLado button{height:36px;font-size:17px}.arteLado button svg{width:24px;height:24px}
-    .arteLado .ok{height:42px;font-size:13px}.arteLado .sai{height:32px;font-size:13px}#arteCores{gap:6px}#arteCores .cor{width:28px;height:28px}#artePag button.pg{width:150px;height:118px}}
-  @media (max-height:360px){#arteCores .cor{width:24px;height:24px}#arteCores{gap:5px}.arteLado button{height:32px}.arteLado .ok{height:38px}}
+  @media (max-height:519px){#arte{padding:5px}.arteBox{padding:7px 10px;gap:8px}.arteLado{width:138px;gap:6px}.arteLado .lin{gap:6px}.arteLado button{height:44px;font-size:17px}.arteLado button svg{width:24px;height:24px}
+    .arteLado .ok{height:42px;font-size:13px}.arteLado .sai{height:32px;font-size:13px}#arteCores{gap:7px}#arteCores .cor{width:32px;height:32px}#artePag button.pg{width:150px;height:118px}}
+  @media (max-height:360px){#arteCores .cor{width:30px;height:30px}#arteCores{gap:6px}.arteLado button{height:42px}.arteLado .ok{height:40px}}
+  #arteCores .cor{position:relative}#arteCores .cor::after{content:'';position:absolute;inset:-3px;border-radius:50%} /* área de toque um pouco maior que a bolinha */
   .cb{width:84px;height:84px;border-radius:22px;border:0;background:rgba(255,255,255,.94);box-shadow:0 0 0 2.5px #5b3a1e,0 5px 0 2.5px #5b3a1e;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:inherit;font-weight:900;color:#5b3a1e;font-size:14px;cursor:pointer;padding:4px;touch-action:none}
   .cb img{width:52px;height:46px;object-fit:contain}
   .cb.on{background:#fff4c2;transform:translateY(-4px)}
@@ -453,6 +460,8 @@
   <svg class="cel" viewBox="0 0 64 64" width="96" height="96" aria-hidden="true"><rect x="20" y="6" width="24" height="44" rx="5" fill="#fff" stroke="#5b3a1e" stroke-width="3"/><rect x="24" y="12" width="16" height="30" rx="2" fill="#bfe6ff"/><circle cx="32" cy="46" r="1.8" fill="#5b3a1e"/></svg>
   <p>Vire o celular<br>para brincar!</p>
 </div>
+<!-- pausa: o jogo para quando o app vai para o fundo e só volta quando a criança tocar em Continuar -->
+<div id="pausa"><img src="icon-192.png?v=2" alt="" width="110" height="110"><p style="margin:0">Pausado</p><button class="big" id="pausaOk">▶ Continuar</button></div>
 <div class="overlay" id="bolo">
   <div class="arteBox">
     <div class="arteMeio"><canvas id="boloCv" width="800" height="600"></canvas></div>
@@ -494,7 +503,7 @@
     </div>
     <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.23</div>
+    <div class="ver" id="ver">versão 1.24</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -824,7 +833,7 @@ if(!save.stars) save.stars={};
 if(save.mute){save.vfx=0;save.vmus=0;save.mute=false;}
 if(save.music===false){save.vmus=0;save.music=true;}
 save.fasesOk=clamp(Math.max(save.fasesOk|0,1,THEME_IDS.indexOf(save.fase)+1),1,THEME_IDS.length);
-let dirty=false;
+let dirty=false,pausado=false; // pausado: partida parada até tocar em Continuar
 function persist(){dirty=false;try{localStorage.setItem(KEY,JSON.stringify(save))}catch(e){}}
 function salvaCopia(){try{localStorage.setItem(KEY_COPIA,JSON.stringify(save))}catch(e){}}
 salvaCopia(); // a cópia guarda o progresso validado do começo da sessão
@@ -1270,6 +1279,7 @@ cv.addEventListener('pointerup',()=>{swipe=null;bal.hold=false;if(mode==='casa')
 cv.addEventListener('pointercancel',()=>{bal.hold=false;if(mode==='casa')brinqSolta();});
 window.addEventListener('keydown',e=>{
   if(e.target&&e.target.tagName==='INPUT') return;
+  if(pausado){if(e.code==='Enter'||e.code==='Space'){e.preventDefault();pausaSai();}return;}
   ociosoT=0; if(ocioso){ocioso=false;return;}
   if(state==='play'&&mode==='chuva'){ if(e.code==='ArrowLeft'){rain.keys=-1;hint=false;rain.wait=false} else if(e.code==='ArrowRight'){rain.keys=1;hint=false;rain.wait=false} return; }
   if(e.code==='ArrowDown'||e.code==='KeyS'){e.preventDefault();audioInit();roll();return;}
@@ -3819,7 +3829,7 @@ function fitMenu(){const st=document.documentElement.style, l=$('hud').firstElem
   document.body.classList.toggle('apertado',innerWidth-l.right-12-R<300);}
 if(window.ResizeObserver) new ResizeObserver(fitMenu).observe($('hud').firstElementChild);
 addEventListener('resize',fitMenu);
-function setState(s){if(s!=='play')varalMenuFecha();
+function setState(s){if(s!=='play'){varalMenuFecha();if(pausado){pausado=false;$('pausa').classList.remove('on');}}
   state=s;
   for(const id of ['menu','shop','unlock','result','config']) show(id,s===id);
   show('pinBox',false);show('portao',false);if(s==='menu')requestAnimationFrame(fitMenu);
@@ -4047,6 +4057,10 @@ $('instalar').addEventListener('click',async()=>{audioInit();sfx.tap();
   if(installEvt){try{installEvt.prompt();await installEvt.userChoice;}catch(e){} installEvt=null;$('instalar').classList.remove('on');}
   else show('iosTip',true);});
 $('iosOk').addEventListener('click',()=>{sfx.tap();show('iosTip',false);});
+/*DEV-INICIO medidor de desempenho para testar em aparelhos: abrir o jogo com ?fps no endereço */
+if(/[?&]fps\b/.test(location.search)){const m=document.createElement('div');m.style.cssText='position:fixed;left:50%;top:4px;transform:translateX(-50%);z-index:99;background:rgba(0,0,0,.65);color:#fff;font:700 13px monospace;padding:3px 8px;border-radius:8px;pointer-events:none';document.body.appendChild(m);
+  let n=0,t0=performance.now(),pior=0,ult=t0;(function med(now){n++;pior=Math.max(pior,now-ult);ult=now;if(now-t0>=1000){m.textContent=Math.round(n*1000/(now-t0))+' fps · pior '+Math.round(pior)+' ms · qualidade '+QUAL.toFixed(2)+' · '+cv.width+'x'+cv.height;n=0;pior=0;t0=now;}requestAnimationFrame(med);})(t0);}
+/*DEV-FIM*/
 /*WEB-INICIO (service worker: só no navegador; o app da loja já tem tudo dentro)*/
 if('serviceWorker' in navigator&&location.protocol==='https:'&&!framed){
   window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
@@ -4058,13 +4072,34 @@ setInterval(()=>{if(dirty) persist()},1500);
 /* ---------- laço principal ---------- */
 let last=0;
 let gireOn=false;const perf={t:0,n:0};
+// pausa de verdade: ao ir para o fundo no meio de uma partida, o jogo para e espera o "Continuar" (a Casinha não precisa)
+function pausaLiga(){if(state==='play'&&mode!=='casa'&&!pausado){pausado=true;$('pausa').classList.add('on');}}
+function pausaSai(){if(!pausado)return;pausado=false;$('pausa').classList.remove('on');last=performance.now();audioInit();sfx.tap();}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pausaLiga();});
+$('pausaOk').addEventListener('click',pausaSai);
+// botão "voltar" do Android (ligado no app, Etapa 6): fecha a janela que está por cima; na partida, pausa (não sai sem querer);
+// na Casinha, volta ao menu. No menu devolve false: aí o app pergunta se quer mesmo sair.
+function voltarAndroid(){const on=id=>{const e=$(id);return !!(e&&e.classList.contains('on'));},clica=id=>{const e=$(id);if(e)e.click();return true;};
+  if(on('portao'))return clica('portaoSai');
+  if(on('pausa'))return clica('pausaOk');
+  if(on('iosTip'))return clica('iosOk');
+  if(on('helpBox'))return clica('helpOk');
+  if(on('album'))return clica('closeAlbum');
+  if(on('bolo'))return clica('boloSai');
+  if(on('arte'))return clica(on('artePag')?'artePagSai':'arteSai');
+  if(on('unlock')){show('unlock',false);unlockCur=null;buildShop();return true;}
+  if(on('config'))return clica('cfgOk');
+  if(on('shop'))return clica('closeShop');
+  if(on('result'))return clica('resHome');
+  if(state==='play'){if(mode==='casa')return clica('home');pausaLiga();return true;}
+  return false;}
 function frame(now){
   const dtr=(now-last)/1000||0.016,dt=Math.min(0.034,dtr); last=now;
   if(state==='play'&&!document.hidden&&dtr<.5){perf.t+=dtr;perf.n++;if(perf.t>3){const media=perf.t/perf.n;perf.t=0;perf.n=0;
     if(media>1/42&&QUAL>.45&&DPR>1){QUAL*=.7;resolucao();}}} // abaixo de ~42 quadros/s: menos pixels
   const emPe=state==='play'&&innerHeight>innerWidth*1.1; // o jogo é feito para o celular deitado
   if(emPe!==gireOn){gireOn=emPe;$('gire').classList.toggle('on',emPe);}
-  if(!emPe)update(dt); draw();
+  if(!emPe&&!pausado)update(dt); draw();
   if(unlockCur&&$('unlock').classList.contains('on')){
     unlockCtx.setTransform(1,0,0,1,0,0);unlockCtx.clearRect(0,0,720,520);
     const g=unlockCtx.createRadialGradient(360,290,20,360,290,300);g.addColorStop(0,'rgba(255,240,170,.9)');g.addColorStop(1,'rgba(255,240,170,0)');
