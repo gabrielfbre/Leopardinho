@@ -191,6 +191,7 @@
   .dif{font-family:inherit;border:4px solid #f0dfc0;background:#fff;border-radius:18px;padding:10px;cursor:pointer;text-align:center}
   .dif b{display:block;font-size:20px;color:#5b3a1e}
   .dif small{display:block;font-weight:800;color:#8a6a45;font-size:13px;margin-top:4px;line-height:1.3}
+  .quals{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}.quals .dif b{font-size:17px}
   .dif.on{border-color:#34c759;background:#eafbe9}
   #cfgOk{align-self:center;margin-top:6px;font-size:20px;padding:10px 38px;background:linear-gradient(#58d06b,#2fae49)}
   .fase{position:relative}
@@ -490,6 +491,13 @@
       <button class="dif" id="difN" data-d="normal"><b>💪 Normal</b><small>5 vidas. Caiu no buraco? Recomeça a fase (na corrida, volta ao 🚩).</small></button>
       <button class="dif" id="difD" data-d="dificil"><b>🔥 Difícil</b><small>3 vidas, muito mais rápido e mais obstáculos. Frutas valem o dobro!</small></button>
     </div>
+    <div class="dtit">Gráficos</div>
+    <div class="difs quals">
+      <button class="dif" data-q="auto"><b>✨ Automático</b><small>Ajusta sozinho ao aparelho.</small></button>
+      <button class="dif" data-q="alta"><b>Alta</b><small>Mais nítido.</small></button>
+      <button class="dif" data-q="media"><b>Média</b><small>Equilíbrio.</small></button>
+      <button class="dif" data-q="leve"><b>Leve</b><small>Para aparelhos lentos.</small></button>
+    </div>
     <button class="big hbtn" id="cfgHelp">📖 Como jogar</button>
     <!--DEV-INICIO (sai da versão da loja)-->
     <div id="devBox">
@@ -504,7 +512,7 @@
     </div>
     <!--DEV-FIM-->
     <button class="big" id="cfgOk">Pronto</button>
-    <div class="ver" id="ver">versão 1.25</div>
+    <div class="ver" id="ver">versão 1.26</div>
     <div class="cred">Fonte Fredoka: Copyright 2016 The Fredoka Project Authors, licenciada sob a SIL Open Font License 1.1 (texto completo em fonts/OFL.txt).</div>
   </div>
 </div>
@@ -820,6 +828,7 @@ function lerSave(k){try{const s=JSON.parse(localStorage.getItem(k)||'null');retu
 for(const k of ['total','gold','trof'])if(typeof save[k]==='number'&&(!isFinite(save[k])||save[k]<0))save[k]=0; // número estragado não derruba o jogo
 for(const k of ['owned','accOwned','recs'])if(!Array.isArray(save[k]))save[k]=k==='owned'?['leo']:[];
 if(!save.owned.includes('leo'))save.owned.unshift('leo');
+if(!['auto','alta','media','leve'].includes(save.graf))save.graf='auto';
 // não guardar mais o nome da criança: apaga o nome salvo e, nos recordes, fica só o leopardo
 if(save.nome||save.nomeSkip){save.nome='';delete save.nomeSkip;}(save.recs||[]).forEach(r=>{r.n=r.l||'Leo';});
 if(!THEMES[save.fase]) save.fase='floresta';
@@ -1029,8 +1038,14 @@ function musicVolume(){ if(mSong&&AC&&!mTroca){try{mSong.gain.cancelScheduledVal
 /* ---------- tela ---------- */
 let W=0,H=0,S=1,VW=0,VH=0,DPR=1,GY=0,LX=0,px=0;
 const LS=0.6,LK=LS/.82; // tamanho do Leo nas fases (as colisões não mudam)
-function resolucao(){DPR=Math.max(1,Math.min(window.devicePixelRatio||1,2,Math.sqrt(2.3e6*QUAL/(W*H))));cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);}
-let QUAL=1; // baixa sozinho se o aparelho não der conta (tablets com tela grande)
+// qualidade gráfica (Configurações > Gráficos): limite de pixels por quadro e peso dos efeitos.
+// No Automático, QUAL cai sozinho se o aparelho não der conta (tablets com tela grande) e fica guardado para a próxima vez.
+let QUAL=Math.min(1,Math.max(.17,+save.qualAuto||1));
+const GRAF=()=>save.graf||'auto';
+function resolucao(){const g=GRAF(),mx=g==='alta'?2.3e6:g==='media'?1.1e6:g==='leve'?.5e6:2.3e6*QUAL,dm=g==='media'?1.5:g==='leve'?1:2;
+  DPR=Math.max(g==='alta'?1:.5,Math.min(window.devicePixelRatio||1,dm,Math.sqrt(mx/(W*H))));cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);}
+// efeitos: 2 = todos, 1 = menos gotas e flocos, 0 = leve (sem respingos nem escurecimento da tela inteira)
+function FX(){const g=GRAF();return g==='alta'?2:g==='media'?1:g==='leve'?0:QUAL>=.6?2:QUAL>=.33?1:0;}
 function resize(){
   W=window.innerWidth||320; H=window.innerHeight||480;
   // nitidez até 2x, mas no máximo ~2,3 milhões de pixels por quadro (em tablet o canvas ficava enorme e o jogo travava)
@@ -1685,14 +1700,14 @@ function drawMonkey(bx,by,i){
   ctx.strokeStyle=tc(128,80,44);ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-4,32);ctx.lineTo(-6,40);ctx.moveTo(4,32);ctx.lineTo(6,40);ctx.stroke();
   ctx.restore();
 }
-function drawWeather(){
-  if(WX.ck>.02){ctx.fillStyle='rgba(30,40,75,'+(WX.ck*.16)+')';ctx.fillRect(0,0,VW,VH);}
+function drawWeather(){const fx=FX(),fk=fx===2?1:fx===1?.6:.35;
+  if(WX.ck>.02&&fx>0){ctx.fillStyle='rgba(30,40,75,'+(WX.ck*.16)+')';ctx.fillRect(0,0,VW,VH);}
   const w=WX.wk; if(w<.03) return;
   const st=TH.style;
-  if(st==='neve'){ctx.fillStyle='#fff';const n=Math.floor(90*w);
+  if(st==='neve'){ctx.fillStyle='#fff';const n=Math.floor(90*w*fk);
     for(let i=0;i<n;i++){const x=((rnd(i,211)*(VW+100)-T*(40+rnd(i,212)*40))%(VW+40)+VW+40)%(VW+40)-20,y=(rnd(i,213)*VH+T*(70+rnd(i,214)*60))%(VH+20)-10;
       ctx.globalAlpha=.7;ctx.beginPath();ctx.arc(x,y,2+rnd(i,215)*2.5,0,TAU);ctx.fill();}ctx.globalAlpha=1;return;}
-  const n=Math.floor(120*w);
+  const n=Math.floor(120*w*fk);
   if(st==='doces'){const cols=['#FF8FB8','#FFD43B','#69DB7C','#4DABF7','#B197FC','#fff'];
     for(let i=0;i<n;i++){const x=((rnd(i,221)*(VW+60)-T*30)%(VW+40)+VW+40)%(VW+40)-20,y=(rnd(i,222)*VH+T*(260+rnd(i,223)*120))%(VH+20)-10;
       ctx.save();ctx.translate(x,y);ctx.rotate(rnd(i,224)*PI+T);ctx.fillStyle=cols[i%6];ctx.fillRect(-4,-1.5,8,3);ctx.restore();}return;}
@@ -1701,7 +1716,7 @@ function drawWeather(){
     ctx.moveTo(x,y);ctx.lineTo(x-3.5,y+15);}
   ctx.stroke();
   ctx.strokeStyle='rgba(225,240,255,'+(.5*w)+')';ctx.lineWidth=1.3;
-  for(let i=0;i<Math.floor(14*w);i++){const ph=(T*2.2+rnd(i,241))%1, x=rnd(i,242+Math.floor(T*2.2+rnd(i,241)))*VW;
+  for(let i=0;i<(fx===2?Math.floor(14*w):0);i++){const ph=(T*2.2+rnd(i,241))%1, x=rnd(i,242+Math.floor(T*2.2+rnd(i,241)))*VW;
     ctx.globalAlpha=1-ph;ctx.beginPath();ctx.ellipse(x,GY+4,4+ph*10,1.5+ph*3,0,0,TAU);ctx.stroke();}
   ctx.globalAlpha=1;
 }
@@ -1997,8 +2012,8 @@ function drawForeground(){
       ctx.fillStyle=C(k%2?TH.fg1:TH.fg2);ctx.beginPath();ctx.ellipse(0,-len*.5,13,len*.55,0,0,TAU);ctx.fill();
       ctx.strokeStyle=C(TH.fgV);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-len);ctx.stroke();ctx.restore();}
   }
-  if(TH.style==='neve'){ ctx.fillStyle='#fff';
-    for(let i=0;i<60;i++){const x=((rnd(i,131)*(VW+100)-T*(14+rnd(i,132)*20)-cam*.3)%(VW+40)+VW+40)%(VW+40)-20+Math.sin(T+i)*8,
+  if(TH.style==='neve'){ ctx.fillStyle='#fff';const fx=FX();
+    for(let i=0,nf=fx===2?60:fx===1?36:20;i<nf;i++){const x=((rnd(i,131)*(VW+100)-T*(14+rnd(i,132)*20)-cam*.3)%(VW+40)+VW+40)%(VW+40)-20+Math.sin(T+i)*8,
       y=(rnd(i,133)*(GY+30)+T*(36+rnd(i,134)*40))%(GY+30);
       ctx.globalAlpha=.55+rnd(i,135)*.45;ctx.beginPath();ctx.arc(x,y,1.6+rnd(i,136)*2.4,0,TAU);ctx.fill();}
     ctx.globalAlpha=1; }
@@ -4034,6 +4049,7 @@ function syncCfg(){
   $('vfx').value=Math.round(save.vfx*100);$('vmus').value=Math.round(save.vmus*100);
   $('vfxN').textContent=$('vfx').value;$('vmusN').textContent=$('vmus').value;paintSlider($('vfx'));paintSlider($('vmus'));
   $('difF').classList.toggle('on',save.dif==='facil');$('difN').classList.toggle('on',save.dif==='normal');$('difD').classList.toggle('on',save.dif==='dificil');
+  document.querySelectorAll('.quals .dif').forEach(b=>b.classList.toggle('on',b.dataset.q===GRAF()));
 }
 $('pauseBtn').addEventListener('click',e=>{e.stopPropagation();audioInit();sfx.tap();pausaLiga();});
 $('cfgBtn').addEventListener('click',()=>{audioInit();sfx.tap();if(state!=='play'&&state!=='menu')return;cfgBack=state;syncCfg();setState('config');});
@@ -4041,6 +4057,7 @@ $('vfx').addEventListener('input',e=>{save.vfx=e.target.value/100;$('vfxN').text
   const n=performance.now();if(n-vfxT>140){vfxT=n;audioInit();sfx.get(ri(5));}});
 $('vmus').addEventListener('input',e=>{save.vmus=e.target.value/100;$('vmusN').textContent=e.target.value;paintSlider(e.target);dirty=true;audioInit();musicVolume();});
 for(const b of [$('difF'),$('difN'),$('difD')]) b.addEventListener('click',()=>{save.dif=b.dataset.d;persist();sfx.tap();syncCfg();paintMenu();});
+document.querySelectorAll('.quals .dif').forEach(b=>b.addEventListener('click',()=>{save.graf=b.dataset.q;if(save.graf==='auto'){QUAL=1;save.qualAuto=1;}resolucao();persist();sfx.tap();syncCfg();}));
 $('cfgOk').addEventListener('click',()=>{persist();sfx.tap();paintMenu();setState(cfgBack);});
 for(const id of ['openHelp','cfgHelp']) $(id).addEventListener('click',()=>{audioInit();sfx.tap();$('helpBox').querySelector('.hbody').scrollTop=0;show('helpBox',true);});
 $('helpOk').addEventListener('click',()=>{sfx.tap();show('helpBox',false);});
@@ -4066,7 +4083,7 @@ $('instalar').addEventListener('click',async()=>{audioInit();sfx.tap();
 $('iosOk').addEventListener('click',()=>{sfx.tap();show('iosTip',false);});
 /*DEV-INICIO medidor de desempenho para testar em aparelhos: abrir o jogo com ?fps no endereço */
 if(/[?&]fps\b/.test(location.search)){const m=document.createElement('div');m.style.cssText='position:fixed;left:50%;top:4px;transform:translateX(-50%);z-index:99;background:rgba(0,0,0,.65);color:#fff;font:700 13px monospace;padding:3px 8px;border-radius:8px;pointer-events:none';document.body.appendChild(m);
-  let n=0,t0=performance.now(),pior=0,ult=t0;(function med(now){n++;pior=Math.max(pior,now-ult);ult=now;if(now-t0>=1000){m.textContent=Math.round(n*1000/(now-t0))+' fps · pior '+Math.round(pior)+' ms · qualidade '+QUAL.toFixed(2)+' · '+cv.width+'x'+cv.height;n=0;pior=0;t0=now;}requestAnimationFrame(med);})(t0);}
+  let n=0,t0=performance.now(),pior=0,ult=t0;(function med(now){n++;pior=Math.max(pior,now-ult);ult=now;if(now-t0>=1000){m.textContent=Math.round(n*1000/(now-t0))+' fps · pior '+Math.round(pior)+' ms · gráficos '+GRAF()+(GRAF()==='auto'?' '+QUAL.toFixed(2):'')+' fx'+FX()+' · '+cv.width+'x'+cv.height;n=0;pior=0;t0=now;}requestAnimationFrame(med);})(t0);}
 /*DEV-FIM*/
 /*WEB-INICIO (service worker: só no navegador; o app da loja já tem tudo dentro)*/
 if('serviceWorker' in navigator&&location.protocol==='https:'&&!framed){
@@ -4103,7 +4120,7 @@ function voltarAndroid(){const on=id=>{const e=$(id);return !!(e&&e.classList.co
 function frame(now){
   const dtr=(now-last)/1000||0.016,dt=Math.min(0.034,dtr); last=now;
   if(state==='play'&&!document.hidden&&dtr<.5){perf.t+=dtr;perf.n++;if(perf.t>3){const media=perf.t/perf.n;perf.t=0;perf.n=0;
-    if(media>1/42&&QUAL>.45&&DPR>1){QUAL*=.7;resolucao();}}} // abaixo de ~42 quadros/s: menos pixels
+    if(GRAF()==='auto'&&media>1/42&&QUAL>.18){QUAL=Math.max(.17,QUAL*.72);save.qualAuto=QUAL;dirty=true;resolucao();}}} // abaixo de ~42 quadros/s: menos pixels e efeitos mais leves
   const emPe=state==='play'&&innerHeight>innerWidth*1.1; // o jogo é feito para o celular deitado
   if(emPe!==gireOn){gireOn=emPe;$('gire').classList.toggle('on',emPe);}
   if(!emPe&&!pausado)update(dt); draw();
